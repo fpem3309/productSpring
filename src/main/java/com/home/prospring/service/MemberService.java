@@ -3,14 +3,18 @@ package com.home.prospring.service;
 import com.home.prospring.domain.Member;
 import com.home.prospring.repostory.MemberRepository;
 import com.home.prospring.repostory.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class MemberService {
 
     private final MemberRepository memberRepository;
 
+    @Autowired //Spring 컨테이너에서 MemberRepository 가져옴, MemberRepository에서 @Repository 어노테이션을 해야함 ( DI )
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
