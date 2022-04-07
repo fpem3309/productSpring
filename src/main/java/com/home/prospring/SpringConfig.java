@@ -1,9 +1,7 @@
 package com.home.prospring;
 
-import com.home.prospring.repostory.JdbcMemberRepository;
-import com.home.prospring.repostory.JdbcTemplateMemberRepository;
-import com.home.prospring.repostory.MemberRepository;
-import com.home.prospring.repostory.MemoryMemberRepository;
+import com.home.prospring.repostory.*;
+import com.home.prospring.service.MainBoardService;
 import com.home.prospring.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -31,5 +29,9 @@ public class SpringConfig {
 //        return new MemoryMemberRepository();
 //        return new JdbcMemberRepository(dataSource);
         return new JdbcTemplateMemberRepository(dataSource);
+    }
+
+    @Bean MainBoardRepository mainBoardRepository(){
+        return new JdbcTemplateMainBoardRepository(dataSource);
     }
 }

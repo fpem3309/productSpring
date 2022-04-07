@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+<!--                            <label>-->
+<!--                                <select id="cntPerPage" name="sel" onchange="selChange()" aria-controls="example-datatable" class="form-control">-->
+<!--                                    <option value="5"> <th:if test="${paging.cntPerPage == 5}">selected</th:if>>5줄 보기</option>-->
+<!--                                    <option value="10"> <th:if test="${paging.cntPerPage == 10}">selected</th:if>>10줄 보기</option>-->
+<!--                                    <option value="15"> <th:if test="${paging.cntPerPage == 15}">selected</th:if>>15줄 보기</option>-->
+<!--                                    <option value="20"> <th:if test="${paging.cntPerPage == 20}">selected</th:if>>20줄 보기</option>-->
+<!--                                </select>-->
+<!--                            </label>-->
+                <table>
+                    <thead>
+                    <tr>
+                        <th class="text-center">No</th>
+                        <th>제목</th>
+                        <th>내용</th>
+                        <th>작성일</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr th:each="mainProduct: ${mainProduct}">
+                            <td th:text="${mainProduct.getMainProductId()}"></td>
+                            <td th:text="${mainProduct.mainProductTitle}"></td>
+                            <td th:text="${mainProduct.mainProductContent}"></td>
+                            <td th:text="${mainProduct.mainProductDate}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+</body>
+</html>
