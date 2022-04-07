@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+//@Service
 public class MemberService {
 
     private final MemberRepository memberRepository;
@@ -25,7 +25,6 @@ public class MemberService {
     public Long join(Member member){
         //같은 이름 중복 방지
         validateDuplicateMember(member);
-
         memberRepository.save(member);
         return member.getId();
     }

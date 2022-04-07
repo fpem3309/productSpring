@@ -1,6 +1,7 @@
 package com.home.prospring;
 
 import com.home.prospring.repostory.JdbcMemberRepository;
+import com.home.prospring.repostory.JdbcTemplateMemberRepository;
 import com.home.prospring.repostory.MemberRepository;
 import com.home.prospring.repostory.MemoryMemberRepository;
 import com.home.prospring.service.MemberService;
@@ -20,14 +21,15 @@ public class SpringConfig {
         this.dataSource = dataSource;
     }
 
-//    @Bean
-//    public MemberService memberService(){
-//        return new MemberService(memberRepository());
-//    }
+    @Bean
+    public MemberService memberService(){
+        return new MemberService(memberRepository());
+    }
 
     @Bean
     public MemberRepository memberRepository(){
 //        return new MemoryMemberRepository();
-        return new JdbcMemberRepository(dataSource);
+//        return new JdbcMemberRepository(dataSource);
+        return new JdbcTemplateMemberRepository(dataSource);
     }
 }

@@ -41,7 +41,7 @@ class MemberServiceTest {
     }
 
     @Test
-    public void 중복회원(){
+    public void 중복회원예외(){
         //given
         Member member1 = new Member();
         member1.setName("spring");
