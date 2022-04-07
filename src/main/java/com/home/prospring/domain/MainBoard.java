@@ -1,9 +1,20 @@
 package com.home.prospring.domain;
 
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="mainproduct")
 public class MainBoard {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // PK
     private int mainProductId;
+    @Column(name = "mainProductTitle")
     private String mainProductTitle;
+    @Column(name = "mainProductContent")
     private String mainProductContent;
+    @Column(name = "mainProductDate")
     private String mainProductDate;
 
     public int getMainProductId() {
