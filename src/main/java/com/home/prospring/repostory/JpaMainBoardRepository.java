@@ -16,7 +16,7 @@ public class JpaMainBoardRepository implements MainBoardRepository{
 
     @Override
     public List<MainBoard> findAll() {
-        return em.createQuery("select m from MainBoard m", MainBoard.class)   //MainBoard Entity에 query 하는것, m = as m
+        return em.createQuery("select m from MainBoard m order by m.mainProductId desc", MainBoard.class)   //MainBoard Entity에 query 하는것, m = as m
                 .getResultList();
     }
 

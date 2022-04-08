@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <style>
+        table {border-collapse: collapse; width: 100%;}
+        th, td {padding: 8px; text-align: left; border-bottom: 1px solid #ddd;}
+        tr:hover {background-color: coral;}
+    </style>
+
 </head>
 <body>
 
@@ -43,6 +50,7 @@
                         </tr>
                     </tbody>
                 </table>
-    <a href="/mainProductBoard/Insert">글쓰기</a>
+<button type="button" th:onclick="|location.href='@{/mainProductBoard/Insert}'|">글쓰기</button>
+
 </body>
 </html>
