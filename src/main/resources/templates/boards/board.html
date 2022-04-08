@@ -22,6 +22,7 @@
                         <th class="text-center">No</th>
                         <th>제목</th>
                         <th>내용</th>
+                        <th>조회수</th>
                         <th>작성일</th>
                     </tr>
                     </thead>
@@ -31,9 +32,11 @@
                             <td th:text="${mainproduct.mainProductId}"></td>
                             <td th:text="${mainproduct.mainProductTitle}"></td>
                             <td th:text="${mainproduct.mainProductContent}"></td>
+                            <td th:text="${mainproduct.mainProductHit}"></td>
                             <td th:text="${mainproduct.mainProductDate}"></td>
                         </tr>
                     </tbody>
                 </table>
+    <a href="/mainProductBoard/Insert">글쓰기</a>
 </body>
 </html>

@@ -15,6 +15,8 @@ public class MainBoard {
     private String mainProductTitle;
     @Column(name = "mainProductContent")
     private String mainProductContent;
+    @Column(name = "mainProductHit")
+    private int mainProductHit;
     @Column(name = "mainProductDate")
     private String mainProductDate;
 
@@ -40,6 +42,14 @@ public class MainBoard {
 
     public void setMainProductContent(String mainProductContent) {
         this.mainProductContent = mainProductContent;
+    }
+
+    public int getMainProductHit() {
+        return mainProductHit;
+    }
+
+    public void setMainProductHit(int mainProductHit) {
+        this.mainProductHit = mainProductHit;
     }
 
     public String getMainProductDate() {

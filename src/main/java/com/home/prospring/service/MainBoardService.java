@@ -18,6 +18,14 @@ public class MainBoardService {
         this.mainBoardRepository = mainBoardRepository;
     }
 
+    /**
+     * 게시글 등록
+     */
+    public int Insert(MainBoard mainBoard){
+        mainBoardRepository.Insert(mainBoard);
+        return mainBoard.getMainProductId();
+    }
+
     public List<MainBoard> mainBoard(){
         return mainBoardRepository.findAll();
     }

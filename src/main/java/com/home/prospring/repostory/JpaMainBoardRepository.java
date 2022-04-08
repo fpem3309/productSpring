@@ -18,4 +18,10 @@ public class JpaMainBoardRepository implements MainBoardRepository{
         return em.createQuery("select m from MainBoard m", MainBoard.class)   //MainBoard Entity에 query 하는것, m = as m
                 .getResultList();
     }
+
+    @Override
+    public MainBoard Insert(MainBoard mainBoard) {
+        em.persist(mainBoard);
+        return mainBoard;
+    }
 }
