@@ -27,11 +27,11 @@
                     </thead>
 
                     <tbody>
-                        <tr th:each="mainProduct: ${mainProduct}">
-                            <td th:text="${mainProduct.getMainProductId()}"></td>
-                            <td th:text="${mainProduct.mainProductTitle}"></td>
-                            <td th:text="${mainProduct.mainProductContent}"></td>
-                            <td th:text="${mainProduct.mainProductDate}"></td>
+                        <tr th:each="mainproduct: ${mainproducts}">
+                            <td th:text="${mainproduct.mainProductId}"></td>
+                            <td th:text="${mainproduct.mainProductTitle}"></td>
+                            <td th:text="${mainproduct.mainProductContent}"></td>
+                            <td th:text="${mainproduct.mainProductDate}"></td>
                         </tr>
                     </tbody>
                 </table>

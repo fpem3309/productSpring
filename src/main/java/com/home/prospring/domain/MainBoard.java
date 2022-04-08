@@ -9,6 +9,7 @@ public class MainBoard {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // PK
+    @Column(name="mainProductId")
     private int mainProductId;
     @Column(name = "mainProductTitle")
     private String mainProductTitle;

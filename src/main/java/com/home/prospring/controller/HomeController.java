@@ -27,7 +27,7 @@ public class HomeController {
     @GetMapping("mainProductBoard")
     public String list(Model model){
         List<MainBoard> mainBoardList = mainBoardService.mainBoard();
-        model.addAttribute("mainProduct",mainBoardList);
+        model.addAttribute("mainproducts",mainBoardList);
         return "board";
     }
 
