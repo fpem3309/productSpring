@@ -24,8 +24,9 @@
 
 </form>
 
-<button type="submit">수정</button>
+<button type="button" th:onclick="|location.href='@{/mainProductBoard/Insert}'|">수정</button>
 <button type="button" th:onclick="|location.href='@{/mainProductBoard}'|">목록으로</button>
+<button type="button" th:onclick="|location.href='@{/mainProductBoard/Delete}'|">삭제하기</button>
 
 </body>
 </html>

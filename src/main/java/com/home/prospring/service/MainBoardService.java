@@ -33,4 +33,9 @@ public class MainBoardService {
     public Optional<MainBoard> findOne(int mainProductId){
         return mainBoardRepository.findBoard(mainProductId);
     }
+
+    public int removeOne(MainBoard mainBoard){
+        mainBoardRepository.delBoard(mainBoard);
+        return mainBoard.getMainProductId();
+    }
 }

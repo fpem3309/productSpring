@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -21,11 +22,6 @@ public class HomeController {
         this.mainBoardService = mainBoardService;
     }
 
-    @GetMapping("/")
-    public String home(){
-        return "home";
-    }
-
     @GetMapping("/mainProductBoard")
     public String list(Model model){
         List<MainBoard> mainBoardList = mainBoardService.mainBoard();
@@ -34,7 +30,8 @@ public class HomeController {
     }
 
     @GetMapping("/mainProductBoard/Insert")
-    public String boardForm(){
+    public String boardForm(Model model){
+        model.addAttribute("localDate", LocalDate.now());
         return "boards/boardForm";
     }
 
@@ -43,16 +40,25 @@ public class HomeController {
         MainBoard mainBoard = new MainBoard();
         mainBoard.setMainProductTitle(form.getTitle());
         mainBoard.setMainProductContent(form.getContent());
+        mainBoard.setMainProductDate(form.getDate());
         mainBoardService.Insert(mainBoard);
 
         return "redirect:/mainProductBoard";
     }
 
     @GetMapping("/mainProductBoard/Detail{no}")
-    public String boardUpdate(@PathVariable int no, Model model){
+    public String boardDetail(@PathVariable int no, Model model){
         MainBoard boardOne = mainBoardService.findOne(no).get();
         model.addAttribute("boardOne",boardOne);
         return "boards/boardDetail";
+    }
+
+    @GetMapping("/mainProductBoard/Delete")
+    public String boardDelete(BoardForm form){
+        MainBoard mainBoard = new MainBoard();
+        mainBoard.setMainProductId(form.getId());
+        mainBoardService.removeOne(mainBoard);
+        return "redirect:/mainProductBoard";
     }
 
 }

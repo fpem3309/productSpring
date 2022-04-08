@@ -10,4 +10,5 @@ public interface MainBoardRepository {
     List<MainBoard> findAll();
     MainBoard Insert(MainBoard mainBoard);
     Optional<MainBoard> findBoard(int mainProductId);
+    MainBoard delBoard(MainBoard mainBoard);
 }

@@ -32,5 +32,10 @@ public class JpaMainBoardRepository implements MainBoardRepository{
         return Optional.ofNullable(mainBoard);
     }
 
+    @Override
+    public MainBoard delBoard(MainBoard mainBoard) {
+        em.remove(mainBoard);
+        return mainBoard;
+    }
 
 }

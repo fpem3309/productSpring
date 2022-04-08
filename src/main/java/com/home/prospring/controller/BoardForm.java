@@ -1,8 +1,20 @@
 package com.home.prospring.controller;
 
+import java.util.Date;
+
 public class BoardForm {
+    private int id;
     private String title;
     private String content;
+    private String date;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;
@@ -18,5 +30,13 @@ public class BoardForm {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }
