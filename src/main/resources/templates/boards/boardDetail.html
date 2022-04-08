@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="/mainProductBoard/Update" method="post">
+
+    <input type="hidden" id="no" name="no" th:value="${boardOne.mainProductId}">
+
+    <label for="title">제목</label>
+    <span id="title" name="title" th:text="${boardOne.mainProductTitle}"></span>
+
+    <label for="content">내용</label>
+    <span id="content" name="content" th:text="${boardOne.mainProductContent}"></span>
+
+    <label for="date">작성일</label>
+    <span id="date"  th:text="${boardOne.mainProductDate}"></span>
+
+    <label for="hit">조회수</label>
+    <span id="hit"  th:text="${boardOne.mainProductHit}"></span>
+
+    <button type="submit">수정</button>
+    <button type="button" th:onclick="|location.href='@{/mainProductBoard}'|">목록으로</button>
+
+</form>
+
+</body>
+</html>

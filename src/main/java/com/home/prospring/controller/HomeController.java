@@ -1,12 +1,12 @@
 package com.home.prospring.controller;
 
 import com.home.prospring.domain.MainBoard;
-import com.home.prospring.domain.Member;
 import com.home.prospring.service.MainBoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -46,6 +46,13 @@ public class HomeController {
         mainBoardService.Insert(mainBoard);
 
         return "redirect:/mainProductBoard";
+    }
+
+    @GetMapping("/mainProductBoard/Detail{no}")
+    public String boardUpdate(@PathVariable int no, Model model){
+        MainBoard boardOne = mainBoardService.findOne(no).get();
+        model.addAttribute("boardOne",boardOne);
+        return "boards/boardDetail";
     }
 
 }

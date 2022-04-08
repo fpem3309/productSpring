@@ -1,12 +1,12 @@
 package com.home.prospring.service;
 
 import com.home.prospring.domain.MainBoard;
-import com.home.prospring.domain.Member;
 import com.home.prospring.repostory.MainBoardRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -28,5 +28,9 @@ public class MainBoardService {
 
     public List<MainBoard> mainBoard(){
         return mainBoardRepository.findAll();
+    }
+
+    public Optional<MainBoard> findOne(int mainProductId){
+        return mainBoardRepository.findBoard(mainProductId);
     }
 }

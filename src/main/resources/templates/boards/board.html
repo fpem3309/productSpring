@@ -29,11 +29,17 @@
 
                     <tbody>
                         <tr th:each="mainproduct: ${mainproducts}">
-                            <td th:text="${mainproduct.mainProductId}"></td>
-                            <td th:text="${mainproduct.mainProductTitle}"></td>
+
+                           <td th:text="${mainproduct.mainProductId}"></td>
+                            <td>
+                                <a th:href="@{'/mainProductBoard/Detail' + ${mainproduct.mainProductId}}" >
+                                    <span th:text="${mainproduct.mainProductTitle}"></span>
+                                </a>
+                            </td>
                             <td th:text="${mainproduct.mainProductContent}"></td>
                             <td th:text="${mainproduct.mainProductHit}"></td>
                             <td th:text="${mainproduct.mainProductDate}"></td>
+
                         </tr>
                     </tbody>
                 </table>

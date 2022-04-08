@@ -4,6 +4,7 @@ import com.home.prospring.domain.MainBoard;
 
 import javax.persistence.EntityManager;
 import java.util.List;
+import java.util.Optional;
 
 public class JpaMainBoardRepository implements MainBoardRepository{
 
@@ -24,4 +25,12 @@ public class JpaMainBoardRepository implements MainBoardRepository{
         em.persist(mainBoard);
         return mainBoard;
     }
+
+    @Override
+    public Optional<MainBoard> findBoard(int mainProductId) {
+        MainBoard mainBoard = em.find(MainBoard.class,mainProductId);
+        return Optional.ofNullable(mainBoard);
+    }
+
+
 }
