@@ -56,7 +56,7 @@ public class HomeController {
     @GetMapping("/mainProductBoard/Delete{no}")
     public String boardDelete(@PathVariable int no){
         MainBoard boardOne = mainBoardService.findOne(no).get();
-        System.out.println(boardOne.getMainProductId());
+        System.out.println("삭제 no = "+boardOne.getMainProductId());
         mainBoardService.removeOne(boardOne);
         return "redirect:/mainProductBoard";
     }
