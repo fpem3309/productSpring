@@ -28,10 +28,40 @@
             .active {
                 background-color: #04AA6D;
             }
+
+            .sidebar{
+                margin-top: 63px;
+                width: 300px;
+                height: 100%;
+                background: rgb(156, 227, 179);
+                position: fixed;
+                top: 0;
+                left: -300px;
+                z-index: 2;
+                transition: all .35s;
+            }
+            /*#icon + label{*/
+            /*    background:url("https://icon-icons.com/icons2/3478/PNG/512/checklist_list_orderlist_order_icon_219982.png");*/
+            /*}*/
+            #icon:checked + .sidebar {
+                left: 0;
+            }
         </style>
 
         <ul>
-            <li><a class="active" href="/">메인</a></li>
+            <li class="active">
+                <nav>
+                    <input type="checkbox" id="icon">
+                    <label for="icon"></label>
+                    <div class="sidebar">
+                        <h3><a th:href="@{/}">메인</a></h3>
+                        <h3><a th:href="@{/members/new}">회원가입</a></h3>
+                        <h3><a th:href="@{/members}">회원목록</a></h3>
+                        <h3><a th:href="@{/mainProductBoard}">메인보드</a></h3>
+                    </div>
+                </nav>
+            </li>
+            <li><a href="/">메인</a></li>
             <li><a href="/members/new">회원가입</a></li>
             <li><a href="/members">회원목록</a></li>
             <li><a href="/mainProductBoard">메인보드</a></li>
