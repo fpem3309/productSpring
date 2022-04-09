@@ -53,11 +53,11 @@ public class HomeController {
         return "boards/boardDetail";
     }
 
-    @GetMapping("/mainProductBoard/Delete")
-    public String boardDelete(BoardForm form){
-        MainBoard mainBoard = new MainBoard();
-        mainBoard.setMainProductId(form.getId());
-        mainBoardService.removeOne(mainBoard);
+    @GetMapping("/mainProductBoard/Delete{no}")
+    public String boardDelete(@PathVariable int no){
+        MainBoard boardOne = mainBoardService.findOne(no).get();
+        System.out.println(boardOne.getMainProductId());
+        mainBoardService.removeOne(boardOne);
         return "redirect:/mainProductBoard";
     }
 
