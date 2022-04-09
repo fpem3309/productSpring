@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:fragment="navFragment">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .sidebar{
+            width: 300px;
+            height: 100%;
+            background:rgb(150, 148, 148);
+            position: fixed;
+            top: 0;
+            left: -300px;
+            z-index: 2;
+            transition: all .35s;
+        }
+        #icon:checked + .sidebar {
+            left: 0;
+        }
+    </style>
+</head>
+    <nav>
+        <input type="checkbox" id="icon">
+        <div class="sidebar">
+            <h3><a th:href="@{/}">메인</a></h3>
+            <h3><a th:href="@{/members/new}">회원가입</a></h3>
+            <h3><a th:href="@{/members}">회원목록</a></h3>
+            <h3><a th:href="@{/mainProductBoard}">메인보드</a></h3>
+        </div>
+    </nav>
+</th:block>
+<body>
+
+</body>
+</html>

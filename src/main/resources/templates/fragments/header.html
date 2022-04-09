@@ -4,12 +4,42 @@
     <head>
         <meta charset="UTF-8">
         <title>Hi</title>
-        <a th:href="www.naver.com">네이버 바로가기</a>
-        <p>하이</p>
+        <style>
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #333;
+            }
+            li {
+                float: left;
+            }
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+            li a:hover:not(.active) {
+                background-color: #111;
+            }
+            .active {
+                background-color: #04AA6D;
+            }
+        </style>
+
+        <ul>
+            <li><a class="active" href="/">메인</a></li>
+            <li><a href="/members/new">회원가입</a></li>
+            <li><a href="/members">회원목록</a></li>
+            <li><a href="/mainProductBoard">메인보드</a></li>
+        </ul>
+
     </head>
 </th:block>
 <body>
-<a th:href="www.naver.com">네이버 바로가기</a>
-Hello
+
 </body>
 </html>
