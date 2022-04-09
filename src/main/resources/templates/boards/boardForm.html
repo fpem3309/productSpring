@@ -18,7 +18,7 @@
             resize: vertical;
         }
 
-        label {
+        .title_label {
             padding: 12px 12px 12px 0;
             display: inline-block;
         }
@@ -45,7 +45,7 @@
 
         .col-25 {
             float: left;
-            width: 25%;
+            width: 15%;
             margin-top: 6px;
         }
 
@@ -75,9 +75,26 @@
 
 <div class="container">
     <form action="/mainProductBoard/Insert" method="post">
+
         <div class="row">
             <div class="col-25">
-                <label for="title">제목</label>
+                <label class="title_label" for="category">카테고리</label>
+            </div>
+            <div class="col-75">
+                <select id="category" name="category">
+                    <option value="Java">Java</option>
+                    <option value="Kotlin">Kotlin</option>
+                    <option value="Javascript">Javascript</option>
+                    <option value="Spring">Spring</option>
+                    <option value="Android">Android</option>
+                    <option value="Android">JPA</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label class="title_label" for="title">제목</label>
             </div>
             <div class="col-75">
                 <input type="text" id="title" name="title" placeholder="제목을 입력하세요">
@@ -86,7 +103,7 @@
 
         <div class="row">
             <div class="col-25">
-                <label for="content">내용</label>
+                <label class="title_label" for="content">내용</label>
             </div>
             <div class="col-75">
                 <textarea id="content" name="content" placeholder="내용을 입력하세요" style="height:200px"></textarea>
