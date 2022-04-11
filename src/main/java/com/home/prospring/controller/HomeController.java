@@ -41,6 +41,7 @@ public class HomeController {
         mainBoard.setMainProductTitle(form.getTitle());
         mainBoard.setMainProductContent(form.getContent());
         mainBoard.setMainProductDate(form.getDate());
+        mainBoard.setMainProductCategory(form.getCategory());
         mainBoardService.Insert(mainBoard);
 
         return "redirect:/mainProductBoard";

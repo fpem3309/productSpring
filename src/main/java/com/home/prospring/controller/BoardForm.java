@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class BoardForm {
     private int id;
+    private String category;
     private String title;
     private String content;
     private String date;
@@ -14,6 +15,14 @@ public class BoardForm {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getTitle() {

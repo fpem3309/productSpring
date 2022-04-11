@@ -29,8 +29,8 @@
                     <thead>
                     <tr>
                         <th class="text-center">no</th>
+                        <th>카테고리</th>
                         <th>제목</th>
-                        <th>내용</th>
                         <th>조회수</th>
                         <th>작성일</th>
                     </tr>
@@ -40,12 +40,13 @@
                         <tr th:each="mainproduct: ${mainproducts}">
 
                            <td th:text="${mainproduct.mainProductId}"></td>
+                            <td th:text="${mainproduct.mainProductCategory}"></td>
                             <td>
                                 <a th:href="@{'/mainProductBoard/Detail' + ${mainproduct.mainProductId}}" >
                                     <span th:text="${mainproduct.mainProductTitle}"></span>
                                 </a>
                             </td>
-                            <td th:text="${mainproduct.mainProductContent}"></td>
+<!--                            <td th:text="${mainproduct.mainProductContent}"></td>-->
                             <td th:text="${mainproduct.mainProductHit}"></td>
                             <td th:text="${mainproduct.mainProductDate}"></td>
 

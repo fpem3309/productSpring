@@ -3,30 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        span, pre {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        .title_label {
+            padding: 12px 12px 12px 0;
+            display: inline-block;
+        }
+
+        button {
+            background-color: #04AA6D;
+            color: white;
+            margin: 12px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+
+        button {
+            background-color: #45a049;
+        }
+
+        .container {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        .col-25 {
+            float: left;
+            width: 15%;
+            margin-top: 6px;
+        }
+
+        .col-75 {
+            float: left;
+            width: 75%;
+            margin-top: 6px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+            .col-25, .col-75, input[type=submit] {
+                width: 100%;
+                margin-top: 0;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<form action="/mainProductBoard/Update" method="post">
+<div class="container">
+    <form action="/mainProductBoard/Update" method="post">
 
-    <input type="hidden" id="no" name="no" th:value="${boardOne.mainProductId}">
+        <input type="hidden" id="no" name="no" th:value="${boardOne.mainProductId}">
 
-    <label for="title">제목</label>
-    <span id="title" name="title" th:text="${boardOne.mainProductTitle}"></span>
+        <div class="row">
+            <div class="col-25">
+                <label class="title_label" for="title">제목</label>
+            </div>
+            <div class="col-75">
+                <span id="title" name="title" th:text="${boardOne.mainProductTitle}"></span>
+            </div>
+        </div>
 
-    <label for="content">내용</label>
-    <span id="content" name="content" th:text="${boardOne.mainProductContent}"></span>
+        <div class="row">
+            <div class="col-25">
+                <label class="title_label" for="content">내용</label>
+            </div>
+            <div class="col-75">
+                <pre id="content" name="content" th:text="${boardOne.mainProductContent}"></pre>
+            </div>
+        </div>
 
-    <label for="date">작성일</label>
-    <span id="date"  th:text="${boardOne.mainProductDate}"></span>
+        <div class="row">
+            <div class="col-25">
+                <label class="title_label" for="date">작성일</label>
+            </div>
+            <div class="col-75">
+                <span id="date" th:text="${boardOne.mainProductDate}"></span>
+            </div>
+        </div>
 
-    <label for="hit">조회수</label>
-    <span id="hit"  th:text="${boardOne.mainProductHit}"></span>
+        <div class="row">
+            <div class="col-25">
+                <label for="hit">조회수</label>
+            </div>
+            <div class="col-75">
+                <span id="hit" th:text="${boardOne.mainProductHit}"></span>
+            </div>
+        </div>
+    </form>
+</div>
 
-</form>
-
-<button type="button" th:onclick="|location.href='@{/mainProductBoard/Insert}'|">수정</button>
-<button type="button" th:onclick="|location.href='@{/mainProductBoard}'|">목록으로</button>
-<button type="button" th:onclick="|location.href='@{/mainProductBoard/Delete}${boardOne.mainProductId}'|">삭제하기</button>
+    <button type="button" th:onclick="|location.href='@{/mainProductBoard/Insert}'|">수정</button>
+    <button type="button" th:onclick="|location.href='@{/mainProductBoard}'|">목록으로</button>
+    <button type="button" th:onclick="|location.href='@{/mainProductBoard/Delete}${boardOne.mainProductId}'|">삭제하기</button>
 
 </body>
 </html>

@@ -19,6 +19,16 @@ public class MainBoard {
     private int mainProductHit;
     @Column(name = "mainProductDate")
     private String mainProductDate;
+    @Column(name = "mainProductCategory")
+    private String mainProductCategory;
+
+    public String getMainProductCategory() {
+        return mainProductCategory;
+    }
+
+    public void setMainProductCategory(String mainProductCatagory) {
+        this.mainProductCategory = mainProductCatagory;
+    }
 
     public int getMainProductId() {
         return mainProductId;
