@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<th:block th:replace="fragments/header:: headerFragment"></th:block>
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-
     <style>
         * {
             box-sizing: border-box;
         }
 
-        span, pre {
+        input[type=text], select, textarea {
             width: 100%;
             padding: 12px;
             border: 1px solid #ccc;
@@ -22,10 +23,9 @@
             display: inline-block;
         }
 
-        button {
+        input[type=submit] {
             background-color: #04AA6D;
             color: white;
-            margin: 12px;
             padding: 12px 20px;
             border: none;
             border-radius: 4px;
@@ -33,7 +33,7 @@
             float: right;
         }
 
-        button {
+        input[type=submit]:hover {
             background-color: #45a049;
         }
 
@@ -74,25 +74,32 @@
 <body>
 
 <div class="container">
-    <form action="/mainProductBoard/Update" method="post">
-
-        <input type="hidden" id="no" name="no" th:value="${boardOne.mainProductId}">
+    <form action="/mainProductBoard/Insert" method="post">
 
         <div class="row">
             <div class="col-25">
                 <label class="title_label" for="category">카테고리</label>
             </div>
             <div class="col-75">
-                <span id="category" name="category" th:text="${boardOne.mainProductCategory}"></span>
+                <select id="category" name="category">
+                    <option value="Java">Java</option>
+                    <option value="Kotlin">Kotlin</option>
+                    <option value="Javascript">Javascript</option>
+                    <option value="Spring">Spring</option>
+                    <option value="Android">Android</option>
+                    <option value="Android">JPA</option>
+                </select>
             </div>
         </div>
+
+        <input type="text" id="id" name="id" th:value="${boardOne.mainProductId}" placeholder="제목을 입력하세요">
 
         <div class="row">
             <div class="col-25">
                 <label class="title_label" for="title">제목</label>
             </div>
             <div class="col-75">
-                <span id="title" name="title" th:text="${boardOne.mainProductTitle}"></span>
+                <input type="text" id="title" name="title" th:value="${boardOne.mainProductTitle}" placeholder="제목을 입력하세요">
             </div>
         </div>
 
@@ -101,33 +108,18 @@
                 <label class="title_label" for="content">내용</label>
             </div>
             <div class="col-75">
-                <pre id="content" name="content" th:text="${boardOne.mainProductContent}"></pre>
+                <textarea id="content" name="content" th:text="${boardOne.mainProductContent}" placeholder="내용을 입력하세요" style="height:200px"> </textarea>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-25">
-                <label class="title_label" for="date">작성일</label>
-            </div>
-            <div class="col-75">
-                <span id="date" th:text="${boardOne.mainProductDate}"></span>
-            </div>
-        </div>
+        <input type="hidden" id="date" name="date" th:value="${#temporals.format(localDate,'yyyy-MM-dd')}">
 
+        <br>
         <div class="row">
-            <div class="col-25">
-                <label for="hit">조회수</label>
-            </div>
-            <div class="col-75">
-                <span id="hit" th:text="${boardOne.mainProductHit}"></span>
-            </div>
+            <input type="submit" value="등록">
         </div>
     </form>
 </div>
-
-    <button type="button" th:onclick="|location.href='@{/mainProductBoard/Update}${boardOne.mainProductId}'|">수정</button>
-    <button type="button" th:onclick="|location.href='@{/mainProductBoard}'|">목록으로</button>
-    <button type="button" th:onclick="|location.href='@{/mainProductBoard/Delete}${boardOne.mainProductId}'|">삭제하기</button>
 
 </body>
 </html>

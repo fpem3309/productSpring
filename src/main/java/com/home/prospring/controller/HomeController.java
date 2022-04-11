@@ -54,6 +54,14 @@ public class HomeController {
         return "boards/boardDetail";
     }
 
+    @GetMapping("/mainProductBoard/Update{no}")
+    public String boardUpdate(@PathVariable int no, Model model){
+        MainBoard boardOne = mainBoardService.findOne(no).get();
+        model.addAttribute("boardOne",boardOne);
+        model.addAttribute("localDate", LocalDate.now());
+        return "boards/boardUpdateForm";
+    }
+
     @GetMapping("/mainProductBoard/Delete{no}")
     public String boardDelete(@PathVariable int no){
         MainBoard boardOne = mainBoardService.findOne(no).get();
