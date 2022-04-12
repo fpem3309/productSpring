@@ -62,6 +62,21 @@ public class HomeController {
         return "boards/boardUpdateForm";
     }
 
+    @PostMapping("/mainProductBoard/Update{no}")
+    public String boardUpdates(@PathVariable int no, BoardForm form){
+        MainBoard mainBoard = new MainBoard();
+        mainBoard.setMainProductId(no);
+        mainBoard.setMainProductTitle(form.getTitle());
+        mainBoard.setMainProductContent(form.getContent());
+        mainBoard.setMainProductDate(form.getDate());
+        mainBoard.setMainProductCategory(form.getCategory());
+        mainBoardService.Insert(mainBoard);
+//        MainBoard boardOne = mainBoardService.findOne(no).get();
+//        model.addAttribute("boardOne",boardOne);
+//        model.addAttribute("localDate", LocalDate.now());
+        return "redirect:/mainProductBoard";
+    }
+
     @GetMapping("/mainProductBoard/Delete{no}")
     public String boardDelete(@PathVariable int no){
         MainBoard boardOne = mainBoardService.findOne(no).get();
