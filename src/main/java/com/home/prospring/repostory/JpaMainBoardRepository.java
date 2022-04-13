@@ -38,4 +38,37 @@ public class JpaMainBoardRepository implements MainBoardRepository{
         return mainBoard;
     }
 
+    /**
+     * 메인 카테고리별
+     */
+    @Override
+    public List<MainBoard> findJava() {
+        return em.createQuery("select m from MainBoard m where m.mainProductCategory = 'Java' order by m.mainProductId desc", MainBoard.class)   //MainBoard Entity에 query 하는것, m = as m
+                .getResultList();
+    }
+
+    @Override
+    public List<MainBoard> findSpring() {
+        return em.createQuery("select m from MainBoard m where m.mainProductCategory = 'Spring' order by m.mainProductId desc", MainBoard.class)   //MainBoard Entity에 query 하는것, m = as m
+                .getResultList();
+    }
+
+    @Override
+    public List<MainBoard> findAndroid() {
+        return em.createQuery("select m from MainBoard m where m.mainProductCategory = 'Android' order by m.mainProductId desc", MainBoard.class)   //MainBoard Entity에 query 하는것, m = as m
+                .getResultList();
+    }
+
+    @Override
+    public List<MainBoard> findJS() {
+        return em.createQuery("select m from MainBoard m where m.mainProductCategory = 'Javascript' order by m.mainProductId desc", MainBoard.class)   //MainBoard Entity에 query 하는것, m = as m
+                .getResultList();
+    }
+
+    @Override
+    public List<MainBoard> findJPA() {
+        return em.createQuery("select m from MainBoard m where m.mainProductCategory = 'JPA' order by m.mainProductId desc", MainBoard.class)   //MainBoard Entity에 query 하는것, m = as m
+                .getResultList();
+    }
+
 }

@@ -11,4 +11,11 @@ public interface MainBoardRepository {
     MainBoard Insert(MainBoard mainBoard);
     Optional<MainBoard> findBoard(int mainProductId);
     MainBoard delBoard(MainBoard mainBoard);
+
+    List<MainBoard> findJava();
+    List<MainBoard> findSpring();
+    List<MainBoard> findAndroid();
+    List<MainBoard> findJS();
+    List<MainBoard> findJPA();
+
 }

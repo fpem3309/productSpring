@@ -2,6 +2,7 @@ package com.home.prospring.service;
 
 import com.home.prospring.domain.MainBoard;
 import com.home.prospring.repostory.MainBoardRepository;
+import org.jboss.jandex.Main;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -38,4 +39,14 @@ public class MainBoardService {
         mainBoardRepository.delBoard(mainBoard);
         return mainBoard.getMainProductId();
     }
+
+    /**
+     * 메인 카테고리별
+     */
+    public List<MainBoard> javaBoard(){return mainBoardRepository.findJava();}
+    public List<MainBoard> springBoard(){return mainBoardRepository.findSpring();}
+    public List<MainBoard> androidBoard(){return mainBoardRepository.findAndroid();}
+    public List<MainBoard> jsBoard(){return mainBoardRepository.findJS();}
+    public List<MainBoard> jpaBoard(){return mainBoardRepository.findJPA();}
+
 }
