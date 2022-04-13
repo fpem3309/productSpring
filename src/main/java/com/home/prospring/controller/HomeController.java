@@ -64,16 +64,12 @@ public class HomeController {
 
     @PostMapping("/mainProductBoard/Update")
     public String boardUpdates(BoardForm form){
-        MainBoard mainBoard = new MainBoard();
-        mainBoard.setMainProductTitle(form.getTitle());
-        mainBoard.setMainProductContent(form.getContent());
-        mainBoard.setMainProductDate(form.getDate());
-        mainBoard.setMainProductCategory(form.getCategory());
-        System.out.println(mainBoard.getMainProductId());
-        mainBoardService.Insert(mainBoard);
-//        MainBoard boardOne = mainBoardService.findOne(no).get();
-//        model.addAttribute("boardOne",boardOne);
-//        model.addAttribute("localDate", LocalDate.now());
+        MainBoard boardOne = mainBoardService.findOne(form.getId()).get();
+        boardOne.setMainProductTitle(form.getTitle());
+        boardOne.setMainProductContent(form.getContent());
+        boardOne.setMainProductCategory(form.getCategory());
+        mainBoardService.Insert(boardOne);
+        System.out.println(boardOne.getMainProductId()+boardOne.getMainProductTitle());
         return "redirect:/mainProductBoard";
     }
 
