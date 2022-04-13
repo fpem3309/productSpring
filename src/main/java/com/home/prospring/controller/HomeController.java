@@ -62,14 +62,14 @@ public class HomeController {
         return "boards/boardUpdateForm";
     }
 
-    @PostMapping("/mainProductBoard/Update{no}")
-    public String boardUpdates(@PathVariable int no, BoardForm form){
+    @PostMapping("/mainProductBoard/Update")
+    public String boardUpdates(BoardForm form){
         MainBoard mainBoard = new MainBoard();
-        mainBoard.setMainProductId(no);
         mainBoard.setMainProductTitle(form.getTitle());
         mainBoard.setMainProductContent(form.getContent());
         mainBoard.setMainProductDate(form.getDate());
         mainBoard.setMainProductCategory(form.getCategory());
+        System.out.println(mainBoard.getMainProductId());
         mainBoardService.Insert(mainBoard);
 //        MainBoard boardOne = mainBoardService.findOne(no).get();
 //        model.addAttribute("boardOne",boardOne);
