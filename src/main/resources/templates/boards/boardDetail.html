@@ -12,7 +12,7 @@
             box-sizing: border-box;
         }
 
-        span, pre {
+        input[type=text], pre {
             width: 100%;
             padding: 12px;
             border: 1px solid #ccc;
@@ -84,7 +84,7 @@
                 <label class="title_label" for="category">카테고리</label>
             </div>
             <div class="col-75">
-                <span id="category" name="category" th:text="${boardOne.mainProductCategory}"></span>
+                <input type="text" id="category" name="category"  th:value="${boardOne.mainProductCategory}" readonly>
             </div>
         </div>
 
@@ -93,7 +93,7 @@
                 <label class="title_label" for="title">제목</label>
             </div>
             <div class="col-75">
-                <span id="title" name="title" th:text="${boardOne.mainProductTitle}"></span>
+                <input type="text" id="title" name="title"  th:value="${boardOne.mainProductTitle}" readonly>
             </div>
         </div>
 
@@ -102,7 +102,7 @@
                 <label class="title_label" for="content">내용</label>
             </div>
             <div class="col-75">
-                <pre id="content" name="content" th:text="${boardOne.mainProductContent}"></pre>
+                <pre type="text" id="content" name="content"  th:text="${boardOne.mainProductContent}"></pre>
             </div>
         </div>
 
@@ -111,7 +111,7 @@
                 <label class="title_label" for="date">작성일</label>
             </div>
             <div class="col-75">
-                <span id="date" th:text="${boardOne.mainProductDate}"></span>
+                <input type="text" id="date" name="date"  th:value="${boardOne.mainProductDate}" readonly>
             </div>
         </div>
 
@@ -120,7 +120,7 @@
                 <label for="hit">조회수</label>
             </div>
             <div class="col-75">
-                <span id="hit" th:text="${boardOne.mainProductHit}"></span>
+                <input type="text" id="hit" name="hit"  th:value="${boardOne.mainProductHit}" readonly>
             </div>
         </div>
 </div>
