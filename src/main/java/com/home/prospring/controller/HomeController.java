@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -28,6 +29,14 @@ public class HomeController {
         model.addAttribute("mainproducts",mainBoardList);
         return "boards/board";
     }
+
+    @GetMapping("/categoryBoard")
+    public String cate_list(Model model, @RequestParam String category){
+        List<MainBoard> boardList = mainBoardService.findCategory(category);
+        model.addAttribute("categories",boardList);
+        return "boards/category_board";
+    }
+
 
     @GetMapping("/mainProductBoard/Insert")
     public String boardForm(Model model){

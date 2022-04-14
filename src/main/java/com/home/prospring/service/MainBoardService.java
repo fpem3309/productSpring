@@ -40,6 +40,10 @@ public class MainBoardService {
         return mainBoard.getMainProductId();
     }
 
+    public List<MainBoard> findCategory(String mainProductCategory){
+        return mainBoardRepository.findCategory(mainProductCategory);
+    }
+
     /**
      * 메인 카테고리별
      */

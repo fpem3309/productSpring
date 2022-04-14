@@ -12,6 +12,8 @@ public interface MainBoardRepository {
     Optional<MainBoard> findBoard(int mainProductId);
     MainBoard delBoard(MainBoard mainBoard);
 
+    List<MainBoard> findCategory(String mainProductCategory);
+
     List<MainBoard> findJava();
     List<MainBoard> findSpring();
     List<MainBoard> findAndroid();

@@ -40,6 +40,14 @@ public class JpaMainBoardRepository implements MainBoardRepository{
     }
 
 
+
+    @Override
+    public List<MainBoard> findCategory(String mainProductCategory) {
+        return em.createQuery("select m from MainBoard m WHERE m.mainProductCategory = :mainProductCategory", MainBoard.class)   //MainBoard Entity에 query 하는것, m = as m
+                .setParameter("mainProductCategory", mainProductCategory).getResultList();
+    }
+
+
     /**
      * 메인 카테고리별
      */
