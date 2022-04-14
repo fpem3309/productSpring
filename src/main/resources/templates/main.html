@@ -6,12 +6,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-
+    <script>
+        function Detail(id) {
+            location.href = "http://localhost:8082/mainProductBoard/Detail"+id;
+        }
+    </script>
     <style>
+        #cate_area {
+            margin: 50px;
+        }
+
         .cate_board {
-            border-collapse: collapse;
-            width: 700px;
-            margin: 20px auto;
+            margin: 15px;
+            border: 1px solid #ccc;
+            float: left;
+            width: 400px;
+            height: 270px;
         }
 
         th, td {
@@ -23,169 +33,126 @@
         tbody > tr:hover {
             background-color: #9CE3B3FF;
         }
+
         p {
             padding-left: 5px;
             background-color: #9CE3B3FF;
             color: white;
-            width: 50px;
+            width: auto;
         }
     </style>
 </head>
 <body>
 
-<div class="cate_board">
-    <p th:text="Java"></p>
-    <table>
-        <thead>
-        <tr>
-            <th class="text-center">no</th>
-            <th>카테고리</th>
-            <th>제목</th>
-            <th>조회수</th>
-            <th>작성일</th>
-        </tr>
-        </thead>
+<div id="cate_area">
+    <div class="cate_board">
+        <p th:text="Java"></p>
+        <table>
+            <thead>
+            <colgroup>
+                <col width="70%">
+                <col width="30%">
+            </colgroup>
+            </thead>
 
-        <tbody>
-        <tr th:each="javaBoard: ${javaBoards}">
+            <tbody>
+            <tr th:each="javaBoard: ${javaBoards}" th:onclick="|javascript:Detail(${javaBoard.mainProductId})|">
+                <td>
+                        <span th:text="${javaBoard.mainProductTitle}"></span>
+                </td>
+                <td th:text="${javaBoard.mainProductDate}"></td>
 
-            <td th:text="${javaBoard.mainProductId}"></td>
-            <td th:text="${javaBoard.mainProductCategory}"></td>
-            <td>
-                <a th:href="@{'/mainProductBoard/Detail' + ${javaBoard.mainProductId}}">
-                    <span th:text="${javaBoard.mainProductTitle}"></span>
-                </a>
-            </td>
-            <td th:text="${javaBoard.mainProductHit}"></td>
-            <td th:text="${javaBoard.mainProductDate}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
-        </tr>
-        </tbody>
-    </table>
-</div>
+    <div class="cate_board">
+        <p th:text="Spring"></p>
+        <table>
+            <thead>
+            <colgroup>
+                <col width="70%">
+                <col width="30%">
+            </colgroup>
+            </thead>
 
-<div class="cate_board">
-    <p th:text="Spring"></p>
-    <table>
-        <thead>
-        <tr>
-            <th class="text-center">no</th>
-            <th>카테고리</th>
-            <th>제목</th>
-            <th>조회수</th>
-            <th>작성일</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        <tr th:each="springBoard: ${springBoards}">
-
-            <td th:text="${springBoard.mainProductId}"></td>
-            <td th:text="${springBoard.mainProductCategory}"></td>
-            <td>
-                <a th:href="@{'/mainProductBoard/Detail' + ${springBoard.mainProductId}}">
+            <tbody>
+            <tr th:each="springBoard: ${springBoards}" th:onclick="|javascript:Detail(${springBoard.mainProductId})|">
+                <td>
                     <span th:text="${springBoard.mainProductTitle}"></span>
-                </a>
-            </td>
-            <td th:text="${springBoard.mainProductHit}"></td>
-            <td th:text="${springBoard.mainProductDate}"></td>
+                </td>
+                <td th:text="${springBoard.mainProductDate}"></td>
 
-        </tr>
-        </tbody>
-    </table>
-</div>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
-<div class="cate_board">
-    <p th:text="Android"></p>
-    <table>
-        <thead>
-        <tr>
-            <th class="text-center">no</th>
-            <th>카테고리</th>
-            <th>제목</th>
-            <th>조회수</th>
-            <th>작성일</th>
-        </tr>
-        </thead>
+    <div class="cate_board">
+        <p th:text="Android"></p>
+        <table>
+            <thead>
+            <colgroup>
+                <col width="70%">
+                <col width="30%">
+            </colgroup>
+            </thead>
 
-        <tbody>
-        <tr th:each="androidBoard: ${androidBoards}">
-
-            <td th:text="${androidBoard.mainProductId}"></td>
-            <td th:text="${androidBoard.mainProductCategory}"></td>
-            <td>
-                <a th:href="@{'/mainProductBoard/Detail' + ${androidBoard.mainProductId}}">
+            <tbody>
+            <tr th:each="androidBoard: ${androidBoards}" th:onclick="|javascript:Detail(${androidBoard.mainProductId})|">
+                <td>
                     <span th:text="${androidBoard.mainProductTitle}"></span>
-                </a>
-            </td>
-            <td th:text="${androidBoard.mainProductHit}"></td>
-            <td th:text="${androidBoard.mainProductDate}"></td>
+                </td>
+                <td th:text="${androidBoard.mainProductDate}"></td>
 
-        </tr>
-        </tbody>
-    </table>
-</div>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
-<div class="cate_board">
-    <p th:text="Javascript"></p>
-    <table>
-        <thead>
-        <tr>
-            <th class="text-center">no</th>
-            <th>카테고리</th>
-            <th>제목</th>
-            <th>조회수</th>
-            <th>작성일</th>
-        </tr>
-        </thead>
+    <div class="cate_board">
+        <p th:text="Javascript"></p>
+        <table>
+            <thead>
+            <colgroup>
+                <col width="70%">
+                <col width="30%">
+            </colgroup>
+            </thead>
 
-        <tbody>
-        <tr th:each="jsBoard: ${jsBoards}">
-
-            <td th:text="${jsBoard.mainProductId}"></td>
-            <td th:text="${jsBoard.mainProductCategory}"></td>
-            <td>
-                <a th:href="@{'/mainProductBoard/Detail' + ${jsBoard.mainProductId}}">
+            <tbody>
+            <tr th:each="jsBoard: ${jsBoards}" th:onclick="|javascript:Detail(${jsBoard.mainProductId})|">
+                <td>
                     <span th:text="${jsBoard.mainProductTitle}"></span>
-                </a>
-            </td>
-            <td th:text="${jsBoard.mainProductHit}"></td>
-            <td th:text="${jsBoard.mainProductDate}"></td>
+                </td>
+                <td th:text="${jsBoard.mainProductDate}"></td>
 
-        </tr>
-        </tbody>
-    </table>
-</div>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
-<div class="cate_board">
-    <p th:text="JPA"></p>
-    <table>
-        <thead>
-        <tr>
-            <th class="text-center">no</th>
-            <th>카테고리</th>
-            <th>제목</th>
-            <th>조회수</th>
-            <th>작성일</th>
-        </tr>
-        </thead>
+    <div class="cate_board">
+        <p th:text="JPA"></p>
+        <table>
+            <thead>
+            <colgroup>
+                <col width="70%">
+                <col width="30%">
+            </thead>
 
-        <tbody>
-        <tr th:each="jpaBoard: ${jpaBoards}">
-
-            <td th:text="${jpaBoard.mainProductId}"></td>
-            <td th:text="${jpaBoard.mainProductCategory}"></td>
-            <td>
-                <a th:href="@{'/mainProductBoard/Detail' + ${jpaBoard.mainProductId}}">
+            <tbody>
+            <tr th:each="jpaBoard: ${jpaBoards}" th:onclick="|javascript:Detail(${jpaBoard.mainProductId})|">
+                <td>
                     <span th:text="${jpaBoard.mainProductTitle}"></span>
-                </a>
-            </td>
-            <td th:text="${jpaBoard.mainProductHit}"></td>
-            <td th:text="${jpaBoard.mainProductDate}"></td>
+                </td>
+                <td th:text="${jpaBoard.mainProductDate}"></td>
 
-        </tr>
-        </tbody>
-    </table>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 </body>
 </html>

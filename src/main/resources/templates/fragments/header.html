@@ -4,6 +4,23 @@
     <head>
         <meta charset="UTF-8">
         <title>Hi</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+            // html dom 이 다 로딩된 후 실행된다.
+            $(document).ready(function(){
+                // menu 클래스 바로 하위에 있는 a 태그를 클릭했을때
+                $(".menu>a").click(function(){
+                    var submenu = $(this).next("ul");
+
+                    // submenu 가 화면상에 보일때는 위로 보드랍게 접고 아니면 아래로 보드랍게 펼치기
+                    if( submenu.is(":visible") ){
+                        submenu.slideUp();
+                    }else{
+                        submenu.slideDown();
+                    }
+                });
+            });
+        </script>
         <style>
             ul {
                 list-style-type: none;
@@ -12,10 +29,10 @@
                 overflow: hidden;
                 background-color: #333;
             }
-            li {
+            .header_li {
                 float: left;
             }
-            li a {
+            .header_li a {
                 display: block;
                 color: white;
                 text-align: center;
@@ -25,10 +42,10 @@
             ul{
                 background: #9CE3B3FF;
             }
-            li a:hover:not(.active) {
+            li a:hover:not(#active) {
                 background-color: #111;
             }
-            .active {
+            #active {
                 background-color: white;
             }
 
@@ -55,10 +72,14 @@
             #icon:checked + label + .sidebar {
                 left: 0;
             }
+
+            .menu a{cursor:pointer;}
+            .menu .hide{display:none;}
+
         </style>
 
         <ul>
-            <li class="active">
+            <li class="header_li" id="active">
                 <nav>
                     <input type="checkbox" id="icon">
                     <label for="icon"><img src="/images/buger.png" alt="메뉴" style="width: 50px;"></label>
@@ -67,13 +88,25 @@
                         <h3><a th:href="@{/members/new}">회원가입</a></h3>
                         <h3><a th:href="@{/members}">회원목록</a></h3>
                         <h3><a th:href="@{/mainProductBoard}">메인보드</a></h3>
+                        <h3 class="menu">
+                                <a>Program</a>
+                                <ul class="hide">
+                                    <li><a th:href="@{/mainProductBoard}">Java</a></li>
+                                    <li><a th:href="@{/mainProductBoard}">Spring</a></li>
+                                    <li><a th:href="@{/mainProductBoard}">Android</a></li>
+                                    <li><a th:href="@{/mainProductBoard}">Javascript</a></li>
+                                    <li><a th:href="@{/mainProductBoard}">JPA</a></li>
+                                </ul>
+                        </h3>
+
+
                     </div>
                 </nav>
             </li>
-            <li><a href="/">메인</a></li>
-            <li><a href="/members/new">회원가입</a></li>
-            <li><a href="/members">회원목록</a></li>
-            <li><a href="/mainProductBoard">메인보드</a></li>
+            <li class="header_li"><a href="/">메인</a></li>
+            <li class="header_li"><a href="/members/new">회원가입</a></li>
+            <li class="header_li"><a href="/members">회원목록</a></li>
+            <li class="header_li"><a href="/mainProductBoard">메인보드</a></li>
         </ul>
 
     </head>
