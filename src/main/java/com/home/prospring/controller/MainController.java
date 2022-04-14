@@ -33,6 +33,6 @@ public class MainController {
         model.addAttribute("jsBoards",jsBoardList);
         model.addAttribute("jpaBoards",jpaBoardList);
 
-        return "index";
+        return "main";
     }
 }

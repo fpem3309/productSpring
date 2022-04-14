@@ -26,6 +26,7 @@ public class JpaMainBoardRepository implements MainBoardRepository{
         return mainBoard;
     }
 
+    //Optional 반환형 사용 (Null값 처리에 용이)
     @Override
     public Optional<MainBoard> findBoard(int mainProductId) {
         MainBoard mainBoard = em.find(MainBoard.class,mainProductId);
