@@ -5,6 +5,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script>
+        function Detail(id) {
+            location.href = "http://localhost:8082/mainProductBoard/Detail"+id;
+        }
+    </script>
+    <style>
+        table {border-collapse: collapse; width: 100%;}
+        th, td {padding: 8px; text-align: left; border-bottom: 1px solid #ddd;}
+        tr:hover {background-color: #9CE3B3FF;}
+    </style>
+
 </head>
 <body>
 <table>
@@ -19,16 +30,11 @@
     </thead>
 
     <tbody>
-    <tr th:each="category: ${categories}">
+    <tr th:each="category: ${categories}" th:onclick="|javascript:Detail(${category.mainProductId})|">
 
         <td th:text="${category.mainProductId}"></td>
         <td th:text="${category.mainProductCategory}"></td>
-        <td>
-            <a th:href="@{'/mainProductBoard/Detail' + ${category.mainProductId}}" >
-                <span th:text="${category.mainProductTitle}"></span>
-            </a>
-        </td>
-        <!--                            <td th:text="${mainproduct.mainProductContent}"></td>-->
+        <td th:text="${category.mainProductTitle}"></td>
         <td th:text="${category.mainProductHit}"></td>
         <td th:text="${category.mainProductDate}"></td>
 
