@@ -13,8 +13,9 @@
     </script>
     <style>
         #cate_area {
-            width: 900px;
+            width: 1300px;
             float: right;
+            margin-top: 50px;
         }
 
         .cate_board {
@@ -32,7 +33,7 @@
         }
 
         tbody > tr:hover {
-            background-color: #2BAE66;
+            background-color: #9CE3B3FF;
         }
 
         p {
@@ -80,9 +81,7 @@
 
             <tbody>
             <tr th:each="springBoard: ${springBoards}" th:onclick="|javascript:Detail(${springBoard.mainProductId})|">
-                <td>
-                    <span th:text="${springBoard.mainProductTitle}"></span>
-                </td>
+                <td th:text="${springBoard.mainProductTitle}"></td>
                 <td th:text="${springBoard.mainProductDate}"></td>
 
             </tr>

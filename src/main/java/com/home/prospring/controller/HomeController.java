@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -38,7 +35,6 @@ public class HomeController {
         return "boards/category_board";
     }
 
-
     @GetMapping("/mainProductBoard/Insert")
     public String boardForm(Model model){
         model.addAttribute("localDate", LocalDate.now());
@@ -60,7 +56,9 @@ public class HomeController {
     @GetMapping("/mainProductBoard/Detail{no}")
     public String boardDetail(@PathVariable int no, Model model){
         MainBoard boardOne = mainBoardService.findOne(no).get();
+
         model.addAttribute("boardOne",boardOne);
+        mainBoardService.updateHit(no);
         return "boards/boardDetail";
     }
 

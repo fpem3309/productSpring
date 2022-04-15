@@ -11,7 +11,7 @@
         }
     </script>
     <style>
-        table {border-collapse: collapse; width: 70%; margin-left: auto;}
+        table {border-collapse: collapse; width: 70%; margin-left: auto; margin-right: auto;}
         th, td:not(.content) {padding: 8px; text-align: left; border-bottom: 1px solid #ddd;}
         tr:hover {background-color: #9CE3B3FF;}
         #content{
@@ -58,15 +58,15 @@
 <body>
                 <table>
                     <tbody>
-                        <tr th:each="mainproduct: ${mainproducts}" th:onclick="|javascript:Detail(${mainproduct.mainProductId})|">
-                            <td th:text="'['+${mainproduct.mainProductCategory}+'] '+${mainproduct.mainProductTitle}"></td>
-                            <td id="content" >
-                                <span class="content" th:text="${mainproduct.mainProductContent}"></span>
-                                <br/>
-                                <span th:text="${mainproduct.mainProductHit}"></span>
-                                <span th:text="${mainproduct.mainProductDate}"></span>
-                            </td>
-                        </tr>
+                    <tr th:each="mainproduct: ${mainproducts}" th:onclick="|javascript:Detail(${mainproduct.mainProductId})|">
+                        <td th:text="'['+${mainproduct.mainProductCategory}+'] '+${mainproduct.mainProductTitle}"></td>
+                        <td id="content" >
+                            <span class="content" th:text="${mainproduct.mainProductContent}"></span>
+                            <br/>
+                            <span th:text="${mainproduct.mainProductHit}"></span>
+                            <span th:text="${mainproduct.mainProductDate}"></span>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
 

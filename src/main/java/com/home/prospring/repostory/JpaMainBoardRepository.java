@@ -3,12 +3,15 @@ package com.home.prospring.repostory;
 import com.home.prospring.domain.MainBoard;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Optional;
 
-public class JpaMainBoardRepository implements MainBoardRepository{
+public class JpaMainBoardRepository implements MainBoardRepository {
 
     private final EntityManager em;
 
@@ -31,7 +34,7 @@ public class JpaMainBoardRepository implements MainBoardRepository{
     //Optional 반환형 사용 (Null값 처리에 용이)
     @Override
     public Optional<MainBoard> findBoard(int mainProductId) {
-        MainBoard mainBoard = em.find(MainBoard.class,mainProductId);
+        MainBoard mainBoard = em.find(MainBoard.class, mainProductId);
         return Optional.ofNullable(mainBoard);
     }
 
@@ -41,8 +44,12 @@ public class JpaMainBoardRepository implements MainBoardRepository{
         return mainBoard;
     }
 
-
-
+    /**
+     * 카테고리 선택했을때
+     *
+     * @param mainProductCategory
+     * @return
+     */
     @Override
     public List<MainBoard> findCategory(String mainProductCategory) {
         return em.createQuery("select m from MainBoard m WHERE m.mainProductCategory = :mainProductCategory", MainBoard.class)   //MainBoard Entity에 query 하는것, m = as m

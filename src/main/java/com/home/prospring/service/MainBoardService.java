@@ -2,10 +2,7 @@ package com.home.prospring.service;
 
 import com.home.prospring.domain.MainBoard;
 import com.home.prospring.repostory.MainBoardRepository;
-import org.jboss.jandex.Main;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
+import com.home.prospring.repostory.SpringDataJpaMemberRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,9 +14,16 @@ import java.util.Optional;
 public class MainBoardService {
 
     private final MainBoardRepository mainBoardRepository;
+    private final SpringDataJpaMemberRepository springDataJpaMemberRepository;
 
-    public MainBoardService(MainBoardRepository mainBoardRepository) {
+    public MainBoardService(MainBoardRepository mainBoardRepository, SpringDataJpaMemberRepository springDataJpaMemberRepository) {
         this.mainBoardRepository = mainBoardRepository;
+        this.springDataJpaMemberRepository = springDataJpaMemberRepository;
+    }
+
+    @Transactional
+    public int updateHit(int id){
+        return springDataJpaMemberRepository.updateCount(id);
     }
 
     /**
@@ -44,6 +48,8 @@ public class MainBoardService {
         mainBoardRepository.delBoard(mainBoard);
         return mainBoard.getMainProductId();
     }
+
+
 
     public List<MainBoard> findCategory(String mainProductCategory){
         return mainBoardRepository.findCategory(mainProductCategory);
