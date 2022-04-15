@@ -5,7 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-
+    <script>
+        function Detail(id) {
+            location.href = "http://localhost:8082/mainProductBoard/Detail"+id;
+        }
+    </script>
     <style>
         table {border-collapse: collapse; width: 100%;}
         th, td {padding: 8px; text-align: left; border-bottom: 1px solid #ddd;}
@@ -37,16 +41,13 @@
                     </thead>
 
                     <tbody>
-                        <tr th:each="mainproduct: ${mainproducts}">
+                        <tr th:each="mainproduct: ${mainproducts}" th:onclick="|javascript:Detail(${mainproduct.mainProductId})|">
 
                            <td th:text="${mainproduct.mainProductId}"></td>
                             <td th:text="${mainproduct.mainProductCategory}"></td>
                             <td>
-                                <a th:href="@{'/mainProductBoard/Detail' + ${mainproduct.mainProductId}}" >
                                     <span th:text="${mainproduct.mainProductTitle}"></span>
-                                </a>
                             </td>
-<!--                            <td th:text="${mainproduct.mainProductContent}"></td>-->
                             <td th:text="${mainproduct.mainProductHit}"></td>
                             <td th:text="${mainproduct.mainProductDate}"></td>
 
