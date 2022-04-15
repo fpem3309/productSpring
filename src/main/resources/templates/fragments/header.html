@@ -12,7 +12,7 @@
                 $(".menu>a").click(function(){
                     var submenu = $(this).next("ul");
 
-                    // submenu 가 화면상에 보일때는 위로 보드랍게 접고 아니면 아래로 보드랍게 펼치기
+                    // submenu 가 화면상에 보일때/아닐때 부드랍게 접고 펼치기
                     if( submenu.is(":visible") ){
                         submenu.slideUp();
                     }else{
@@ -40,7 +40,7 @@
                 text-decoration: none;
             }
             ul{
-                background: #9CE3B3FF;
+                background: #2BAE66;
             }
             li a:hover:not(#active) {
                 background-color: #111;
@@ -54,7 +54,7 @@
                 margin-left: 8px;
                 width: 300px;
                 height: 100%;
-                background: #9CE3B3FF;
+                background: #2BAE66;
                 position: fixed;
                 top: 0;
                 left: -308px;

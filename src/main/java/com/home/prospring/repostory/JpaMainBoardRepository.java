@@ -1,6 +1,8 @@
 package com.home.prospring.repostory;
 
 import com.home.prospring.domain.MainBoard;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 
 import javax.persistence.EntityManager;
 import java.util.List;

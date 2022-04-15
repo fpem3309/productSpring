@@ -11,49 +11,77 @@
         }
     </script>
     <style>
-        table {border-collapse: collapse; width: 100%;}
-        th, td {padding: 8px; text-align: left; border-bottom: 1px solid #ddd;}
+        table {border-collapse: collapse; width: 70%; margin-left: auto;}
+        th, td:not(.content) {padding: 8px; text-align: left; border-bottom: 1px solid #ddd;}
         tr:hover {background-color: #9CE3B3FF;}
+        #content{
+            padding: 15px;
+        }
+        .content{
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3; /* 라인수 */
+            -webkit-box-orient: vertical;
+            word-wrap:break-word;
+            line-height: 1.2em;
+            height: 3.6em; /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */
+            width: 500px;
+            text-decoration: none;
+        }
+
+        /*페이지네이션*/
+        .pagination {
+            display: table;
+            margin: auto;
+        }
+
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+            border: 1px solid #ddd;
+        }
+
+        .pagination a.active {
+            background-color: #4CAF50;
+            color: white;
+            border: 1px solid #4CAF50;
+        }
+
+        .pagination a:hover:not(.active) {background-color: #ddd;}
     </style>
 
 </head>
 <body>
-
-
-
-<!--                            <label>-->
-<!--                                <select id="cntPerPage" name="sel" onchange="selChange()" aria-controls="example-datatable" class="form-control">-->
-<!--                                    <option value="5"> <th:if test="${paging.cntPerPage == 5}">selected</th:if>>5줄 보기</option>-->
-<!--                                    <option value="10"> <th:if test="${paging.cntPerPage == 10}">selected</th:if>>10줄 보기</option>-->
-<!--                                    <option value="15"> <th:if test="${paging.cntPerPage == 15}">selected</th:if>>15줄 보기</option>-->
-<!--                                    <option value="20"> <th:if test="${paging.cntPerPage == 20}">selected</th:if>>20줄 보기</option>-->
-<!--                                </select>-->
-<!--                            </label>-->
                 <table>
-                    <thead>
-                    <tr>
-                        <th class="text-center">no</th>
-                        <th>카테고리</th>
-                        <th>제목</th>
-                        <th>조회수</th>
-                        <th>작성일</th>
-                    </tr>
-                    </thead>
-
                     <tbody>
                         <tr th:each="mainproduct: ${mainproducts}" th:onclick="|javascript:Detail(${mainproduct.mainProductId})|">
-
-                           <td th:text="${mainproduct.mainProductId}"></td>
-                            <td th:text="${mainproduct.mainProductCategory}"></td>
-                            <td>
-                                    <span th:text="${mainproduct.mainProductTitle}"></span>
+                            <td th:text="'['+${mainproduct.mainProductCategory}+'] '+${mainproduct.mainProductTitle}"></td>
+                            <td id="content" >
+                                <span class="content" th:text="${mainproduct.mainProductContent}"></span>
+                                <br/>
+                                <span th:text="${mainproduct.mainProductHit}"></span>
+                                <span th:text="${mainproduct.mainProductDate}"></span>
                             </td>
-                            <td th:text="${mainproduct.mainProductHit}"></td>
-                            <td th:text="${mainproduct.mainProductDate}"></td>
-
                         </tr>
                     </tbody>
                 </table>
+
+                <div class="pagination">
+                    <a href="#">&laquo;</a>
+                    <a href="#">1</a>
+                    <a href="#" class="active">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">6</a>
+                    <a href="#">&raquo;</a>
+                </div>
+
+
 <button type="button" th:onclick="|location.href='@{/mainProductBoard/Insert}'|">글쓰기</button>
 
 </body>

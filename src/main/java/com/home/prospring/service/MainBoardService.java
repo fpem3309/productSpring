@@ -3,6 +3,9 @@ package com.home.prospring.service;
 import com.home.prospring.domain.MainBoard;
 import com.home.prospring.repostory.MainBoardRepository;
 import org.jboss.jandex.Main;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,10 +30,12 @@ public class MainBoardService {
         return mainBoard.getMainProductId();
     }
 
+    //전체 글
     public List<MainBoard> mainBoard(){
         return mainBoardRepository.findAll();
     }
 
+    //메인화면 글
     public Optional<MainBoard> findOne(int mainProductId){
         return mainBoardRepository.findBoard(mainProductId);
     }
