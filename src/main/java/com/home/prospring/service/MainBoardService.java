@@ -2,10 +2,12 @@ package com.home.prospring.service;
 
 import com.home.prospring.domain.MainBoard;
 import com.home.prospring.repostory.MainBoardRepository;
-import com.home.prospring.repostory.SpringDataJpaMemberRepository;
+import com.home.prospring.repostory.SpringDataJpaRepository;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.awt.print.Pageable;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,14 +16,13 @@ import java.util.Optional;
 public class MainBoardService {
 
     private final MainBoardRepository mainBoardRepository;
-    private final SpringDataJpaMemberRepository springDataJpaMemberRepository;
+    private final SpringDataJpaRepository springDataJpaMemberRepository;
 
-    public MainBoardService(MainBoardRepository mainBoardRepository, SpringDataJpaMemberRepository springDataJpaMemberRepository) {
+    public MainBoardService(MainBoardRepository mainBoardRepository, SpringDataJpaRepository springDataJpaMemberRepository) {
         this.mainBoardRepository = mainBoardRepository;
         this.springDataJpaMemberRepository = springDataJpaMemberRepository;
     }
 
-    @Transactional
     public int updateHit(int id){
         return springDataJpaMemberRepository.updateCount(id);
     }

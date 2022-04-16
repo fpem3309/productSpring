@@ -7,9 +7,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 
-public interface SpringDataJpaMemberRepository extends JpaRepository<MainBoard, Long> {
+public interface SpringDataJpaRepository extends JpaRepository<MainBoard, Long> {
 
     @Modifying
     @Query("update MainBoard m set m.mainProductHit = m.mainProductHit + 1 where m.mainProductId = :id")
     int updateCount(@Param("id") int id);
+
 }

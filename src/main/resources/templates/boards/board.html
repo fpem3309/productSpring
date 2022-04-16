@@ -7,23 +7,38 @@
     <title>Title</title>
     <script>
         function Detail(id) {
-            location.href = "http://localhost:8082/mainProductBoard/Detail"+id;
+            location.href = "http://localhost:8082/mainProductBoard/Detail" + id;
         }
     </script>
     <style>
-        table {border-collapse: collapse; width: 70%; margin-left: auto; margin-right: auto;}
-        th, td:not(.content) {padding: 8px; text-align: left; border-bottom: 1px solid #ddd;}
-        tr:hover {background-color: #9CE3B3FF;}
-        #content{
+        table {
+            border-collapse: collapse;
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        th, td:not(.content) {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background-color: #9CE3B3FF;
+        }
+
+        #content {
             padding: 15px;
         }
-        .content{
+
+        .content {
             overflow: hidden;
             text-overflow: ellipsis;
             display: -webkit-box;
             -webkit-line-clamp: 3; /* 라인수 */
             -webkit-box-orient: vertical;
-            word-wrap:break-word;
+            word-wrap: break-word;
             line-height: 1.2em;
             height: 3.6em; /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */
             width: 500px;
@@ -51,35 +66,37 @@
             border: 1px solid #4CAF50;
         }
 
-        .pagination a:hover:not(.active) {background-color: #ddd;}
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+        }
     </style>
 
 </head>
 <body>
-                <table>
-                    <tbody>
-                    <tr th:each="mainproduct: ${mainproducts}" th:onclick="|javascript:Detail(${mainproduct.mainProductId})|">
-                        <td th:text="'['+${mainproduct.mainProductCategory}+'] '+${mainproduct.mainProductTitle}"></td>
-                        <td id="content" >
-                            <span class="content" th:text="${mainproduct.mainProductContent}"></span>
-                            <br/>
-                            <span th:text="${mainproduct.mainProductHit}"></span>
-                            <span th:text="${mainproduct.mainProductDate}"></span>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+<table>
+    <tbody>
+    <tr th:each="mainproduct: ${mainproducts}" th:onclick="|javascript:Detail(${mainproduct.mainProductId})|">
+        <td th:text="'['+${mainproduct.mainProductCategory}+'] '+${mainproduct.mainProductTitle}"></td>
+        <td id="content">
+            <span class="content" th:text="${mainproduct.mainProductContent}"></span>
+            <br/>
+            <span th:text="${mainproduct.mainProductHit}"></span>
+            <span th:text="${mainproduct.mainProductDate}"></span>
+        </td>
+    </tr>
+    </tbody>
+</table>
 
-                <div class="pagination">
-                    <a href="#">&laquo;</a>
-                    <a href="#">1</a>
-                    <a href="#" class="active">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                    <a href="#">5</a>
-                    <a href="#">6</a>
-                    <a href="#">&raquo;</a>
-                </div>
+<div class="pagination">
+    <a href="#">&laquo;</a>
+    <a href="#">1</a>
+    <a href="#" class="active">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <a href="#">6</a>
+    <a href="#">&raquo;</a>
+</div>
 
 
 <button type="button" th:onclick="|location.href='@{/mainProductBoard/Insert}'|">글쓰기</button>
