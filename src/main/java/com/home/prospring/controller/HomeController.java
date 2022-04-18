@@ -1,16 +1,18 @@
 package com.home.prospring.controller;
 
 import com.home.prospring.domain.MainBoard;
+import com.home.prospring.repostory.SpringDataJpaRepository;
 import com.home.prospring.service.MainBoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.print.Pageable;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -20,13 +22,21 @@ public class HomeController {
     private final MainBoardService mainBoardService;
 
     @Autowired
+    private SpringDataJpaRepository springDataJpaRepository;
+
+    @Autowired
     public HomeController(MainBoardService mainBoardService) {
         this.mainBoardService = mainBoardService;
     }
 
     @GetMapping("/mainProductBoard")
-    public String list(Model model){
-        List<MainBoard> mainBoardList = mainBoardService.mainBoard();
+    public String list(Model model, @PageableDefault(size=3) Pageable pageable){
+        Page<MainBoard> mainBoardList = springDataJpaRepository.findAll(pageable);
+        int startPage = Math.max(1,mainBoardList.getPageable().getPageNumber() -4);   // getPageNumber() - 현재 페이지
+        int endPage = Math.min(mainBoardList.getTotalPages(), mainBoardList.getPageable().getPageNumber() + 4);
+        model.addAttribute("startPage",startPage);
+        model.addAttribute("endPage",endPage);
+
         model.addAttribute("mainproducts",mainBoardList);
         return "boards/board";
     }

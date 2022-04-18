@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <script>
         function Detail(id) {
             location.href = "http://localhost:8082/mainProductBoard/Detail" + id;
@@ -73,6 +74,7 @@
 
 </head>
 <body>
+<div> 총 건수 : <span th:text="${mainproducts.totalElements}"></span></div>
 <table>
     <tbody>
     <tr th:each="mainproduct: ${mainproducts}" th:onclick="|javascript:Detail(${mainproduct.mainProductId})|">
@@ -87,16 +89,19 @@
     </tbody>
 </table>
 
-<div class="pagination">
-    <a href="#">&laquo;</a>
-    <a href="#">1</a>
-    <a href="#" class="active">2</a>
-    <a href="#">3</a>
-    <a href="#">4</a>
-    <a href="#">5</a>
-    <a href="#">6</a>
-    <a href="#">&raquo;</a>
-</div>
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <li class="page-item" th:classappend="${1 == mainproducts.pageable.pageNumber + 1} ? 'disabled'">
+            <a class="page-link" th:href="@{/mainProductBoard(page = ${mainproducts.pageable.pageNumber -1})}">Previous</a>
+        </li>
+        <li class="page-item" th:classappend="${i == mainproducts.pageable.pageNumber + 1} ? 'disabled'" th:each="i : ${#numbers.sequence(startPage,endPage)}">
+            <a class="page-link" th:href="@{/mainProductBoard(page = ${i -1})}" th:text="${i}">1</a>
+        </li>
+        <li class="page-item" th:classappend="${mainproducts.totalPages == mainproducts.pageable.pageNumber + 1} ? 'disabled'">
+            <a class="page-link" th:href="@{/mainProductBoard(page = ${mainproducts.pageable.pageNumber +1})}">Next</a>
+        </li>
+    </ul>
+</nav>
 
 
 <button type="button" th:onclick="|location.href='@{/mainProductBoard/Insert}'|">글쓰기</button>
