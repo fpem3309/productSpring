@@ -30,7 +30,7 @@ public class HomeController {
     }
 
     @GetMapping("/mainProductBoard")
-    public String list(Model model, @PageableDefault(size=3) Pageable pageable){
+    public String list(Model model, @PageableDefault(size=5) Pageable pageable){
         Page<MainBoard> mainBoardList = springDataJpaRepository.findAll(pageable);
         int startPage = Math.max(1,mainBoardList.getPageable().getPageNumber() -4);   // getPageNumber() - 현재 페이지
         int endPage = Math.min(mainBoardList.getTotalPages(), mainBoardList.getPageable().getPageNumber() + 4);
