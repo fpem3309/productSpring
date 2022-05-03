@@ -5,12 +5,48 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script>
+        $(function() {
+            $("#btnLogin").click(function () {
+                userid = $("#userid").val();
+                passwd = $("#passwd").val();
+                if (userid === "") {
+                    alert("아이디를 입력하세요");
+                    $("#userid").focus(); //입력포커스 이동
+                    return;
+                }
+                if (passwd === "") {
+                    alert("비밀번호를 입력하세요");
+                    $("#passwd").focus(); //입력포커스 이동
+                    return;
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <form action="/members/new" method="post">
         <label for="name">이름</label>
         <input type="text" id="name" name="name" placeholder="이름을 입력하세요">   <!--MemberForm 의 name-->
         <button type="submit">등록</button>
+    </form>
+
+    <form method="post">
+        <table width="400px">
+            <tr>
+                <td>아이디</td>
+                <td><input id="userid" name="userid"></td>
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td><input type="password" id="passwd" name="passwd"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <button type="button" id="btnLogin">로그인 </button>
+                </td>
+            </tr>
+        </table>
     </form>
 
 </body>
