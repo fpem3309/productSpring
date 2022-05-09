@@ -22,7 +22,7 @@
             });
         </script>
         <style>
-            ul {
+            .header_ul, .hide {
                 margin-top: 20px;
                 list-style-type: none;
                 padding: 0;
@@ -39,11 +39,11 @@
                 padding: 14px 16px;
                 text-decoration: none;
             }
-            ul{
+            .header_ul, .hide {
                 background: #2BAE66;
             }
             li a:hover:not(#active) {
-                background-color: #111;
+                background-color: #A2F896FF;
             }
             #active {
                 background-color: white;
@@ -79,7 +79,7 @@
 
         </style>
 
-        <ul>
+        <ul class="header_ul">
             <li class="header_li" id="active">
                 <nav>
                     <input type="checkbox" id="icon">
@@ -90,11 +90,11 @@
                         <h3 class="menu">
                                 <a>Program</a>
                                 <ul class="hide">
-                                    <li><a th:href="@{/categoryBoard(category=Java)}">Java</a></li>
-                                    <li><a th:href="@{/categoryBoard(category=Spring)}">Spring</a></li>
-                                    <li><a th:href="@{/categoryBoard(category=Android)}">Android</a></li>
-                                    <li><a th:href="@{/categoryBoard(category=Javascript)}">Javascript</a></li>
-                                    <li><a th:href="@{/categoryBoard(category=JPA)}">JPA</a></li>
+                                    <li class="hide_li"><a th:href="@{/categoryBoard(category=Java)}">Java</a></li>
+                                    <li class="hide_li"><a th:href="@{/categoryBoard(category=Spring)}">Spring</a></li>
+                                    <li class="hide_li"><a th:href="@{/categoryBoard(category=Android)}">Android</a></li>
+                                    <li class="hide_li"><a th:href="@{/categoryBoard(category=Javascript)}">Javascript</a></li>
+                                    <li class="hide_li"><a th:href="@{/categoryBoard(category=JPA)}">JPA</a></li>
                                 </ul>
                         </h3>
 
