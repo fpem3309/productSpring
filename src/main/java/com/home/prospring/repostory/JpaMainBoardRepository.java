@@ -45,9 +45,7 @@ public class JpaMainBoardRepository implements MainBoardRepository {
     }
 
     /**
-     * 카테고리 선택했을때
-     *
-     * @param mainProductCategory
+     * 카테고리 선택했을때     * @param mainProductCategory
      * @return
      */
     @Override

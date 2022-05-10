@@ -22,8 +22,11 @@
             });
         </script>
         <style>
+            .header_ul {
+                height: 50px;
+                margin: 20px;
+            }
             .header_ul, .hide {
-                margin-top: 20px;
                 list-style-type: none;
                 padding: 0;
                 overflow: hidden;
@@ -42,8 +45,9 @@
             .header_ul, .hide {
                 background: #2BAE66;
             }
-            li a:hover:not(#active) {
+            .header_li a:hover:not(#active) {
                 background-color: #A2F896FF;
+                color: white;
             }
             #active {
                 background-color: white;
@@ -73,6 +77,14 @@
             #icon:checked + label + .sidebar {
                 left: 0;
             }
+            .sideMenu, .header_li{
+                color: white;
+            }
+            .menu {
+                font-size: 1.17em;
+                font-weight: bold;
+            }
+
 
             .menu a{cursor:pointer;}
             .menu .hide{display:none;}
@@ -85,10 +97,10 @@
                     <input type="checkbox" id="icon">
                     <label for="icon"><img src="/images/buger.png" alt="메뉴" style="width: 50px;"></label>
                     <div class="sidebar">
-                        <h3><a th:href="@{/}">메인</a></h3>
-                        <h3><a th:href="@{/mainProductBoard}">전체 글</a></h3>
+                        <h3 class="menu"><a class="sideMenu" th:href="@{/}">메인</a></h3>
+                        <h3 class="menu"><a class="sideMenu" th:href="@{/mainProductBoard}">전체 글</a></h3>
                         <h3 class="menu">
-                                <a>Program</a>
+                                <a class="sideMenu">Program</a>
                                 <ul class="hide">
                                     <li class="hide_li"><a th:href="@{/categoryBoard(category=Java)}">Java</a></li>
                                     <li class="hide_li"><a th:href="@{/categoryBoard(category=Spring)}">Spring</a></li>
