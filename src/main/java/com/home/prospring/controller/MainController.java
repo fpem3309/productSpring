@@ -33,6 +33,10 @@ public class MainController {
         model.addAttribute("jsBoards",jsBoardList);
         model.addAttribute("jpaBoards",jpaBoardList);
 
+
+        List<MainBoard> asiaBoardList = mainBoardService.asiaBoard();
+        model.addAttribute("asia",asiaBoardList);
+
         return "main";
     }
 }

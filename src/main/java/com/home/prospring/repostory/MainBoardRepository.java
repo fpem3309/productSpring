@@ -22,4 +22,6 @@ public interface MainBoardRepository {
     List<MainBoard> findAndroid();
     List<MainBoard> findJS();
     List<MainBoard> findJPA();
+
+    List<MainBoard> findAsia();
 }

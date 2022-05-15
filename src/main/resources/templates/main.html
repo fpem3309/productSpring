@@ -47,6 +47,29 @@
 <body>
 
 <div id="cate_area">
+
+
+    <!--아시아-->
+    <div class="cate_board">
+        <p th:text="동남아시아"></p>
+        <table>
+            <thead>
+            <colgroup>
+                <col width="70%">
+                <col width="30%">
+            </colgroup>
+            </thead>
+
+            <tbody>
+            <tr th:each="springBoard: ${asia}" th:onclick="|javascript:Detail(${springBoard.mainProductId})|">
+                <td th:text="${springBoard.mainProductTitle}"></td>
+                <td th:text="${springBoard.mainProductDate}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
     <div class="cate_board">
         <p th:text="Java"></p>
         <table>

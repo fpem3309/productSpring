@@ -64,4 +64,6 @@ public class MainBoardService {
     public List<MainBoard> jsBoard(){return mainBoardRepository.findJS();}
     public List<MainBoard> jpaBoard(){return mainBoardRepository.findJPA();}
 
+    public List<MainBoard> asiaBoard(){return mainBoardRepository.findAsia();}
+
 }

@@ -89,5 +89,10 @@ public class JpaMainBoardRepository implements MainBoardRepository {
                 .setMaxResults(5).getResultList();
     }
 
+    @Override
+    public List<MainBoard> findAsia() {
+        return em.createQuery("select m from MainBoard m order by m.mainProductId desc", MainBoard.class)   //MainBoard Entity에 query 하는것, m = as m
+                .setMaxResults(5).getResultList();
+    }
 
 }

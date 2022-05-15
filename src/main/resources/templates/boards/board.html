@@ -100,6 +100,7 @@
 <table>
     <tbody>
     <tr th:each="mainproduct: ${mainproducts}" th:onclick="|javascript:Detail(${mainproduct.mainProductId})|">
+        <td><img src="/images/buger.png"></td>
         <td th:text="'['+${mainproduct.mainProductCategory}+'] '+${mainproduct.mainProductTitle}"></td>
         <td id="content">
             <span class="content" th:text="${mainproduct.mainProductContent}"></span>
