@@ -51,7 +51,6 @@ public class MainBoardService {
     }
 
 
-
     public List<MainBoard> findCategory(String mainProductCategory){
         return mainBoardRepository.findCategory(mainProductCategory);
     }
