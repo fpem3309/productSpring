@@ -8,7 +8,7 @@
     <title>Title</title>
     <script>
         function Detail(id) {
-            location.href = "http://localhost:8082/mainProductBoard/Detail"+id;
+            location.href = "http://localhost:8082/mainProductBoard/Detail" + id;
         }
     </script>
     <style>
@@ -71,7 +71,7 @@
 
 
     <div class="cate_board">
-        <p th:text="Java"></p>
+        <p th:text="|인도|"></p>
         <table>
             <thead>
             <colgroup>
@@ -81,11 +81,11 @@
             </thead>
 
             <tbody>
-            <tr th:each="javaBoard: ${javaBoards}" th:onclick="|javascript:Detail(${javaBoard.mainProductId})|">
+            <tr th:each="indiaBoard: ${india}" th:onclick="|javascript:Detail(${indiaBoard.indiaId})|">
                 <td>
-                        <span th:text="${javaBoard.mainProductTitle}"></span>
+                    <span th:text="${indiaBoard.indiaTitle}"></span>
                 </td>
-                <td th:text="${javaBoard.mainProductDate}"></td>
+                <td th:text="${indiaBoard.indiaDate}"></td>
 
             </tr>
             </tbody>
@@ -93,7 +93,7 @@
     </div>
 
     <div class="cate_board">
-        <p th:text="Spring"></p>
+        <p th:text="|중앙 아시아|"></p>
         <table>
             <thead>
             <colgroup>
@@ -113,7 +113,7 @@
     </div>
 
     <div class="cate_board">
-        <p th:text="Android"></p>
+        <p th:text="|중동 아시아|"></p>
         <table>
             <thead>
             <colgroup>
@@ -123,7 +123,8 @@
             </thead>
 
             <tbody>
-            <tr th:each="androidBoard: ${androidBoards}" th:onclick="|javascript:Detail(${androidBoard.mainProductId})|">
+            <tr th:each="androidBoard: ${androidBoards}"
+                th:onclick="|javascript:Detail(${androidBoard.mainProductId})|">
                 <td>
                     <span th:text="${androidBoard.mainProductTitle}"></span>
                 </td>
@@ -135,7 +136,7 @@
     </div>
 
     <div class="cate_board">
-        <p th:text="Javascript"></p>
+        <p th:text="|유럽|"></p>
         <table>
             <thead>
             <colgroup>
@@ -157,7 +158,28 @@
     </div>
 
     <div class="cate_board">
-        <p th:text="JPA"></p>
+        <p th:text="|북중미|"></p>
+        <table>
+            <thead>
+            <colgroup>
+                <col width="70%">
+                <col width="30%">
+            </thead>
+
+            <tbody>
+            <tr th:each="jpaBoard: ${jpaBoards}" th:onclick="|javascript:Detail(${jpaBoard.mainProductId})|">
+                <td>
+                    <span th:text="${jpaBoard.mainProductTitle}"></span>
+                </td>
+                <td th:text="${jpaBoard.mainProductDate}"></td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="cate_board">
+        <p th:text="|남미|"></p>
         <table>
             <thead>
             <colgroup>

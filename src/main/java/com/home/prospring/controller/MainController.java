@@ -1,5 +1,6 @@
 package com.home.prospring.controller;
 
+import com.home.prospring.domain.IndiaBoard;
 import com.home.prospring.domain.MainBoard;
 import com.home.prospring.service.MainBoardService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +36,9 @@ public class MainController {
 
 
         List<MainBoard> asiaBoardList = mainBoardService.asiaBoard();
+        List<IndiaBoard> indiaBoardList = mainBoardService.indiaBoard();
         model.addAttribute("asia",asiaBoardList);
-
+        model.addAttribute("india",indiaBoardList);
         return "main";
     }
 }

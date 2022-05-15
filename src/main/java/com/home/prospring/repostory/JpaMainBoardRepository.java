@@ -1,5 +1,6 @@
 package com.home.prospring.repostory;
 
+import com.home.prospring.domain.IndiaBoard;
 import com.home.prospring.domain.MainBoard;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -92,6 +93,12 @@ public class JpaMainBoardRepository implements MainBoardRepository {
     @Override
     public List<MainBoard> findAsia() {
         return em.createQuery("select m from MainBoard m order by m.mainProductId desc", MainBoard.class)   //MainBoard Entity에 query 하는것, m = as m
+                .setMaxResults(5).getResultList();
+    }
+
+    @Override
+    public List<IndiaBoard> findIndia() {
+        return em.createQuery("select m from IndiaBoard m order by m.indiaId desc", IndiaBoard.class)   //MainBoard Entity에 query 하는것, m = as m
                 .setMaxResults(5).getResultList();
     }
 

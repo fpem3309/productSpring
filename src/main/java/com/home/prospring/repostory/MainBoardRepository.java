@@ -1,5 +1,6 @@
 package com.home.prospring.repostory;
 
+import com.home.prospring.domain.IndiaBoard;
 import com.home.prospring.domain.MainBoard;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -24,4 +25,5 @@ public interface MainBoardRepository {
     List<MainBoard> findJPA();
 
     List<MainBoard> findAsia();
+    List<IndiaBoard> findIndia();
 }

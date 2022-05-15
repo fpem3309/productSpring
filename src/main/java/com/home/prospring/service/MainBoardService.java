@@ -1,5 +1,6 @@
 package com.home.prospring.service;
 
+import com.home.prospring.domain.IndiaBoard;
 import com.home.prospring.domain.MainBoard;
 import com.home.prospring.repostory.MainBoardRepository;
 import com.home.prospring.repostory.SpringDataJpaRepository;
@@ -65,5 +66,6 @@ public class MainBoardService {
     public List<MainBoard> jpaBoard(){return mainBoardRepository.findJPA();}
 
     public List<MainBoard> asiaBoard(){return mainBoardRepository.findAsia();}
+    public List<IndiaBoard> indiaBoard(){return mainBoardRepository.findIndia();}
 
 }

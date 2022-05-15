@@ -1,6 +1,8 @@
 package com.home.prospring.controller;
 
+import com.home.prospring.domain.IndiaBoard;
 import com.home.prospring.domain.MainBoard;
+import com.home.prospring.repostory.IndiaDJRepository;
 import com.home.prospring.repostory.SpringDataJpaRepository;
 import com.home.prospring.service.MainBoardService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,9 @@ public class HomeController {
     private SpringDataJpaRepository springDataJpaRepository;
 
     @Autowired
+    private IndiaDJRepository indiaDJRepository;
+
+    @Autowired
     public HomeController(MainBoardService mainBoardService) {
         this.mainBoardService = mainBoardService;
     }
@@ -39,6 +44,18 @@ public class HomeController {
 
         model.addAttribute("mainproducts",mainBoardList);
         return "boards/board";
+    }
+
+    @GetMapping("/indiaBoard")
+    public String indiaList(Model model, @PageableDefault(size=5) Pageable pageable, String searchText){
+        Page<IndiaBoard> indiaList = indiaDJRepository.findAll(pageable);
+        int startPage = Math.max(1,indiaList.getPageable().getPageNumber() -4);   // getPageNumber() - 현재 페이지
+        int endPage = Math.min(indiaList.getTotalPages(), indiaList.getPageable().getPageNumber() + 4);
+        model.addAttribute("startPage",startPage);
+        model.addAttribute("endPage",endPage);
+
+        model.addAttribute("indiaList",indiaList);
+        return "boards/indiaBoard";
     }
 
     @GetMapping("/categoryBoard")
