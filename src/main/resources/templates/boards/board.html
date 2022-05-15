@@ -12,6 +12,9 @@
         }
     </script>
     <style>
+        #banner{
+            height: 300px;
+        }
         #ch_write{
             font-weight: bold;
             padding-left: 30px;
@@ -84,7 +87,7 @@
 
 </head>
 <body>
-
+<div id="banner"><img src="/images/buger.png"></div>
 <div id="ch_write"> 전체 글  <span style="color: aqua" th:text="${mainproducts.totalElements}"></span></div>
 
 <!--<form class="row g-3 d-flex justify-content-end" >-->
@@ -96,7 +99,7 @@
 <!--        <button type="submit" class="btn btn-light mb-3">검색</button>-->
 <!--    </div>-->
 <!--</form>-->
-
+<div></div>
 <table>
     <tbody>
     <tr th:each="mainproduct: ${mainproducts}" th:onclick="|javascript:Detail(${mainproduct.mainProductId})|">
