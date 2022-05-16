@@ -2,10 +2,9 @@ package com.home.prospring.service;
 
 import com.home.prospring.domain.IndiaBoard;
 import com.home.prospring.domain.MainBoard;
+import com.home.prospring.repostory.IndiaDJRepository;
 import com.home.prospring.repostory.MainBoardRepository;
 import com.home.prospring.repostory.SpringDataJpaRepository;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,14 +17,19 @@ public class MainBoardService {
 
     private final MainBoardRepository mainBoardRepository;
     private final SpringDataJpaRepository springDataJpaMemberRepository;
+    private final IndiaDJRepository indiaDJRepository;
 
-    public MainBoardService(MainBoardRepository mainBoardRepository, SpringDataJpaRepository springDataJpaMemberRepository) {
+    public MainBoardService(MainBoardRepository mainBoardRepository, SpringDataJpaRepository springDataJpaMemberRepository, IndiaDJRepository indiaDJRepository) {
         this.mainBoardRepository = mainBoardRepository;
         this.springDataJpaMemberRepository = springDataJpaMemberRepository;
+        this.indiaDJRepository = indiaDJRepository;
     }
 
     public int updateHit(int id){
         return springDataJpaMemberRepository.updateCount(id);
+    }
+    public int updateIndiaHit(int id){
+        return indiaDJRepository.updateCount(id);
     }
 
     /**
@@ -34,6 +38,10 @@ public class MainBoardService {
     public int Insert(MainBoard mainBoard){
         mainBoardRepository.Insert(mainBoard);
         return mainBoard.getMainProductId();
+    }
+    public int indiaInsert(IndiaBoard indiaBoard){
+        mainBoardRepository.indiaInsert(indiaBoard);
+        return indiaBoard.getIndiaId();
     }
 
     //전체 글

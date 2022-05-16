@@ -14,9 +14,9 @@ import java.util.Optional;
 
 public interface IndiaDJRepository extends JpaRepository<IndiaBoard, Long> {
 
-//    @Modifying
-//    @Query("update MainBoard m set m.mainProductHit = m.mainProductHit + 1 where m.mainProductId = :id")
-//    int updateCount(@Param("id") int id);
+    @Modifying
+    @Query("update IndiaBoard m set m.indiaHit = m.indiaHit + 1 where m.indiaId = :id")
+    int updateCount(@Param("id") int id);
 
     //Page<MainBoard> findByTitleContainingOrContentContaining(String mainProductTitle, String mainProductContent, Pageable pageable);
     Page<IndiaBoard> findByIndiaCategory(String indiaCategory, Pageable pageable);

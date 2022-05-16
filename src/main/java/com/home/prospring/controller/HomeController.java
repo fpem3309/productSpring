@@ -46,31 +46,6 @@ public class HomeController {
         return "boards/board";
     }
 
-    @GetMapping("/indiaGallery")
-    public String indiaGallery(){
-        return "/gallery/indiaGallery";
-    }
-
-    @GetMapping("/indiaBoard")
-    public String indiaList(@RequestParam String country, Model model, @PageableDefault(size=5) Pageable pageable){
-        Page<IndiaBoard> indiaList = indiaDJRepository.findByIndiaCategory(country, pageable);
-        int startPage = Math.max(1,indiaList.getPageable().getPageNumber() -4);   // getPageNumber() - 현재 페이지
-        int endPage = Math.min(indiaList.getTotalPages(), indiaList.getPageable().getPageNumber() + 4);
-        model.addAttribute("startPage",startPage);
-        model.addAttribute("endPage",endPage);
-        model.addAttribute("indiaList",indiaList);
-        model.addAttribute("country",country);
-        return "boards/indiaBoard";
-    }
-
-    @GetMapping("/indiaBoard/Detail{no}")
-    public String indiaBoardDetail(@PathVariable int no, Model model){
-        IndiaBoard boardOne = mainBoardService.findIndiaOne(no).get();
-        model.addAttribute("boardOne",boardOne);
-        //mainBoardService.updateHit(no);
-        return "boards/indiaBoardDetail";
-    }
-
     @GetMapping("/categoryBoard")
     public String cate_list(Model model, @RequestParam String category){
         List<MainBoard> boardList = mainBoardService.findCategory(category);

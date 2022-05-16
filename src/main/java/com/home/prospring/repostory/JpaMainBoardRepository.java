@@ -96,6 +96,14 @@ public class JpaMainBoardRepository implements MainBoardRepository {
                 .setMaxResults(5).getResultList();
     }
 
+
+
+    @Override
+    public IndiaBoard indiaInsert(IndiaBoard indiaBoard) {
+        em.persist(indiaBoard);
+        return indiaBoard;
+    }
+
     @Override
     public List<IndiaBoard> findIndia() {
         return em.createQuery("select m from IndiaBoard m order by m.indiaId desc", IndiaBoard.class)   //MainBoard Entity에 query 하는것, m = as m

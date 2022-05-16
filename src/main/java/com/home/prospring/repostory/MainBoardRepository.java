@@ -26,6 +26,9 @@ public interface MainBoardRepository {
 
     List<MainBoard> findAsia();
 
+
+
+    IndiaBoard indiaInsert(IndiaBoard indiaBoard);
     List<IndiaBoard> findIndia();
     Optional<IndiaBoard> findIndiaBoard(int indiaId);
 }
