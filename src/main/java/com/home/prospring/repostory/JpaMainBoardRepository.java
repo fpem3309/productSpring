@@ -105,6 +105,12 @@ public class JpaMainBoardRepository implements MainBoardRepository {
     }
 
     @Override
+    public IndiaBoard indiaDelete(IndiaBoard indiaBoard) {
+        em.remove(indiaBoard);
+        return indiaBoard;
+    }
+
+    @Override
     public List<IndiaBoard> findIndia() {
         return em.createQuery("select m from IndiaBoard m order by m.indiaId desc", IndiaBoard.class)   //MainBoard Entity에 query 하는것, m = as m
                 .setMaxResults(5).getResultList();

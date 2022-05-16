@@ -39,8 +39,16 @@ public class MainBoardService {
         mainBoardRepository.Insert(mainBoard);
         return mainBoard.getMainProductId();
     }
+
+    /**
+     * 인도
+     */
     public int indiaInsert(IndiaBoard indiaBoard){
         mainBoardRepository.indiaInsert(indiaBoard);
+        return indiaBoard.getIndiaId();
+    }
+    public int indiaRemove(IndiaBoard indiaBoard){
+        mainBoardRepository.indiaDelete(indiaBoard);
         return indiaBoard.getIndiaId();
     }
 

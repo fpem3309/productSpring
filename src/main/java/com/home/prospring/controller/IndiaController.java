@@ -74,4 +74,12 @@ public class IndiaController {
         mainBoardService.indiaInsert(boardOne);
         return "redirect:/indiaBoard?country=india";
     }
+
+    @GetMapping("/indiaBoard/Delete{no}")
+    public String indiaBoardDelete(@PathVariable int no){
+        IndiaBoard boardOne = mainBoardService.findIndiaOne(no).get();
+        System.out.println("삭제 no = "+boardOne.getIndiaId());
+        mainBoardService.indiaRemove(boardOne);
+        return "redirect:/indiaBoard?country=india";
+    }
 }

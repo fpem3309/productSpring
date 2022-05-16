@@ -29,6 +29,7 @@ public interface MainBoardRepository {
 
 
     IndiaBoard indiaInsert(IndiaBoard indiaBoard);
+    IndiaBoard indiaDelete(IndiaBoard indiaBoard);
     List<IndiaBoard> findIndia();
     Optional<IndiaBoard> findIndiaBoard(int indiaId);
 }
