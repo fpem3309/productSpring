@@ -6,16 +6,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"/>
     <script>
         function Detail(id) {
             location.href = "http://localhost:8082/mainProductBoard/Detail" + id;
+        }
+
+        function IndiaDetail(id) {
+            location.href = "http://localhost:8082/indiaBoard/Detail" + id;
         }
     </script>
     <style>
         #cate_area {
             width: 80%;
-            margin-left: 240px;
-            margin-top: 100px;
+            text-align: center;
+            margin-left: auto;
         }
 
         .cate_board {
@@ -43,14 +48,13 @@
             width: auto;
         }
     </style>
+
 </head>
 <body>
 
 <div id="cate_area">
-
-
-    <!--아시아-->
-    <div class="cate_board">
+    <!-- 카테고리 -->
+    <div class="cate_board" data-rellax-speed="4">
         <p th:text="동남아시아"></p>
         <table>
             <thead>
@@ -70,7 +74,7 @@
     </div>
 
 
-    <div class="cate_board">
+    <div class="cate_board" data-rellax-speed="-8">
         <p th:text="|인도|"></p>
         <table>
             <thead>
@@ -81,7 +85,7 @@
             </thead>
 
             <tbody>
-            <tr th:each="indiaBoard: ${india}" th:onclick="|javascript:Detail(${indiaBoard.indiaId})|">
+            <tr th:each="indiaBoard: ${india}" th:onclick="|javascript:IndiaDetail(${indiaBoard.indiaId})|">
                 <td>
                     <span th:text="${indiaBoard.indiaTitle}"></span>
                 </td>
@@ -92,7 +96,7 @@
         </table>
     </div>
 
-    <div class="cate_board">
+    <div class="cate_board" data-rellax-speed="10">
         <p th:text="|중앙 아시아|"></p>
         <table>
             <thead>
@@ -112,7 +116,7 @@
         </table>
     </div>
 
-    <div class="cate_board">
+    <div class="cate_board" data-rellax-speed="-3">
         <p th:text="|중동 아시아|"></p>
         <table>
             <thead>
@@ -135,7 +139,7 @@
         </table>
     </div>
 
-    <div class="cate_board">
+    <div class="cate_board" data-rellax-speed="-6">
         <p th:text="|유럽|"></p>
         <table>
             <thead>
@@ -157,7 +161,7 @@
         </table>
     </div>
 
-    <div class="cate_board">
+    <div class="cate_board" data-rellax-speed="-9">
         <p th:text="|북중미|"></p>
         <table>
             <thead>
@@ -178,7 +182,7 @@
         </table>
     </div>
 
-    <div class="cate_board">
+    <div class="cate_board" data-rellax-speed="-8">
         <p th:text="|남미|"></p>
         <table>
             <thead>
@@ -199,5 +203,8 @@
         </table>
     </div>
 </div>
+<script>
+    new Rellax('.cate_board');
+</script>
 </body>
 </html>

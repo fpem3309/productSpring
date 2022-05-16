@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"/>
     <script>
         $(function() {
             $("#btnLogin").click(function () {
@@ -23,6 +24,12 @@
             });
         });
     </script>
+    <style>
+        .rellax{
+            height: 300px;
+            width: 300px;
+        }
+    </style>
 </head>
 <body>
     <form action="/members/new" method="post">
@@ -49,5 +56,20 @@
         </table>
     </form>
 
+    <div class="rellax" data-rellax-speed="-3">
+        I’m slow and smooth
+    </div>
+
+    <div class="rellax" data-rellax-speed="7">
+        I’m super fast!!
+    </div>
+
+    <div class="rellax" data-rellax-speed="-5">
+        I’m extra slow and smooth
+    </div>
+
+<script>
+    new Rellax('.rellax');
+</script>
 </body>
 </html>

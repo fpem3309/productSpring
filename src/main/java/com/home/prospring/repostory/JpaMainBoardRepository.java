@@ -97,7 +97,9 @@ public class JpaMainBoardRepository implements MainBoardRepository {
     }
 
 
-
+/**
+ * 인도
+ */
     @Override
     public IndiaBoard indiaInsert(IndiaBoard indiaBoard) {
         em.persist(indiaBoard);
