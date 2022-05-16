@@ -58,31 +58,6 @@
             width: 500px;
             text-decoration: none;
         }
-
-        /*페이지네이션*/
-        /*.pagination {*/
-        /*    display: table;*/
-        /*    margin: auto;*/
-        /*}*/
-
-        /*.pagination a {*/
-        /*    color: black;*/
-        /*    float: left;*/
-        /*    padding: 8px 16px;*/
-        /*    text-decoration: none;*/
-        /*    transition: background-color .3s;*/
-        /*    border: 1px solid #ddd;*/
-        /*}*/
-
-        /*.pagination a.active {*/
-        /*    background-color: #4CAF50;*/
-        /*    color: white;*/
-        /*    border: 1px solid #4CAF50;*/
-        /*}*/
-
-        /*.pagination a:hover:not(.active) {*/
-        /*    background-color: #ddd;*/
-        /*}*/
     </style>
 
 </head>
@@ -90,15 +65,6 @@
 <div id="banner"><img src="/images/buger.png"></div>
 <div id="ch_write"> 전체 글  <span style="color: aqua" th:text="${indiaList.totalElements}"></span></div>
 
-<!--<form class="row g-3 d-flex justify-content-end" >-->
-<!--    <div class="col-auto">-->
-<!--        <label for="searchText" class="visually-hidden">검색</label>-->
-<!--        <input type="text" name="searchText" id="searchText" placeholder="Password">-->
-<!--    </div>-->
-<!--    <div class="col-auto">-->
-<!--        <button type="submit" class="btn btn-light mb-3">검색</button>-->
-<!--    </div>-->
-<!--</form>-->
 <table>
     <tbody>
     <tr th:each="indiaboards: ${indiaList}" th:onclick="|javascript:Detail(${indiaboards.indiaId})|">
@@ -114,22 +80,24 @@
     </tbody>
 </table>
 
+
 <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
         <li class="page-item" th:classappend="${1 == indiaList.pageable.pageNumber + 1} ? 'disabled'">
-            <a class="page-link" th:href="@{/mainProductBoard(page = ${indiaList.pageable.pageNumber -1})}">&laquo;</a>
+            <a class="page-link" th:href="@{/indiaBoard(country=${country},page = ${indiaList.pageable.pageNumber -1})}">&laquo;</a>
         </li>
         <li class="page-item" th:classappend="${i == indiaList.pageable.pageNumber + 1} ? 'disabled'" th:each="i : ${#numbers.sequence(startPage,endPage)}">
-            <a class="page-link" th:href="@{/mainProductBoard(page = ${i -1})}" th:text="${i}">1</a>
+            <a class="page-link" th:href="@{/indiaBoard(country=${country},page = ${i -1})}" th:text="${i}">1</a>
         </li>
         <li class="page-item" th:classappend="${indiaList.totalPages == indiaList.pageable.pageNumber + 1} ? 'disabled'">
-            <a class="page-link" th:href="@{/mainProductBoard(page = ${indiaList.pageable.pageNumber +1})}">&raquo;</a>
+            <a class="page-link" th:href="@{/indiaBoard(country=${country},page = ${indiaList.pageable.pageNumber +1})}">&raquo;</a>
         </li>
     </ul>
 </nav>
 
 
 <button type="button" th:onclick="|location.href='@{/mainProductBoard/Insert}'|">글쓰기</button>
+<button type="button" th:onclick="|location.href='@{/indiaGallery}'|">이전으로</button>
 
 </body>
 </html>
