@@ -67,5 +67,8 @@ public class MainBoardService {
 
     public List<MainBoard> asiaBoard(){return mainBoardRepository.findAsia();}
     public List<IndiaBoard> indiaBoard(){return mainBoardRepository.findIndia();}
+    public Optional<IndiaBoard> findIndiaOne(int indiaId){
+        return mainBoardRepository.findIndiaBoard(indiaId);
+    }
 
 }

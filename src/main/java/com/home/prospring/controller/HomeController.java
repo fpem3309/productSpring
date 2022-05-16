@@ -46,6 +46,11 @@ public class HomeController {
         return "boards/board";
     }
 
+    @GetMapping("/indiaGallery")
+    public String indiaGallery(){
+        return "/gallery/indiaGallery";
+    }
+
     @GetMapping("/indiaBoard")
     public String indiaList(Model model, @PageableDefault(size=5) Pageable pageable, String searchText){
         Page<IndiaBoard> indiaList = indiaDJRepository.findAll(pageable);
@@ -56,6 +61,14 @@ public class HomeController {
 
         model.addAttribute("indiaList",indiaList);
         return "boards/indiaBoard";
+    }
+
+    @GetMapping("/indiaBoard/Detail{no}")
+    public String indiaBoardDetail(@PathVariable int no, Model model){
+        IndiaBoard boardOne = mainBoardService.findIndiaOne(no).get();
+        model.addAttribute("boardOne",boardOne);
+        //mainBoardService.updateHit(no);
+        return "boards/indiaBoardDetail";
     }
 
     @GetMapping("/categoryBoard")

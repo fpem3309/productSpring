@@ -102,4 +102,10 @@ public class JpaMainBoardRepository implements MainBoardRepository {
                 .setMaxResults(5).getResultList();
     }
 
+    @Override
+    public Optional<IndiaBoard> findIndiaBoard(int indiaId) {
+        IndiaBoard indiaBoard = em.find(IndiaBoard.class, indiaId);
+        return Optional.ofNullable(indiaBoard);
+    }
+
 }

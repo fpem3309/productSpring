@@ -25,5 +25,7 @@ public interface MainBoardRepository {
     List<MainBoard> findJPA();
 
     List<MainBoard> findAsia();
+
     List<IndiaBoard> findIndia();
+    Optional<IndiaBoard> findIndiaBoard(int indiaId);
 }
