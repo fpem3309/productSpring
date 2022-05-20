@@ -65,7 +65,7 @@
             </thead>
 
             <tbody>
-            <tr th:each="springBoard: ${asia}" th:onclick="|javascript:Detail(${springBoard.mainProductId})|">
+            <tr th:each="springBoard: ${asia}" th:onclick="|location.href='/mainProductBoard/Detail${springBoard.mainProductId}'|">
                 <td th:text="${springBoard.mainProductTitle}"></td>
                 <td th:text="${springBoard.mainProductDate}"></td>
             </tr>
@@ -85,7 +85,7 @@
             </thead>
 
             <tbody>
-            <tr th:each="indiaBoard: ${india}" th:onclick="|javascript:IndiaDetail(${indiaBoard.indiaId})|">
+            <tr th:each="indiaBoard: ${india}" th:onclick="|location.href='/indiaBoard/Detail${indiaBoard.indiaId}'|">
                 <td>
                     <span th:text="${indiaBoard.indiaTitle}"></span>
                 </td>
