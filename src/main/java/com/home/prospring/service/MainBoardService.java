@@ -1,9 +1,8 @@
 package com.home.prospring.service;
 
-//import com.home.prospring.domain.CenAsiaBoard;
+import com.home.prospring.domain.CenAsiaBoard;
 import com.home.prospring.domain.IndiaBoard;
 import com.home.prospring.domain.MainBoard;
-//import com.home.prospring.repostory.CenAsiaDJRepository;
 import com.home.prospring.repostory.IndiaDJRepository;
 import com.home.prospring.repostory.MainBoardRepository;
 import com.home.prospring.repostory.SpringDataJpaRepository;
@@ -60,17 +59,17 @@ public class MainBoardService {
     /**
      * 중앙아시아
      */
-//    public int cenAsiaInsert(CenAsiaBoard cenAsiaBoard){
-//        mainBoardRepository.cenAsiaInsert(cenAsiaBoard);
-//        return cenAsiaBoard.getCenasiaId();
-//    }
-//    public int cenAsiaRemove(CenAsiaBoard cenAsiaBoard){
-//        mainBoardRepository.cenAsiaDelete(cenAsiaBoard);
-//        return cenAsiaBoard.getCenasiaId();
-//    }
-//    public Optional<CenAsiaBoard> findCenAsiaOne(int cenAsiaId){
-//        return mainBoardRepository.findCenAsiaBoard(cenAsiaId);
-//    }
+    public int cenAsiaInsert(CenAsiaBoard cenAsiaBoard){
+        mainBoardRepository.cenAsiaInsert(cenAsiaBoard);
+        return cenAsiaBoard.getCenasiaId();
+    }
+    public int cenAsiaRemove(CenAsiaBoard cenAsiaBoard){
+        mainBoardRepository.cenAsiaDelete(cenAsiaBoard);
+        return cenAsiaBoard.getCenasiaId();
+    }
+    public Optional<CenAsiaBoard> findCenAsiaOne(int cenAsiaId){
+        return mainBoardRepository.findCenAsiaBoard(cenAsiaId);
+    }
 
 
     /**

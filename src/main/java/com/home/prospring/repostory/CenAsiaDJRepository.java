@@ -11,9 +11,9 @@
 //
 //public interface CenAsiaDJRepository extends JpaRepository<CenAsiaBoard, Long> {
 //
-//    @Modifying
-//    @Query("update CenAsiaBoard m set m.cenasiaHit = m.cenasiaHit + 1 where m.cenasiaId = :id")
-//    int updateCount(@Param("id") int id);
+////    @Modifying
+////    @Query("update CenAsiaBoard m set m.cenasiaHit = m.cenasiaHit + 1 where m.cenasiaId = :id")
+////    int updateCount(@Param("id") int id);
 //
 //    //Page<MainBoard> findByTitleContainingOrContentContaining(String mainProductTitle, String mainProductContent, Pageable pageable);
 //    Page<CenAsiaBoard> findByCenAsiaCategory(String cenAsiaCategory, Pageable pageable);
