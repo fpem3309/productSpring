@@ -1,7 +1,9 @@
 package com.home.prospring.service;
 
+//import com.home.prospring.domain.CenAsiaBoard;
 import com.home.prospring.domain.IndiaBoard;
 import com.home.prospring.domain.MainBoard;
+//import com.home.prospring.repostory.CenAsiaDJRepository;
 import com.home.prospring.repostory.IndiaDJRepository;
 import com.home.prospring.repostory.MainBoardRepository;
 import com.home.prospring.repostory.SpringDataJpaRepository;
@@ -51,6 +53,30 @@ public class MainBoardService {
         mainBoardRepository.indiaDelete(indiaBoard);
         return indiaBoard.getIndiaId();
     }
+    public Optional<IndiaBoard> findIndiaOne(int indiaId){
+        return mainBoardRepository.findIndiaBoard(indiaId);
+    }
+
+    /**
+     * 중앙아시아
+     */
+//    public int cenAsiaInsert(CenAsiaBoard cenAsiaBoard){
+//        mainBoardRepository.cenAsiaInsert(cenAsiaBoard);
+//        return cenAsiaBoard.getCenasiaId();
+//    }
+//    public int cenAsiaRemove(CenAsiaBoard cenAsiaBoard){
+//        mainBoardRepository.cenAsiaDelete(cenAsiaBoard);
+//        return cenAsiaBoard.getCenasiaId();
+//    }
+//    public Optional<CenAsiaBoard> findCenAsiaOne(int cenAsiaId){
+//        return mainBoardRepository.findCenAsiaBoard(cenAsiaId);
+//    }
+
+
+    /**
+     *
+     * @return
+     */
 
     //전체 글
     public List<MainBoard> mainBoard(){
@@ -72,6 +98,9 @@ public class MainBoardService {
         return mainBoardRepository.findCategory(mainProductCategory);
     }
 
+
+
+
     /**
      * 메인 카테고리별
      */
@@ -83,8 +112,5 @@ public class MainBoardService {
 
     public List<MainBoard> asiaBoard(){return mainBoardRepository.findAsia();}
     public List<IndiaBoard> indiaBoard(){return mainBoardRepository.findIndia();}
-    public Optional<IndiaBoard> findIndiaOne(int indiaId){
-        return mainBoardRepository.findIndiaBoard(indiaId);
-    }
 
 }

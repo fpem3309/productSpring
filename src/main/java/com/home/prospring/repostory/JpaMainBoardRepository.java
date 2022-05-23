@@ -1,12 +1,8 @@
 package com.home.prospring.repostory;
 
+//import com.home.prospring.domain.CenAsiaBoard;
 import com.home.prospring.domain.IndiaBoard;
 import com.home.prospring.domain.MainBoard;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -123,5 +119,32 @@ public class JpaMainBoardRepository implements MainBoardRepository {
         IndiaBoard indiaBoard = em.find(IndiaBoard.class, indiaId);
         return Optional.ofNullable(indiaBoard);
     }
+
+    /**
+     * 중앙아시아
+     */
+//    @Override
+//    public CenAsiaBoard cenAsiaInsert(CenAsiaBoard cenAsiaBoard) {
+//        em.persist(cenAsiaBoard);
+//        return cenAsiaBoard;
+//    }
+//
+//    @Override
+//    public CenAsiaBoard cenAsiaDelete(CenAsiaBoard cenAsiaBoard) {
+//        em.remove(cenAsiaBoard);
+//        return cenAsiaBoard;
+//    }
+//
+//    @Override
+//    public List<CenAsiaBoard> findCenAsia() {
+//        return em.createQuery("select m from CenAsiaBoard m order by m.cenasiaId desc", CenAsiaBoard.class)   //MainBoard Entity에 query 하는것, m = as m
+//                .setMaxResults(5).getResultList();
+//    }
+//
+//    @Override
+//    public Optional<CenAsiaBoard> findCenAsiaBoard(int cenAsiaId) {
+//        CenAsiaBoard cenAsiaBoard = em.find(CenAsiaBoard.class, cenAsiaId);
+//        return Optional.ofNullable(cenAsiaBoard);
+//    }
 
 }

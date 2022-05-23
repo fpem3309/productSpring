@@ -1,5 +1,6 @@
 package com.home.prospring.controller;
 
+//import com.home.prospring.domain.CenAsiaBoard;
 import com.home.prospring.domain.IndiaBoard;
 import com.home.prospring.domain.MainBoard;
 import com.home.prospring.service.MainBoardService;
