@@ -1,7 +1,7 @@
 package com.home.prospring.controller;
 
 import com.home.prospring.domain.CenAsiaBoard;
-//import com.home.prospring.repostory.CenAsiaDJRepository;
+import com.home.prospring.repostory.CenAsiaDJRepository;
 import com.home.prospring.service.MainBoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -21,8 +21,8 @@ public class CenAsiaController {
 
     private final MainBoardService mainBoardService;
 
-//    @Autowired
-//    private CenAsiaDJRepository cenAsiaDJRepository;
+    @Autowired
+    private CenAsiaDJRepository cenAsiaDJRepository;
 
     @Autowired
     public CenAsiaController(MainBoardService mainBoardService) {
@@ -38,17 +38,17 @@ public class CenAsiaController {
         return "/CenAsia/cenAsiaGallery";
     }
 
-//    @GetMapping("/cenAsiaBoard")
-//    public String cenAsiaList(@RequestParam String country, Model model, @PageableDefault(size=5) Pageable pageable){
-//        Page<CenAsiaBoard> cenAsiaList = cenAsiaDJRepository.findByCenAsiaCategory(country, pageable);
-//        int startPage = Math.max(1,cenAsiaList.getPageable().getPageNumber() -4);   // getPageNumber() - 현재 페이지
-//        int endPage = Math.min(cenAsiaList.getTotalPages(), cenAsiaList.getPageable().getPageNumber() + 4);
-//        model.addAttribute("startPage",startPage);
-//        model.addAttribute("endPage",endPage);
-//        model.addAttribute("cenAsiaList",cenAsiaList);
-//        model.addAttribute("country",country);
-//        return "CenAsia/cenAsiaBoard";
-//    }
+    @GetMapping("/cenAsiaBoard")
+    public String cenAsiaList(@RequestParam String country, Model model, @PageableDefault(size=5) Pageable pageable){
+        Page<CenAsiaBoard> cenAsiaList = cenAsiaDJRepository.findByCenasiaCategory(country, pageable);
+        int startPage = Math.max(1,cenAsiaList.getPageable().getPageNumber() -4);   // getPageNumber() - 현재 페이지
+        int endPage = Math.min(cenAsiaList.getTotalPages(), cenAsiaList.getPageable().getPageNumber() + 4);
+        model.addAttribute("startPage",startPage);
+        model.addAttribute("endPage",endPage);
+        model.addAttribute("cenAsiaList",cenAsiaList);
+        model.addAttribute("country",country);
+        return "CenAsia/cenAsiaBoard";
+    }
 
     @GetMapping("/cenAsiaBoard/Detail{no}")
     public String cenAsiaBoardDetail(@PathVariable int no, Model model){
