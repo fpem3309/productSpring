@@ -1,6 +1,7 @@
 package com.home.prospring.controller;
 
 import com.home.prospring.domain.CenAsiaBoard;
+import com.home.prospring.domain.MainBoard;
 import com.home.prospring.repostory.CenAsiaDJRepository;
 import com.home.prospring.service.MainBoardService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +49,24 @@ public class CenAsiaController {
         model.addAttribute("cenAsiaList",cenAsiaList);
         model.addAttribute("country",country);
         return "CenAsia/cenAsiaBoard";
+    }
+
+    @GetMapping("/cenAsiaBoard/Insert")
+    public String cenAsiaBoardForm(Model model){
+        model.addAttribute("localDate", LocalDate.now());
+        return "CenAsia/cenAsiaBoardForm";
+    }
+
+    @PostMapping("/cenAsiaBoard/Insert")
+    public String cenAsiaBoardInsert(BoardForm form){
+        CenAsiaBoard cenAsiaBoard = new CenAsiaBoard();
+        cenAsiaBoard.setCenasiaTitle(form.getTitle());
+        cenAsiaBoard.setCenasiaContent(form.getContent());
+        cenAsiaBoard.setCenasiaDate(form.getDate());
+        cenAsiaBoard.setCenasiaCategory(form.getCategory());
+        mainBoardService.cenAsiaInsert(cenAsiaBoard);
+
+        return "redirect:/cenAsiaGallery";
     }
 
     @GetMapping("/cenAsiaBoard/Detail{no}")
