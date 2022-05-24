@@ -201,4 +201,32 @@ public class JpaMainBoardRepository implements MainBoardRepository {
         return Optional.ofNullable(europeBoard);
     }
 
+    /**
+     * 북중미
+     * @param ncAmericaBoard
+     */
+    @Override
+    public NCAmericaBoard ncAmericaInsert(NCAmericaBoard ncAmericaBoard) {
+        em.persist(ncAmericaBoard);
+        return ncAmericaBoard;
+    }
+
+    @Override
+    public NCAmericaBoard ncAmericaDelete(NCAmericaBoard ncAmericaBoard) {
+        em.remove(ncAmericaBoard);
+        return ncAmericaBoard;
+    }
+
+    @Override
+    public List<NCAmericaBoard> findNcAmerica() {
+        return em.createQuery("select m from NCAmericaBoard m order by m.ncamericaId desc", NCAmericaBoard.class)   //MainBoard Entity에 query 하는것, m = as m
+                .setMaxResults(5).getResultList();
+    }
+
+    @Override
+    public Optional<NCAmericaBoard> findNcAmericaBoard(int ncAmericaId) {
+        NCAmericaBoard ncAmericaBoard = em.find(NCAmericaBoard.class, ncAmericaId);
+        return Optional.ofNullable(ncAmericaBoard);
+    }
+
 }

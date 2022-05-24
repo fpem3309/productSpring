@@ -18,14 +18,16 @@ public class MainBoardService {
     private final CenAsiaDJRepository cenAsiaDJRepository;
     private final MEAsiaDJRepository meAsiaDJRepository;
     private final EuropeDJRepository europeDJRepository;
+    private final NCAmericaDJRepository ncAmericaDJRepository;
 
-    public MainBoardService(MainBoardRepository mainBoardRepository, SpringDataJpaRepository springDataJpaMemberRepository, IndiaDJRepository indiaDJRepository, CenAsiaDJRepository cenAsiaDJRepository, MEAsiaDJRepository meAsiaDJRepository, EuropeDJRepository europeDJRepository) {
+    public MainBoardService(MainBoardRepository mainBoardRepository, SpringDataJpaRepository springDataJpaMemberRepository, IndiaDJRepository indiaDJRepository, CenAsiaDJRepository cenAsiaDJRepository, MEAsiaDJRepository meAsiaDJRepository, EuropeDJRepository europeDJRepository, NCAmericaDJRepository ncAmericaDJRepository) {
         this.mainBoardRepository = mainBoardRepository;
         this.springDataJpaMemberRepository = springDataJpaMemberRepository;
         this.indiaDJRepository = indiaDJRepository;
         this.cenAsiaDJRepository = cenAsiaDJRepository;
         this.meAsiaDJRepository = meAsiaDJRepository;
         this.europeDJRepository = europeDJRepository;
+        this.ncAmericaDJRepository = ncAmericaDJRepository;
     }
 
     public int updateHit(int id){
@@ -114,7 +116,24 @@ public class MainBoardService {
         return europeDJRepository.updateCount(id);
     }
 
-
+    /**
+     * 북중미
+     * @param ncAmericaBoard
+     */
+    public int ncAmericaInsert(NCAmericaBoard ncAmericaBoard){
+        mainBoardRepository.ncAmericaInsert(ncAmericaBoard);
+        return ncAmericaBoard.getNcamericaId();
+    }
+    public int ncAmericaRemove(NCAmericaBoard ncAmericaBoard){
+        mainBoardRepository.ncAmericaDelete(ncAmericaBoard);
+        return ncAmericaBoard.getNcamericaId();
+    }
+    public Optional<NCAmericaBoard> findNcAmericaOne(int ncAmericaId){
+        return mainBoardRepository.findNcAmericaBoard(ncAmericaId);
+    }
+    public int updateNcAmericaHit(int id){
+        return meAsiaDJRepository.updateCount(id);
+    }
 
     /**
      *

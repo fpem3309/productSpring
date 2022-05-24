@@ -63,4 +63,13 @@ public interface MainBoardRepository {
     EuropeBoard europeDelete(EuropeBoard europeBoard);
     List<EuropeBoard> findEurope();
     Optional<EuropeBoard> findEuropeBoard(int europeId);
+
+    /**
+     * 북중미
+     * @param ncAmericaBoard
+     */
+    NCAmericaBoard ncAmericaInsert(NCAmericaBoard ncAmericaBoard);
+    NCAmericaBoard ncAmericaDelete(NCAmericaBoard ncAmericaBoard);
+    List<NCAmericaBoard> findNcAmerica();
+    Optional<NCAmericaBoard> findNcAmericaBoard(int ncAmericaId);
 }
