@@ -1,10 +1,7 @@
 package com.home.prospring.repostory;
 
 //import com.home.prospring.domain.CenAsiaBoard;
-import com.home.prospring.domain.CenAsiaBoard;
-import com.home.prospring.domain.IndiaBoard;
-import com.home.prospring.domain.MEAsiaBoard;
-import com.home.prospring.domain.MainBoard;
+import com.home.prospring.domain.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
@@ -57,4 +54,13 @@ public interface MainBoardRepository {
     MEAsiaBoard meAsiaDelete(MEAsiaBoard meAsiaBoard);
     List<MEAsiaBoard> findMeAsia();
     Optional<MEAsiaBoard> findMeAsiaBoard(int meAsiaId);
+
+    /**
+     * 유럽
+     * @param europeBoard
+     */
+    EuropeBoard europeInsert(EuropeBoard europeBoard);
+    EuropeBoard europeDelete(EuropeBoard europeBoard);
+    List<EuropeBoard> findEurope();
+    Optional<EuropeBoard> findEuropeBoard(int europeId);
 }

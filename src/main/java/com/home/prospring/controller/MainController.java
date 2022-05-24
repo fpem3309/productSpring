@@ -1,9 +1,7 @@
 package com.home.prospring.controller;
 
 //import com.home.prospring.domain.CenAsiaBoard;
-import com.home.prospring.domain.CenAsiaBoard;
-import com.home.prospring.domain.IndiaBoard;
-import com.home.prospring.domain.MainBoard;
+import com.home.prospring.domain.*;
 import com.home.prospring.service.MainBoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,9 +38,13 @@ public class MainController {
         List<MainBoard> asiaBoardList = mainBoardService.asiaBoard();
         List<IndiaBoard> indiaBoardList = mainBoardService.indiaBoard();
         List<CenAsiaBoard> cenAsiaBoardList = mainBoardService.cenAsiaBoard();
+        List<MEAsiaBoard> meAsiaBoardList = mainBoardService.meAsiaBoard();
+        List<EuropeBoard> europeBoardList = mainBoardService.europeBoard();
         model.addAttribute("asia",asiaBoardList);
         model.addAttribute("india",indiaBoardList);
         model.addAttribute("cenasia",cenAsiaBoardList);
+        model.addAttribute("measia",meAsiaBoardList);
+        model.addAttribute("europe",europeBoardList);
         return "main";
     }
 }

@@ -1,9 +1,6 @@
 package com.home.prospring.repostory;
 
-import com.home.prospring.domain.CenAsiaBoard;
-import com.home.prospring.domain.IndiaBoard;
-import com.home.prospring.domain.MEAsiaBoard;
-import com.home.prospring.domain.MainBoard;
+import com.home.prospring.domain.*;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -174,6 +171,34 @@ public class JpaMainBoardRepository implements MainBoardRepository {
     public Optional<MEAsiaBoard> findMeAsiaBoard(int meAsiaId) {
         MEAsiaBoard meAsiaBoard = em.find(MEAsiaBoard.class, meAsiaId);
         return Optional.ofNullable(meAsiaBoard);
+    }
+
+    /**
+     * 유럽
+     * @param europeBoard
+     */
+    @Override
+    public EuropeBoard europeInsert(EuropeBoard europeBoard) {
+        em.persist(europeBoard);
+        return europeBoard;
+    }
+
+    @Override
+    public EuropeBoard europeDelete(EuropeBoard europeBoard) {
+        em.remove(europeBoard);
+        return europeBoard;
+    }
+
+    @Override
+    public List<EuropeBoard> findEurope() {
+        return em.createQuery("select m from EuropeBoard m order by m.europeId desc", EuropeBoard.class)   //MainBoard Entity에 query 하는것, m = as m
+                .setMaxResults(5).getResultList();
+    }
+
+    @Override
+    public Optional<EuropeBoard> findEuropeBoard(int europeId) {
+        EuropeBoard europeBoard = em.find(EuropeBoard.class, europeId);
+        return Optional.ofNullable(europeBoard);
     }
 
 }

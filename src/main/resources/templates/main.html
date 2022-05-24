@@ -117,12 +117,12 @@
             </thead>
 
             <tbody>
-            <tr th:each="androidBoard: ${androidBoards}"
-                th:onclick="|javascript:Detail(${androidBoard.mainProductId})|">
+            <tr th:each="measiaBoard: ${measia}"
+                th:onclick="|location.href='/meAsiaBoard/Detail${measiaBoard.measiaId}'|">
                 <td>
-                    <span th:text="${androidBoard.mainProductTitle}"></span>
+                    <span th:text="${measiaBoard.measiaTitle}"></span>
                 </td>
-                <td th:text="${androidBoard.mainProductDate}"></td>
+                <td th:text="${measiaBoard.measiaDate}"></td>
 
             </tr>
             </tbody>
@@ -140,11 +140,11 @@
             </thead>
 
             <tbody>
-            <tr th:each="jsBoard: ${jsBoards}" th:onclick="|javascript:Detail(${jsBoard.mainProductId})|">
+            <tr th:each="europeBoard: ${europe}" th:onclick="|location.href='/europeBoard/Detail${europeBoard.europeId}'|">
                 <td>
-                    <span th:text="${jsBoard.mainProductTitle}"></span>
+                    <span th:text="${europeBoard.europeTitle}"></span>
                 </td>
-                <td th:text="${jsBoard.mainProductDate}"></td>
+                <td th:text="${europeBoard.europeDate}"></td>
 
             </tr>
             </tbody>

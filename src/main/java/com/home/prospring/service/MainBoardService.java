@@ -1,9 +1,6 @@
 package com.home.prospring.service;
 
-import com.home.prospring.domain.CenAsiaBoard;
-import com.home.prospring.domain.IndiaBoard;
-import com.home.prospring.domain.MEAsiaBoard;
-import com.home.prospring.domain.MainBoard;
+import com.home.prospring.domain.*;
 import com.home.prospring.repostory.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,13 +17,15 @@ public class MainBoardService {
     private final IndiaDJRepository indiaDJRepository;
     private final CenAsiaDJRepository cenAsiaDJRepository;
     private final MEAsiaDJRepository meAsiaDJRepository;
+    private final EuropeDJRepository europeDJRepository;
 
-    public MainBoardService(MainBoardRepository mainBoardRepository, SpringDataJpaRepository springDataJpaMemberRepository, IndiaDJRepository indiaDJRepository, CenAsiaDJRepository cenAsiaDJRepository, MEAsiaDJRepository meAsiaDJRepository) {
+    public MainBoardService(MainBoardRepository mainBoardRepository, SpringDataJpaRepository springDataJpaMemberRepository, IndiaDJRepository indiaDJRepository, CenAsiaDJRepository cenAsiaDJRepository, MEAsiaDJRepository meAsiaDJRepository, EuropeDJRepository europeDJRepository) {
         this.mainBoardRepository = mainBoardRepository;
         this.springDataJpaMemberRepository = springDataJpaMemberRepository;
         this.indiaDJRepository = indiaDJRepository;
         this.cenAsiaDJRepository = cenAsiaDJRepository;
         this.meAsiaDJRepository = meAsiaDJRepository;
+        this.europeDJRepository = europeDJRepository;
     }
 
     public int updateHit(int id){
@@ -97,6 +96,27 @@ public class MainBoardService {
     }
 
     /**
+     * 유럽
+     * @param europeBoard
+     */
+    public int europeInsert(EuropeBoard europeBoard){
+        mainBoardRepository.europeInsert(europeBoard);
+        return europeBoard.getEuropeId();
+    }
+    public int europeRemove(EuropeBoard europeBoard){
+        mainBoardRepository.europeDelete(europeBoard);
+        return europeBoard.getEuropeId();
+    }
+    public Optional<EuropeBoard> findEuropeOne(int europeId){
+        return mainBoardRepository.findEuropeBoard(europeId);
+    }
+    public int updateEuropeHit(int id){
+        return europeDJRepository.updateCount(id);
+    }
+
+
+
+    /**
      *
      * @return
      */
@@ -136,5 +156,7 @@ public class MainBoardService {
     public List<MainBoard> asiaBoard(){return mainBoardRepository.findAsia();}
     public List<IndiaBoard> indiaBoard(){return mainBoardRepository.findIndia();}
     public List<CenAsiaBoard> cenAsiaBoard(){return mainBoardRepository.findCenAsia();}
+    public List<MEAsiaBoard> meAsiaBoard(){return mainBoardRepository.findMeAsia();}
+    public List<EuropeBoard> europeBoard(){return mainBoardRepository.findEurope();}
 
 }
