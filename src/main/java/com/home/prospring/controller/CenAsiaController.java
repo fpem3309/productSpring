@@ -54,8 +54,8 @@ public class CenAsiaController {
     public String cenAsiaBoardDetail(@PathVariable int no, Model model){
         CenAsiaBoard boardOne = mainBoardService.findCenAsiaOne(no).get();
         model.addAttribute("boardOne",boardOne);
-        mainBoardService.updateIndiaHit(no);
-        return "boards/cenAsiaBoardDetail";
+        mainBoardService.updateCenAsiaHit(no);
+        return "CenAsia/cenAsiaBoardDetail";
     }
 
     @GetMapping("/cenAsiaBoard/Update{no}")
@@ -63,7 +63,7 @@ public class CenAsiaController {
         CenAsiaBoard boardOne = mainBoardService.findCenAsiaOne(no).get();
         model.addAttribute("boardOne",boardOne);
         model.addAttribute("localDate", LocalDate.now());
-        return "boards/indiaBoardUpdateForm";
+        return "CenAsia/cenAsiaBoardUpdateForm";
     }
 
     @PostMapping("/cenAsiaBoard/Update")
@@ -73,7 +73,7 @@ public class CenAsiaController {
         boardOne.setCenasiaContent(form.getContent());
         boardOne.setCenasiaCategory(form.getCategory());
         mainBoardService.cenAsiaInsert(boardOne);
-        return "redirect:/indiaBoard?country=india";
+        return "redirect:/cenAsiaGallery";
     }
 
     @GetMapping("/cenAsiaBoard/Delete{no}")
@@ -81,6 +81,6 @@ public class CenAsiaController {
         CenAsiaBoard boardOne = mainBoardService.findCenAsiaOne(no).get();
         System.out.println("삭제 no = "+boardOne.getCenasiaId());
         mainBoardService.cenAsiaRemove(boardOne);
-        return "redirect:/cenAsiaBoard?country=cenAsia";
+        return "redirect:/cenAsiaGallery";
     }
 }

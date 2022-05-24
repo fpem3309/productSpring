@@ -3,6 +3,7 @@ package com.home.prospring.service;
 import com.home.prospring.domain.CenAsiaBoard;
 import com.home.prospring.domain.IndiaBoard;
 import com.home.prospring.domain.MainBoard;
+import com.home.prospring.repostory.CenAsiaDJRepository;
 import com.home.prospring.repostory.IndiaDJRepository;
 import com.home.prospring.repostory.MainBoardRepository;
 import com.home.prospring.repostory.SpringDataJpaRepository;
@@ -19,11 +20,13 @@ public class MainBoardService {
     private final MainBoardRepository mainBoardRepository;
     private final SpringDataJpaRepository springDataJpaMemberRepository;
     private final IndiaDJRepository indiaDJRepository;
+    private final CenAsiaDJRepository cenAsiaDJRepository;
 
-    public MainBoardService(MainBoardRepository mainBoardRepository, SpringDataJpaRepository springDataJpaMemberRepository, IndiaDJRepository indiaDJRepository) {
+    public MainBoardService(MainBoardRepository mainBoardRepository, SpringDataJpaRepository springDataJpaMemberRepository, IndiaDJRepository indiaDJRepository, CenAsiaDJRepository cenAsiaDJRepository) {
         this.mainBoardRepository = mainBoardRepository;
         this.springDataJpaMemberRepository = springDataJpaMemberRepository;
         this.indiaDJRepository = indiaDJRepository;
+        this.cenAsiaDJRepository = cenAsiaDJRepository;
     }
 
     public int updateHit(int id){
@@ -31,6 +34,9 @@ public class MainBoardService {
     }
     public int updateIndiaHit(int id){
         return indiaDJRepository.updateCount(id);
+    }
+    public int updateCenAsiaHit(int id){
+        return cenAsiaDJRepository.updateCount(id);
     }
 
     /**
