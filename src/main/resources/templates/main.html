@@ -97,9 +97,9 @@
             </thead>
 
             <tbody>
-            <tr th:each="springBoard: ${springBoards}" th:onclick="|javascript:Detail(${springBoard.mainProductId})|">
-                <td th:text="${springBoard.mainProductTitle}"></td>
-                <td th:text="${springBoard.mainProductDate}"></td>
+            <tr th:each="cenAsiaBoard: ${cenasia}" th:onclick="|location.href='/cenAsiaBoard/Detail${cenAsiaBoard.cenasiaId}'|">
+                <td th:text="${cenAsiaBoard.cenasiaTitle}"></td>
+                <td th:text="${cenAsiaBoard.cenasiaDate}"></td>
 
             </tr>
             </tbody>

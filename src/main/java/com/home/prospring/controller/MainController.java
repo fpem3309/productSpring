@@ -1,6 +1,7 @@
 package com.home.prospring.controller;
 
 //import com.home.prospring.domain.CenAsiaBoard;
+import com.home.prospring.domain.CenAsiaBoard;
 import com.home.prospring.domain.IndiaBoard;
 import com.home.prospring.domain.MainBoard;
 import com.home.prospring.service.MainBoardService;
@@ -38,8 +39,10 @@ public class MainController {
 
         List<MainBoard> asiaBoardList = mainBoardService.asiaBoard();
         List<IndiaBoard> indiaBoardList = mainBoardService.indiaBoard();
+        List<CenAsiaBoard> cenAsiaBoardList = mainBoardService.cenAsiaBoard();
         model.addAttribute("asia",asiaBoardList);
         model.addAttribute("india",indiaBoardList);
+        model.addAttribute("cenasia",cenAsiaBoardList);
         return "main";
     }
 }
