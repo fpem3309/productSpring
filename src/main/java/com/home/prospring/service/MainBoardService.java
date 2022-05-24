@@ -2,11 +2,9 @@ package com.home.prospring.service;
 
 import com.home.prospring.domain.CenAsiaBoard;
 import com.home.prospring.domain.IndiaBoard;
+import com.home.prospring.domain.MEAsiaBoard;
 import com.home.prospring.domain.MainBoard;
-import com.home.prospring.repostory.CenAsiaDJRepository;
-import com.home.prospring.repostory.IndiaDJRepository;
-import com.home.prospring.repostory.MainBoardRepository;
-import com.home.prospring.repostory.SpringDataJpaRepository;
+import com.home.prospring.repostory.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,12 +19,14 @@ public class MainBoardService {
     private final SpringDataJpaRepository springDataJpaMemberRepository;
     private final IndiaDJRepository indiaDJRepository;
     private final CenAsiaDJRepository cenAsiaDJRepository;
+    private final MEAsiaDJRepository meAsiaDJRepository;
 
-    public MainBoardService(MainBoardRepository mainBoardRepository, SpringDataJpaRepository springDataJpaMemberRepository, IndiaDJRepository indiaDJRepository, CenAsiaDJRepository cenAsiaDJRepository) {
+    public MainBoardService(MainBoardRepository mainBoardRepository, SpringDataJpaRepository springDataJpaMemberRepository, IndiaDJRepository indiaDJRepository, CenAsiaDJRepository cenAsiaDJRepository, MEAsiaDJRepository meAsiaDJRepository) {
         this.mainBoardRepository = mainBoardRepository;
         this.springDataJpaMemberRepository = springDataJpaMemberRepository;
         this.indiaDJRepository = indiaDJRepository;
         this.cenAsiaDJRepository = cenAsiaDJRepository;
+        this.meAsiaDJRepository = meAsiaDJRepository;
     }
 
     public int updateHit(int id){
@@ -77,6 +77,24 @@ public class MainBoardService {
         return mainBoardRepository.findCenAsiaBoard(cenAsiaId);
     }
 
+    /**
+     * 중동아시아
+     * @param meAsiaBoard
+     */
+    public int meAsiaInsert(MEAsiaBoard meAsiaBoard){
+        mainBoardRepository.meAsiaInsert(meAsiaBoard);
+        return meAsiaBoard.getMeasiaId();
+    }
+    public int meAsiaRemove(MEAsiaBoard meAsiaBoard){
+        mainBoardRepository.meAsiaDelete(meAsiaBoard);
+        return meAsiaBoard.getMeasiaId();
+    }
+    public Optional<MEAsiaBoard> findMeAsiaOne(int meAsiaId){
+        return mainBoardRepository.findMeAsiaBoard(meAsiaId);
+    }
+    public int updateMeAsiaHit(int id){
+        return meAsiaDJRepository.updateCount(id);
+    }
 
     /**
      *

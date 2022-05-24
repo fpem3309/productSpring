@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<th:block th:replace="fragments/header:: headerFragment"></th:block>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script>
+        function Detail(id) {
+            location.href = "http://localhost:8082/meAsiaBoard/Detail" + id;
+        }
+    </script>
+    <style>
+        #banner{
+            height: 300px;
+        }
+        #ch_write{
+            font-weight: bold;
+            padding-left: 30px;
+        }
+        ul{
+            margin-top: 20px;
+            list-style-type: none;
+            padding: 0;
+            overflow: hidden;
+        }
+        table {
+            border-collapse: collapse;
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        th, td:not(.content) {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background-color: #9CE3B3FF;
+        }
+
+        #content {
+            padding: 15px;
+        }
+
+        .content {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3; /* 라인수 */
+            -webkit-box-orient: vertical;
+            word-wrap: break-word;
+            line-height: 1.2em;
+            height: 3.6em; /* line-height 가 1.2em 이고 3라인을 자르기 때문에 height는 1.2em * 3 = 3.6em */
+            width: 500px;
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+<body>
+<div id="banner"><img src="/images/buger.png"></div>
+<div id="ch_write"> 전체 글  <span style="color: aqua" th:text="${MeAsiaList.totalElements}"></span></div>
+
+<table>
+    <tbody>
+    <tr th:each="meAsiaboards: ${MeAsiaList}" th:onclick="|javascript:Detail(${meAsiaboards.measiaId})|">
+        <td><img src="/images/buger.png"></td>
+        <td th:text="'['+${meAsiaboards.measiaCategory}+'] '+${meAsiaboards.measiaTitle}"></td>
+        <td id="content">
+            <span class="content" th:text="${meAsiaboards.measiaContent}"></span>
+            <br/>
+            <span th:text="${meAsiaboards.measiaHit}"></span>
+            <span th:text="${meAsiaboards.measiaDate}"></span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <li class="page-item" th:classappend="${1 == MeAsiaList.pageable.pageNumber + 1} ? 'disabled'">
+            <a class="page-link" th:href="@{/cenAsiaBoard(country=${country},page = ${MeAsiaList.pageable.pageNumber -1})}">&laquo;</a>
+        </li>
+        <li class="page-item" th:classappend="${i == MeAsiaList.pageable.pageNumber + 1} ? 'disabled'" th:each="i : ${#numbers.sequence(startPage,endPage)}">
+            <a class="page-link" th:href="@{/cenAsiaBoard(country=${country},page = ${i -1})}" th:text="${i}">1</a>
+        </li>
+        <li class="page-item" th:classappend="${MeAsiaList.totalPages == MeAsiaList.pageable.pageNumber + 1} ? 'disabled'">
+            <a class="page-link" th:href="@{/cenAsiaBoard(country=${country},page = ${MeAsiaList.pageable.pageNumber +1})}">&raquo;</a>
+        </li>
+    </ul>
+</nav>
+
+
+<button type="button" th:onclick="|location.href='@{/mainProductBoard/Insert}'|">글쓰기</button>
+<button type="button" th:onclick="|location.href='@{/meAsiaGallery}'|">이전으로</button>
+
+</body>
+</html>
