@@ -72,26 +72,26 @@
 <body>
 
 <div class="inner">
-    <span class="category" th:text="${boardOne.measiaCategory}"></span>
-    <h1 th:text="${boardOne.measiaTitle}"></h1>
+    <span class="category" th:text="${boardOne.ncamericaCategory}"></span>
+    <h1 th:text="${boardOne.ncamericaTitle}"></h1>
     <span class="meta">
         <span class="author">by MinGwan</span>
-        <span class="date" th:text="${boardOne.measiaDate}"></span>
-        <span class="hit" th:text="${boardOne.measiaHit}"></span>
+        <span class="date" th:text="${boardOne.ncamericaDate}"></span>
+        <span class="hit" th:text="${boardOne.ncamericaHit}"></span>
     </span>
 </div>
 
 <div class="container">
-    <input type="hidden" id="no" name="no" th:value="${boardOne.measiaId}">
+    <input type="hidden" id="no" name="no" th:value="${boardOne.ncamericaId}">
 
     <div class="row">
         <div class="col-75">
-            <pre type="text" id="content" name="content" th:text="${boardOne.measiaContent}"></pre>
+            <pre type="text" id="content" name="content" th:text="${boardOne.ncamericaContent}"></pre>
         </div>
     </div>
 </div>
-<button type="button" th:onclick="|location.href='@{/meAsiaBoard/Update}${boardOne.measiaId}'|">수정</button>
+<button type="button" th:onclick="|location.href='@{/ncAmericaBoard/Update}${boardOne.ncamericaId}'|">수정</button>
 <button type="button" th:onclick="|location.href='javascript:history.back();'|">목록으로</button>
-<button type="button" th:onclick="|location.href='@{/meAsiaBoard/Delete}${boardOne.measiaId}'|">삭제하기</button>
+<button type="button" th:onclick="|location.href='@{/ncAmericaBoard/Delete}${boardOne.ncamericaId}'|">삭제하기</button>
 </body>
 </html>
