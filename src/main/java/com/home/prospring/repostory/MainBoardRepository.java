@@ -26,6 +26,14 @@ public interface MainBoardRepository {
 
     List<MainBoard> findAsia();
 
+    /**
+     * 동남아시아
+     * @param esAsiaBoard
+     */
+    ESAsiaBoard esAsiaInsert(ESAsiaBoard esAsiaBoard);
+    ESAsiaBoard esAsiaDelete(ESAsiaBoard esAsiaBoard);
+    List<ESAsiaBoard> findEsAsia();
+    Optional<ESAsiaBoard> findEsAsiaBoard(int esAsiaId);
 
     /**
      * 인도
@@ -81,4 +89,5 @@ public interface MainBoardRepository {
     SAmericaBoard sAmericaDelete(SAmericaBoard sAmericaBoard);
     List<SAmericaBoard> findSAmerica();
     Optional<SAmericaBoard> findSAmericaBoard(int sAmericaId);
+
 }

@@ -22,20 +22,23 @@ public class MainController {
 
     @GetMapping("/")
     public String list(Model model){
-        List<MainBoard> javaBoardList = mainBoardService.javaBoard();
-        List<MainBoard> springBoardList = mainBoardService.springBoard();
-        List<MainBoard> androidBoardList = mainBoardService.androidBoard();
-        List<MainBoard> jsBoardList = mainBoardService.jsBoard();
-        List<MainBoard> jpaBoardList = mainBoardService.jpaBoard();
+//        List<MainBoard> javaBoardList = mainBoardService.javaBoard();
+//        List<MainBoard> springBoardList = mainBoardService.springBoard();
+//        List<MainBoard> androidBoardList = mainBoardService.androidBoard();
+//        List<MainBoard> jsBoardList = mainBoardService.jsBoard();
+//        List<MainBoard> jpaBoardList = mainBoardService.jpaBoard();
+//
+//        model.addAttribute("javaBoards",javaBoardList);
+//        model.addAttribute("springBoards",springBoardList);
+//        model.addAttribute("androidBoards",androidBoardList);
+//        model.addAttribute("jsBoards",jsBoardList);
+//        model.addAttribute("jpaBoards",jpaBoardList);
+//
+//
+//        List<MainBoard> asiaBoardList = mainBoardService.asiaBoard();
+//        model.addAttribute("asia",asiaBoardList);
 
-        model.addAttribute("javaBoards",javaBoardList);
-        model.addAttribute("springBoards",springBoardList);
-        model.addAttribute("androidBoards",androidBoardList);
-        model.addAttribute("jsBoards",jsBoardList);
-        model.addAttribute("jpaBoards",jpaBoardList);
-
-
-        List<MainBoard> asiaBoardList = mainBoardService.asiaBoard();
+        List<ESAsiaBoard> esAsiaBoardList = mainBoardService.esAsiaBoard();
         List<IndiaBoard> indiaBoardList = mainBoardService.indiaBoard();
         List<CenAsiaBoard> cenAsiaBoardList = mainBoardService.cenAsiaBoard();
         List<MEAsiaBoard> meAsiaBoardList = mainBoardService.meAsiaBoard();
@@ -43,7 +46,8 @@ public class MainController {
         List<NCAmericaBoard> ncAmericaBoardList = mainBoardService.ncAmericaBoard();
         List<SAmericaBoard> sAmericaBoardList = mainBoardService.sAmericaBoard();
 
-        model.addAttribute("asia",asiaBoardList);
+
+        model.addAttribute("esAsia",esAsiaBoardList);
         model.addAttribute("india",indiaBoardList);
         model.addAttribute("cenasia",cenAsiaBoardList);
         model.addAttribute("measia",meAsiaBoardList);

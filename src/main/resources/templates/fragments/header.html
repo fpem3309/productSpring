@@ -7,15 +7,15 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script>
             // html dom 이 다 로딩된 후 실행된다.
-            $(document).ready(function(){
+            $(document).ready(function () {
                 // menu 클래스 바로 하위에 있는 a 태그를 클릭했을때
-                $(".menu>a").click(function(){
+                $(".menu>a").click(function () {
                     var submenu = $(this).next("ul");
 
                     // submenu 가 화면상에 보일때/아닐때 부드랍게 접고 펼치기
-                    if( submenu.is(":visible") ){
+                    if (submenu.is(":visible")) {
                         submenu.slideUp();
-                    }else{
+                    } else {
                         submenu.slideDown();
                     }
                 });
@@ -26,15 +26,18 @@
                 height: 50px;
                 margin: 20px;
             }
+
             .header_ul, .hide {
                 list-style-type: none;
                 padding: 0;
                 overflow: hidden;
                 background-color: #333;
             }
+
             .header_li {
                 float: left;
             }
+
             .header_li a {
                 display: block;
                 color: white;
@@ -42,19 +45,22 @@
                 padding: 14px 16px;
                 text-decoration: none;
             }
+
             .header_ul, .hide {
                 background: #2BAE66;
             }
+
             .header_li a:hover:not(#active) {
                 background-color: #A2F896FF;
                 color: white;
             }
+
             #active {
                 background-color: white;
             }
 
-            .sidebar{
-                border:solid #9CE3B3FF 3px;
+            .sidebar {
+                border: solid #9CE3B3FF 3px;
                 margin-top: 70px;
                 margin-left: 8px;
                 width: 300px;
@@ -66,28 +72,38 @@
                 z-index: 2;
                 transition: all .35s;
             }
-            #icon{
-                display:none;
+
+            #icon {
+                display: none;
             }
-            #icon + label{
+
+            #icon + label {
                 display: block;
                 width: 50px;
                 height: 50px;
             }
+
             #icon:checked + label + .sidebar {
                 left: 0;
             }
-            .sideMenu, .header_li{
+
+            .sideMenu, .header_li {
                 color: white;
             }
+
             .menu {
                 font-size: 1.17em;
                 font-weight: bold;
             }
 
 
-            .menu a{cursor:pointer;}
-            .menu .hide{display:none;}
+            .menu a {
+                cursor: pointer;
+            }
+
+            .menu .hide {
+                display: none;
+            }
 
         </style>
 
@@ -152,6 +168,18 @@
                         <h3 class="menu">
                             <a class="sideMenu">유럽</a>
                             <ul class="hide">
+                                <li class="hide_li"><a th:href="@{/categoryCountry(category=Bulgaria)}">불가리아</a></li>
+                                <li class="hide_li"><a th:href="@{/categoryCountry(category=Romania)}">루마니아</a></li>
+                                <li class="hide_li"><a th:href="@{/categoryCountry(category=Moldova)}">몰도바</a></li>
+                                <li class="hide_li"><a th:href="@{/categoryCountry(category=Transnistria)}">트란스니스트리아</a>
+                                </li>
+                                <li class="hide_li"><a th:href="@{/categoryCountry(category=Ukraine)}">우크라이나</a></li>
+                                <li class="hide_li"><a th:href="@{/categoryCountry(category=Slovakia)}">슬로바키아</a></li>
+                                <li class="hide_li"><a th:href="@{/categoryCountry(category=Czech)}">체코</a></li>
+                                <li class="hide_li"><a th:href="@{/categoryCountry(category=France)}">프랑스</a></li>
+                                <li class="hide_li"><a th:href="@{/categoryCountry(category=Uk)}">영국</a></li>
+                                <li class="hide_li"><a th:href="@{/categoryCountry(category=Iceland)}">아이슬란드</a></li>
+                                <li class="hide_li"><a th:href="@{/categoryCountry(category=Russia)}">러시아</a></li>
                             </ul>
                         </h3>
 
@@ -159,6 +187,9 @@
                         <h3 class="menu">
                             <a class="sideMenu">북중미</a>
                             <ul class="hide">
+                                <li class="hide_li"><a th:href="@{/categoryCountry(category=USA)}">미국</a></li>
+                                <li class="hide_li"><a th:href="@{/categoryCountry(category=Mexico)}">멕시코</a></li>
+                                <li class="hide_li"><a th:href="@{/categoryCountry(category=Guatemala)}">과테말라</a></li>
                             </ul>
                         </h3>
 
@@ -166,6 +197,9 @@
                         <h3 class="menu">
                             <a class="sideMenu">남미</a>
                             <ul class="hide">
+                                <li class="hide_li"><a th:href="@{/categoryCountry(category=Columbia)}">콜롬비아</a></li>
+                                <li class="hide_li"><a th:href="@{/categoryCountry(category=Peru)}">페루</a></li>
+                                <li class="hide_li"><a th:href="@{/categoryCountry(category=Bolivia)}">볼리비아</a></li>
                             </ul>
                         </h3>
 
@@ -173,15 +207,15 @@
                 </nav>
             </li>
             <li class="header_li"><a href="/">메인</a></li>
-            <li class="header_li"><a href="/mainProductBoard">동남 아시아</a></li>
+            <li class="header_li"><a href="/esAsiaGallery">동남 아시아</a></li>
             <li class="header_li"><a href="/indiaGallery">인도</a></li>
             <li class="header_li"><a href="/cenAsiaGallery">중앙 아시아</a></li>
             <li class="header_li"><a href="/meAsiaGallery">중동 아시아</a></li>
             <li class="header_li"><a href="/europeGallery">유럽</a></li>
             <li class="header_li"><a href="/ncAmericaGallery">북중미</a></li>
             <li class="header_li"><a href="/sAmericaGallery">남미</a></li>
-<!--            <li class="header_li"><a href="/members/new">회원가입</a></li>-->
-<!--            <li class="header_li"><a href="/members">회원목록</a></li>-->
+            <!--            <li class="header_li"><a href="/members/new">회원가입</a></li>-->
+            <!--            <li class="header_li"><a href="/members">회원목록</a></li>-->
             <li class="header_li" style="float:right"><a href="/members/new">Login</a></li>
         </ul>
 

@@ -20,8 +20,9 @@ public class MainBoardService {
     private final EuropeDJRepository europeDJRepository;
     private final NCAmericaDJRepository ncAmericaDJRepository;
     private final SAmericaDJRepository sAmericaDJRepository;
+    private final ESAsiaDJRepository esAsiaDJRepository;
 
-    public MainBoardService(MainBoardRepository mainBoardRepository, SpringDataJpaRepository springDataJpaMemberRepository, IndiaDJRepository indiaDJRepository, CenAsiaDJRepository cenAsiaDJRepository, MEAsiaDJRepository meAsiaDJRepository, EuropeDJRepository europeDJRepository, NCAmericaDJRepository ncAmericaDJRepository, SAmericaDJRepository sAmericaDJRepository) {
+    public MainBoardService(MainBoardRepository mainBoardRepository, SpringDataJpaRepository springDataJpaMemberRepository, IndiaDJRepository indiaDJRepository, CenAsiaDJRepository cenAsiaDJRepository, MEAsiaDJRepository meAsiaDJRepository, EuropeDJRepository europeDJRepository, NCAmericaDJRepository ncAmericaDJRepository, SAmericaDJRepository sAmericaDJRepository, ESAsiaDJRepository esAsiaDJRepository) {
         this.mainBoardRepository = mainBoardRepository;
         this.springDataJpaMemberRepository = springDataJpaMemberRepository;
         this.indiaDJRepository = indiaDJRepository;
@@ -30,20 +31,13 @@ public class MainBoardService {
         this.europeDJRepository = europeDJRepository;
         this.ncAmericaDJRepository = ncAmericaDJRepository;
         this.sAmericaDJRepository = sAmericaDJRepository;
+        this.esAsiaDJRepository = esAsiaDJRepository;
     }
 
     public int updateHit(int id){
         return springDataJpaMemberRepository.updateCount(id);
     }
-    public int updateIndiaHit(int id){
-        return indiaDJRepository.updateCount(id);
-    }
-    public int updateCenAsiaHit(int id){
-        return cenAsiaDJRepository.updateCount(id);
-    }
-    public int updateSAsiaHit(int id){
-        return sAmericaDJRepository.updateCount(id);
-    }
+
 
     /**
      * 게시글 등록
@@ -51,6 +45,26 @@ public class MainBoardService {
     public int Insert(MainBoard mainBoard){
         mainBoardRepository.Insert(mainBoard);
         return mainBoard.getMainProductId();
+    }
+
+
+    /**
+     * 동남아시아
+     * @param esAsiaBoard
+     */
+    public int esAsiaInsert(ESAsiaBoard esAsiaBoard){
+        mainBoardRepository.esAsiaInsert(esAsiaBoard);
+        return esAsiaBoard.getEsasiaId();
+    }
+    public int esAsiaRemove(ESAsiaBoard esAsiaBoard){
+        mainBoardRepository.esAsiaDelete(esAsiaBoard);
+        return esAsiaBoard.getEsasiaId();
+    }
+    public Optional<ESAsiaBoard> findEsAsiaOne(int esAsiaId){
+        return mainBoardRepository.findEsAsiaBoard(esAsiaId);
+    }
+    public int updateEsAsiaHit(int id){
+        return esAsiaDJRepository.updateCount(id);
     }
 
     /**
@@ -67,6 +81,9 @@ public class MainBoardService {
     public Optional<IndiaBoard> findIndiaOne(int indiaId){
         return mainBoardRepository.findIndiaBoard(indiaId);
     }
+    public int updateIndiaHit(int id){
+        return indiaDJRepository.updateCount(id);
+    }
 
     /**
      * 중앙아시아
@@ -81,6 +98,9 @@ public class MainBoardService {
     }
     public Optional<CenAsiaBoard> findCenAsiaOne(int cenAsiaId){
         return mainBoardRepository.findCenAsiaBoard(cenAsiaId);
+    }
+    public int updateCenAsiaHit(int id){
+        return cenAsiaDJRepository.updateCount(id);
     }
 
     /**
@@ -205,5 +225,6 @@ public class MainBoardService {
     public List<EuropeBoard> europeBoard(){return mainBoardRepository.findEurope();}
     public List<NCAmericaBoard> ncAmericaBoard(){return mainBoardRepository.findNcAmerica();}
     public List<SAmericaBoard> sAmericaBoard(){return mainBoardRepository.findSAmerica();}
+    public List<ESAsiaBoard> esAsiaBoard(){return mainBoardRepository.findEsAsia();}
 
 }

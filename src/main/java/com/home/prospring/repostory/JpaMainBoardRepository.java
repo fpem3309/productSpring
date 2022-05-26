@@ -90,8 +90,35 @@ public class JpaMainBoardRepository implements MainBoardRepository {
                 .setMaxResults(5).getResultList();
     }
 
+    /**
+     * 동남아시아
+     * @param esAsiaBoard
+     */
+    @Override
+    public ESAsiaBoard esAsiaInsert(ESAsiaBoard esAsiaBoard) {
+        em.persist(esAsiaBoard);
+        return esAsiaBoard;
+    }
 
-/**
+    @Override
+    public ESAsiaBoard esAsiaDelete(ESAsiaBoard esAsiaBoard) {
+        em.remove(esAsiaBoard);
+        return esAsiaBoard;
+    }
+
+    @Override
+    public List<ESAsiaBoard> findEsAsia() {
+        return em.createQuery("select m from ESAsiaBoard m order by m.esasiaId desc", ESAsiaBoard.class)   //MainBoard Entity에 query 하는것, m = as m
+                .setMaxResults(5).getResultList();
+    }
+
+    @Override
+    public Optional<ESAsiaBoard> findEsAsiaBoard(int esAsiaId) {
+        ESAsiaBoard esAsiaBoard = em.find(ESAsiaBoard.class, esAsiaId);
+        return Optional.ofNullable(esAsiaBoard);
+    }
+
+    /**
  * 인도
  */
     @Override

@@ -55,9 +55,9 @@
             </thead>
 
             <tbody>
-            <tr th:each="springBoard: ${asia}" th:onclick="|location.href='/mainProductBoard/Detail${springBoard.mainProductId}'|">
-                <td th:text="${springBoard.mainProductTitle}"></td>
-                <td th:text="${springBoard.mainProductDate}"></td>
+            <tr th:each="esAsiaBoard: ${esAsia}" th:onclick="|location.href='/esAsiaBoard/Detail${esAsiaBoard.esasiaId}'|">
+                <td th:text="${esAsiaBoard.esasiaTitle}"></td>
+                <td th:text="${esAsiaBoard.esasiaDate}"></td>
             </tr>
             </tbody>
         </table>
