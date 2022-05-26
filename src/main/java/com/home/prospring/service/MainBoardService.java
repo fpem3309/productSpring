@@ -19,8 +19,9 @@ public class MainBoardService {
     private final MEAsiaDJRepository meAsiaDJRepository;
     private final EuropeDJRepository europeDJRepository;
     private final NCAmericaDJRepository ncAmericaDJRepository;
+    private final SAmericaDJRepository sAmericaDJRepository;
 
-    public MainBoardService(MainBoardRepository mainBoardRepository, SpringDataJpaRepository springDataJpaMemberRepository, IndiaDJRepository indiaDJRepository, CenAsiaDJRepository cenAsiaDJRepository, MEAsiaDJRepository meAsiaDJRepository, EuropeDJRepository europeDJRepository, NCAmericaDJRepository ncAmericaDJRepository) {
+    public MainBoardService(MainBoardRepository mainBoardRepository, SpringDataJpaRepository springDataJpaMemberRepository, IndiaDJRepository indiaDJRepository, CenAsiaDJRepository cenAsiaDJRepository, MEAsiaDJRepository meAsiaDJRepository, EuropeDJRepository europeDJRepository, NCAmericaDJRepository ncAmericaDJRepository, SAmericaDJRepository sAmericaDJRepository) {
         this.mainBoardRepository = mainBoardRepository;
         this.springDataJpaMemberRepository = springDataJpaMemberRepository;
         this.indiaDJRepository = indiaDJRepository;
@@ -28,6 +29,7 @@ public class MainBoardService {
         this.meAsiaDJRepository = meAsiaDJRepository;
         this.europeDJRepository = europeDJRepository;
         this.ncAmericaDJRepository = ncAmericaDJRepository;
+        this.sAmericaDJRepository = sAmericaDJRepository;
     }
 
     public int updateHit(int id){
@@ -38,6 +40,9 @@ public class MainBoardService {
     }
     public int updateCenAsiaHit(int id){
         return cenAsiaDJRepository.updateCount(id);
+    }
+    public int updateSAsiaHit(int id){
+        return sAmericaDJRepository.updateCount(id);
     }
 
     /**
@@ -134,6 +139,27 @@ public class MainBoardService {
     public int updateNcAmericaHit(int id){
         return meAsiaDJRepository.updateCount(id);
     }
+
+
+    /**
+     * 남미
+     * @param sAmericaBoard
+     */
+    public int sAmericaInsert(SAmericaBoard sAmericaBoard){
+        mainBoardRepository.sAmericaInsert(sAmericaBoard);
+        return sAmericaBoard.getSamericaId();
+    }
+    public int sAmericaRemove(SAmericaBoard sAmericaBoard){
+        mainBoardRepository.sAmericaDelete(sAmericaBoard);
+        return sAmericaBoard.getSamericaId();
+    }
+    public Optional<SAmericaBoard> findSAmericaOne(int sAmericaId){
+        return mainBoardRepository.findSAmericaBoard(sAmericaId);
+    }
+    public int updateSAmericaHit(int id){
+        return sAmericaDJRepository.updateCount(id);
+    }
+
 
     /**
      *

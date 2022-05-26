@@ -1,72 +1,72 @@
-//package com.home.prospring.domain;
-//
-//
-//import javax.persistence.*;
-//
-//@Entity
-//@Table(name="samericaboard")
-//public class SAmericaBoard {
-//
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY) // PK
-//    @Column(name="sAmericaId")
-//    private int sAmericaId;
-//    @Column(name = "sAmericaTitle")
-//    private String sAmericaTitle;
-//    @Column(name = "sAmericaContent")
-//    private String sAmericaContent;
-//    @Column(name = "sAmericaHit")
-//    private int sAmericaHit;
-//    @Column(name = "sAmericaDate")
-//    private String sAmericaDate;
-//    @Column(name = "sAmericaCategory")
-//    private String sAmericaCategory;
-//
-//    public int getsAmericaId() {
-//        return sAmericaId;
-//    }
-//
-//    public void setsAmericaId(int sAmericaId) {
-//        this.sAmericaId = sAmericaId;
-//    }
-//
-//    public String getsAmericaTitle() {
-//        return sAmericaTitle;
-//    }
-//
-//    public void setsAmericaTitle(String sAmericaTitle) {
-//        this.sAmericaTitle = sAmericaTitle;
-//    }
-//
-//    public String getsAmericaContent() {
-//        return sAmericaContent;
-//    }
-//
-//    public void setsAmericaContent(String sAmericaContent) {
-//        this.sAmericaContent = sAmericaContent;
-//    }
-//
-//    public int getsAmericaHit() {
-//        return sAmericaHit;
-//    }
-//
-//    public void setsAmericaHit(int sAmericaHit) {
-//        this.sAmericaHit = sAmericaHit;
-//    }
-//
-//    public String getsAmericaDate() {
-//        return sAmericaDate;
-//    }
-//
-//    public void setsAmericaDate(String sAmericaDate) {
-//        this.sAmericaDate = sAmericaDate;
-//    }
-//
-//    public String getsAmericaCategory() {
-//        return sAmericaCategory;
-//    }
-//
-//    public void setsAmericaCategory(String sAmericaCategory) {
-//        this.sAmericaCategory = sAmericaCategory;
-//    }
-//}
+package com.home.prospring.domain;
+
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="samericaboard")
+public class SAmericaBoard {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // PK
+    @Column(name="samericaId")
+    private int samericaId;
+    @Column(name = "samericaTitle")
+    private String samericaTitle;
+    @Column(name = "samericaContent")
+    private String samericaContent;
+    @Column(name = "samericaHit")
+    private int samericaHit;
+    @Column(name = "samericaDate")
+    private String samericaDate;
+    @Column(name = "samericaCategory")
+    private String samericaCategory;
+
+    public int getSamericaId() {
+        return samericaId;
+    }
+
+    public void setSamericaId(int samericaId) {
+        this.samericaId = samericaId;
+    }
+
+    public String getSamericaTitle() {
+        return samericaTitle;
+    }
+
+    public void setSamericaTitle(String samericaTitle) {
+        this.samericaTitle = samericaTitle;
+    }
+
+    public String getSamericaContent() {
+        return samericaContent;
+    }
+
+    public void setSamericaContent(String samericaContent) {
+        this.samericaContent = samericaContent;
+    }
+
+    public int getSamericaHit() {
+        return samericaHit;
+    }
+
+    public void setSamericaHit(int samericaHit) {
+        this.samericaHit = samericaHit;
+    }
+
+    public String getSamericaDate() {
+        return samericaDate;
+    }
+
+    public void setSamericaDate(String samericaDate) {
+        this.samericaDate = samericaDate;
+    }
+
+    public String getSamericaCategory() {
+        return samericaCategory;
+    }
+
+    public void setSamericaCategory(String samericaCategory) {
+        this.samericaCategory = samericaCategory;
+    }
+}

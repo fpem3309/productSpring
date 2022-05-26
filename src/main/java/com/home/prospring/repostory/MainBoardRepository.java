@@ -72,4 +72,13 @@ public interface MainBoardRepository {
     NCAmericaBoard ncAmericaDelete(NCAmericaBoard ncAmericaBoard);
     List<NCAmericaBoard> findNcAmerica();
     Optional<NCAmericaBoard> findNcAmericaBoard(int ncAmericaId);
+
+    /**
+     * 남미
+     * @param sAmericaBoard
+     */
+    SAmericaBoard sAmericaInsert(SAmericaBoard sAmericaBoard);
+    SAmericaBoard sAmericaDelete(SAmericaBoard sAmericaBoard);
+    List<SAmericaBoard> findSAmerica();
+    Optional<SAmericaBoard> findSAmericaBoard(int sAmericaId);
 }

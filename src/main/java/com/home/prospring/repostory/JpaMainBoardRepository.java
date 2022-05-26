@@ -229,4 +229,31 @@ public class JpaMainBoardRepository implements MainBoardRepository {
         return Optional.ofNullable(ncAmericaBoard);
     }
 
+    /**
+     * 남미
+     * @param sAmericaBoard
+     */
+    @Override
+    public SAmericaBoard sAmericaInsert(SAmericaBoard sAmericaBoard) {
+        em.persist(sAmericaBoard);
+        return sAmericaBoard;
+    }
+
+    @Override
+    public SAmericaBoard sAmericaDelete(SAmericaBoard sAmericaBoard) {
+        em.remove(sAmericaBoard);
+        return sAmericaBoard;
+    }
+
+    @Override
+    public List<SAmericaBoard> findSAmerica() {
+        return em.createQuery("select m from SAmericaBoard m order by m.samericaId desc", SAmericaBoard.class)   //MainBoard Entity에 query 하는것, m = as m
+                .setMaxResults(5).getResultList();
+    }
+
+    @Override
+    public Optional<SAmericaBoard> findSAmericaBoard(int sAmericaId) {
+        SAmericaBoard sAmericaBoard = em.find(SAmericaBoard.class, sAmericaId);
+        return Optional.ofNullable(sAmericaBoard);
+    }
 }
