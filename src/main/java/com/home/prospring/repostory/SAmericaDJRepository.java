@@ -13,7 +13,7 @@ import org.springframework.data.repository.query.Param;
 public interface SAmericaDJRepository extends JpaRepository<SAmericaBoard, Long> {
 
     @Modifying
-    @Query("update SAmericaBoard m set m.samericaHit = m.samericaHit + 1 where m.samericaHit = :id")
+    @Query("update SAmericaBoard m set m.samericaHit = m.samericaHit + 1 where m.samericaId = :id")
     int updateCount(@Param("id") int id);
 
     //Page<MainBoard> findByTitleContainingOrContentContaining(String mainProductTitle, String mainProductContent, Pageable pageable);

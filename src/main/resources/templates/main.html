@@ -161,11 +161,11 @@
             </thead>
 
             <tbody>
-            <tr th:each="jpaBoard: ${jpaBoards}" th:onclick="|javascript:Detail(${jpaBoard.mainProductId})|">
+            <tr th:each="ncAmericaBoard: ${ncAmerica}" th:onclick="|location.href='/ncAmericaBoard/Detail${ncAmericaBoard.ncamericaId}'|">
                 <td>
-                    <span th:text="${jpaBoard.mainProductTitle}"></span>
+                    <span th:text="${ncAmericaBoard.ncamericaTitle}"></span>
                 </td>
-                <td th:text="${jpaBoard.mainProductDate}"></td>
+                <td th:text="${ncAmericaBoard.ncamericaDate}"></td>
 
             </tr>
             </tbody>
@@ -182,11 +182,11 @@
             </thead>
 
             <tbody>
-            <tr th:each="jpaBoard: ${jpaBoards}" th:onclick="|javascript:Detail(${jpaBoard.mainProductId})|">
+            <tr th:each="sAmericaBoard: ${sAmerica}" th:onclick="|location.href='/sAmericaBoard/Detail${sAmericaBoard.samericaId}'|">
                 <td>
-                    <span th:text="${jpaBoard.mainProductTitle}"></span>
+                    <span th:text="${sAmericaBoard.samericaTitle}"></span>
                 </td>
-                <td th:text="${jpaBoard.mainProductDate}"></td>
+                <td th:text="${sAmericaBoard.samericaDate}"></td>
 
             </tr>
             </tbody>

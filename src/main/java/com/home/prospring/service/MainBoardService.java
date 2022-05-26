@@ -137,7 +137,7 @@ public class MainBoardService {
         return mainBoardRepository.findNcAmericaBoard(ncAmericaId);
     }
     public int updateNcAmericaHit(int id){
-        return meAsiaDJRepository.updateCount(id);
+        return ncAmericaDJRepository.updateCount(id);
     }
 
 
@@ -203,5 +203,7 @@ public class MainBoardService {
     public List<CenAsiaBoard> cenAsiaBoard(){return mainBoardRepository.findCenAsia();}
     public List<MEAsiaBoard> meAsiaBoard(){return mainBoardRepository.findMeAsia();}
     public List<EuropeBoard> europeBoard(){return mainBoardRepository.findEurope();}
+    public List<NCAmericaBoard> ncAmericaBoard(){return mainBoardRepository.findNcAmerica();}
+    public List<SAmericaBoard> sAmericaBoard(){return mainBoardRepository.findSAmerica();}
 
 }

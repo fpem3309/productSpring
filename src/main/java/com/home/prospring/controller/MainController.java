@@ -40,11 +40,16 @@ public class MainController {
         List<CenAsiaBoard> cenAsiaBoardList = mainBoardService.cenAsiaBoard();
         List<MEAsiaBoard> meAsiaBoardList = mainBoardService.meAsiaBoard();
         List<EuropeBoard> europeBoardList = mainBoardService.europeBoard();
+        List<NCAmericaBoard> ncAmericaBoardList = mainBoardService.ncAmericaBoard();
+        List<SAmericaBoard> sAmericaBoardList = mainBoardService.sAmericaBoard();
+
         model.addAttribute("asia",asiaBoardList);
         model.addAttribute("india",indiaBoardList);
         model.addAttribute("cenasia",cenAsiaBoardList);
         model.addAttribute("measia",meAsiaBoardList);
         model.addAttribute("europe",europeBoardList);
+        model.addAttribute("ncAmerica",ncAmericaBoardList);
+        model.addAttribute("sAmerica",sAmericaBoardList);
         return "main";
     }
 }
