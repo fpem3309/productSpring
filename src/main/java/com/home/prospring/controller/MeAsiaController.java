@@ -31,7 +31,7 @@ public class MeAsiaController {
 
 
     /**
-     * 중앙 아시아
+     * 중동 아시아
      */
     @GetMapping("/meAsiaGallery")
     public String MeAsiaGallery(){
