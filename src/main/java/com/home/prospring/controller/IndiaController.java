@@ -34,7 +34,7 @@ public class IndiaController {
      */
     @GetMapping("/indiaGallery")
     public String indiaGallery(){
-        return "/gallery/indiaGallery";
+        return "/India/indiaGallery";
     }
 
     @GetMapping("/indiaBoard")
@@ -46,7 +46,7 @@ public class IndiaController {
         model.addAttribute("endPage",endPage);
         model.addAttribute("indiaList",indiaList);
         model.addAttribute("country",country);
-        return "boards/indiaBoard";
+        return "India/indiaBoard";
     }
 
     @GetMapping("/indiaBoard/Detail{no}")
@@ -54,7 +54,7 @@ public class IndiaController {
         IndiaBoard boardOne = mainBoardService.findIndiaOne(no).get();
         model.addAttribute("boardOne",boardOne);
         mainBoardService.updateIndiaHit(no);
-        return "boards/indiaBoardDetail";
+        return "India/indiaBoardDetail";
     }
 
     @GetMapping("/indiaBoard/Update{no}")
@@ -62,7 +62,7 @@ public class IndiaController {
         IndiaBoard boardOne = mainBoardService.findIndiaOne(no).get();
         model.addAttribute("boardOne",boardOne);
         model.addAttribute("localDate", LocalDate.now());
-        return "boards/indiaBoardUpdateForm";
+        return "India/indiaBoardUpdateForm";
     }
 
     @PostMapping("/indiaBoard/Update")

@@ -12,42 +12,21 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
+<div id="banner"><img src="/images/buger.png"></div>
 
 <section class="gallery" data-scroll>
-    <a th:href="@{/esAsiaBoard(country=Bangkok)}">
-        <img src="/images/BangKokGall.jpg" alt="Cinque Terre">
+    <a th:href="@{/indiaBoard(country=India)}">
+        <img src="/images/buger.png" alt="Cinque Terre" width="600" height="400">
     </a>
-    <div class="desc">방콕</div>
+    <div class="desc">인도</div>
 </section>
 
 <section class="gallery" data-scroll>
-    <a th:href="@{/esAsiaBoard(country=Cambodia)}">
-        <img src="/images/CambodiaGall.jpg" alt="Forest">
+    <a th:href="@{/indiaBoard(country=Nepal)}">
+        <img src="/images/buger.png" alt="Forest" width="600" height="400">
     </a>
-    <div class="desc">캄보디아</div>
+    <div class="desc">네팔</div>
 </section>
-
-<section class="gallery" data-scroll>
-    <a th:href="@{/esAsiaBoard(country=Myanmar)}">
-        <img src="/images/MyanmarGall.jpg" alt="Forest">
-    </a>
-    <div class="desc">미얀마</div>
-</section>
-
-<section class="gallery" data-scroll>
-        <a th:href="@{/esAsiaBoard(country=Thailand)}">
-            <img src="/images/ThailandGall.jpg" alt="Forest">
-        </a>
-        <div class="desc">태국</div>
-</section>
-
-<section class="gallery" data-scroll>
-    <a th:href="@{/esAsiaBoard(country=Vietnam)}">
-        <img src="/images/VietnamGall.jpg" alt="Forest">
-    </a>
-    <div class="desc">베트남</div>
-</section>
-
 
 <script>
     ScrollOut({
@@ -56,12 +35,12 @@
                 startDelay: 1000,
                 cursor: false,
             }).pause(1000)
-            .go();
+                .go();
         },
     });
 </script>
 
-<button type="button" th:onclick="|location.href='@{/esAsiaBoard/Insert}'|">글쓰기</button>
+<button type="button" th:onclick="|location.href='@{/mainProductBoard/Insert}'|">글쓰기</button>
 
 </body>
 </html>
