@@ -5,33 +5,56 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <style>
-        #banner{
+        #banner {
             height: 300px;
         }
 
-        div.gallery {
-            margin: 20px;
+        .gallery {
+            margin: 50px;
             border: 1px solid #ccc;
             float: left;
             width: 100%;
-            height: 300px;
+            height: 500px;
         }
 
-        div.gallery:hover {
+        .gallery:hover {
             border: 1px solid #777;
         }
-
-        div.gallery img {
-            width: auto;
-            height: auto;
+        .gallery a {
+            display: block;
+            width: 100%;
+            height: 100%;
         }
+
+        /*div.gallery img {*/
+        /*    width: auto;*/
+        /*    height: auto;*/
+        /*}*/
 
         div.desc {
             padding: 15px;
             text-align: center;
+        }
+
+        [data-scroll] {
+            opacity: 0;
+            will-change: transform, scale, opacity;
+            transform: translateY(6rem) scale(0.93);
+            transition: all 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        [data-scroll='in'] {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        [data-scroll='out'] {
+            opacity: 0;
         }
     </style>
 
@@ -39,40 +62,82 @@
 <body>
 <div id="banner"><img src="/images/buger.png"></div>
 
-<div class="gallery">
+<!--<div class="gallery">-->
+<!--    <a th:href="@{/esAsiaBoard(country=Bangkok)}">-->
+<!--        <img src="/images/Bangkok.jpg" alt="Cinque Terre">-->
+<!--    </a>-->
+<!--    <div class="desc">방콕</div>-->
+<!--</div>-->
+
+<!--<div class="gallery">-->
+<!--    <a th:href="@{/esAsiaBoard(country=Cambodia)}">-->
+<!--        <img src="/images/buger.png" alt="Forest" width="600" height="400">-->
+<!--    </a>-->
+<!--    <div class="desc">캄보디아</div>-->
+<!--</div>-->
+
+<!--<div class="gallery">-->
+<!--    <a th:href="@{/esAsiaBoard(country=Vietnam)}">-->
+<!--        <img src="/images/buger.png" alt="Forest" width="600" height="400">-->
+<!--    </a>-->
+<!--    <div class="desc">베트남</div>-->
+<!--</div>-->
+
+<!--<div class="gallery">-->
+<!--    <a th:href="@{/esAsiaBoard(country=Thailand)}">-->
+<!--        <img src="/images/buger.png" alt="Forest" width="600" height="400">-->
+<!--    </a>-->
+<!--    <div class="desc">태국</div>-->
+<!--</div>-->
+
+<!--<div class="gallery">-->
+<!--    <a th:href="@{/esAsiaBoard(country=Myanmar)}">-->
+<!--        <img src="/images/buger.png" alt="Forest" width="600" height="400">-->
+<!--    </a>-->
+<!--    <div class="desc">미얀마</div>-->
+<!--</div>-->
+
+<!---->
+
+<section class="gallery" data-scroll>
     <a th:href="@{/esAsiaBoard(country=Bangkok)}">
-        <img src="/images/Bangkok.jpg" alt="Cinque Terre" >
+        <img src="/images/Bangkok.jpg" alt="Cinque Terre">
     </a>
     <div class="desc">방콕</div>
-</div>
+</section>
 
-<div class="gallery">
+<section class="gallery" data-scroll>
     <a th:href="@{/esAsiaBoard(country=Cambodia)}">
         <img src="/images/buger.png" alt="Forest" width="600" height="400">
     </a>
     <div class="desc">캄보디아</div>
-</div>
+</section>
 
-<div class="gallery">
-    <a th:href="@{/esAsiaBoard(country=Vietnam)}">
-        <img src="/images/buger.png" alt="Forest" width="600" height="400">
-    </a>
-    <div class="desc">베트남</div>
-</div>
-
-<div class="gallery">
-    <a th:href="@{/esAsiaBoard(country=Thailand)}">
-        <img src="/images/buger.png" alt="Forest" width="600" height="400">
-    </a>
-    <div class="desc">태국</div>
-</div>
-
-<div class="gallery">
+<section class="gallery" data-scroll>
     <a th:href="@{/esAsiaBoard(country=Myanmar)}">
         <img src="/images/buger.png" alt="Forest" width="600" height="400">
     </a>
     <div class="desc">미얀마</div>
-</div>
+</section>
+
+<section class="gallery" data-scroll>
+        <a th:href="@{/esAsiaBoard(country=Thailand)}">
+            <img src="/images/buger.png" alt="Forest" width="600" height="400">
+        </a>
+        <div class="desc">태국</div>
+</section>
+
+<section class="gallery" data-scroll>
+    <a th:href="@{/esAsiaBoard(country=Vietnam)}">
+        <img src="/images/buger.png" alt="Forest" width="600" height="400">
+    </a>
+    <div class="desc">베트남</div>
+</section>
+
+
+<script>
+    ScrollOut({});
+</script>
 
 <button type="button" th:onclick="|location.href='@{/esAsiaBoard/Insert}'|">글쓰기</button>
 
