@@ -112,6 +112,12 @@
         <input type="hidden" id="date" name="date" th:value="${#temporals.format(localDate,'yyyy-MM-dd')}">
 
         <br>
+
+        <form method="post" action="/upload" enctype="multipart/form-data">
+            <input type="file" name="uploadfile" multiple="multiple"/>
+            <input type="submit" value="결과 확인"/>
+        </form>
+        
         <div class="row">
             <input type="submit" value="등록">
         </div>
