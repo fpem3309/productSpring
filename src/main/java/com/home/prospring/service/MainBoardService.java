@@ -212,13 +212,10 @@ public class MainBoardService {
     /**
      * 메인 카테고리별
      */
-    public List<MainBoard> javaBoard(){return mainBoardRepository.findJava();}
-    public List<MainBoard> springBoard(){return mainBoardRepository.findSpring();}
-    public List<MainBoard> androidBoard(){return mainBoardRepository.findAndroid();}
-    public List<MainBoard> jsBoard(){return mainBoardRepository.findJS();}
-    public List<MainBoard> jpaBoard(){return mainBoardRepository.findJPA();}
+
 
     public List<MainBoard> asiaBoard(){return mainBoardRepository.findAsia();}
+
     public List<IndiaBoard> indiaBoard(){return mainBoardRepository.findIndia();}
     public List<CenAsiaBoard> cenAsiaBoard(){return mainBoardRepository.findCenAsia();}
     public List<MEAsiaBoard> meAsiaBoard(){return mainBoardRepository.findMeAsia();}
