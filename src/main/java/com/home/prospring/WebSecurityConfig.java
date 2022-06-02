@@ -48,10 +48,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .usersByUsernameQuery("select name,password,enabled "  //인증처리
                         + "from member "
                         + "where name = ?")
-                .authoritiesByUsernameQuery("select name, name "   //권한처리
-                        + "from userrole ur inner join member u on ur.user_id = u.id "
+                .authoritiesByUsernameQuery("select u.name, r.name "   //권한처리
+                        + "from user_role ur inner join member u on ur.user_id = u.id "
                         + "inner join role r on ur.role_id = r.id "
-                        + "where email = ?");
+                        + "where u.name = ?");
         /**
          * Authentication 로그인 인증
          * Authroization 권한
