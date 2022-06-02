@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <th:block th:fragment="headerFragment">
     <head>
         <meta charset="UTF-8">
@@ -220,7 +220,17 @@
             <li class="header_li"><a href="/sAmericaGallery">남미</a></li>
             <!--            <li class="header_li"><a href="/members/new">회원가입</a></li>-->
             <!--            <li class="header_li"><a href="/members">회원목록</a></li>-->
-            <li class="header_li" style="float:right"><a href="/account/login">Login</a></li>
+            <li class="header_li" style="float:right"><a th:href="@{/account/login}" sec:authorize="!isAuthenticated()">로그인</a></li>
+
+            <li class="header_li" style="float:right"><a th:href="@{/account/register}" sec:authorize="!isAuthenticated()">회원가입</a></li>
+
+            <form th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()">
+                <span sec:authentication="name">사용자</span>
+                <span sec:authentication="principal.authorities">권한</span>
+                <button type="submit">Log out</button>
+            </form>
+
+
         </ul>
 
     </head>
