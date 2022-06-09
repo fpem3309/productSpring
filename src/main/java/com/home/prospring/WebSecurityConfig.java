@@ -28,9 +28,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/","/account/register","/css/**","/images/**").permitAll()    // 전체 접근 허용
-                .antMatchers("/esAsiaBoard/Insert").hasRole("USER")//admin이라는 롤을 가진 사용자만 접근 허용
-                .anyRequest().authenticated()
+                .antMatchers("/","/account/register","/css/**","/images/**",
+                        "/cenAsiaGallery","/esAsiaGallery","/europeGallery","/indiaGallery",
+                        "/meAsiaGallery","/ncAmericaGallery","/sAmericaGallery").permitAll()
+                .anyRequest().authenticated()   // 전체 접근 허용
                 .and()
                 .formLogin()
                 .loginPage("/account/login")
