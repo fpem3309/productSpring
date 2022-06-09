@@ -21,6 +21,10 @@ public class ESAsiaBoard {
     private String esasiaDate;
     @Column(name = "esasiaCategory")
     private String esasiaCategory;
+    @Column(name= "filename")
+    private String filename;
+    @Column(name= "filepath")
+    private String filepath;
 
     public int getEsasiaId() {
         return esasiaId;
@@ -68,5 +72,21 @@ public class ESAsiaBoard {
 
     public void setEsasiaCategory(String esasiaCategory) {
         this.esasiaCategory = esasiaCategory;
+    }
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
+
+    public String getFilepath() {
+        return filepath;
+    }
+
+    public void setFilepath(String filepath) {
+        this.filepath = filepath;
     }
 }

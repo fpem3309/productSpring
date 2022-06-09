@@ -4,9 +4,13 @@ import com.home.prospring.domain.*;
 import com.home.prospring.repostory.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @Transactional
@@ -52,7 +56,21 @@ public class MainBoardService {
      * 동남아시아
      * @param esAsiaBoard
      */
-    public int esAsiaInsert(ESAsiaBoard esAsiaBoard){
+    public int esAsiaInsert(ESAsiaBoard esAsiaBoard, MultipartFile file) throws Exception {
+
+        String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";
+
+        UUID uuid = UUID.randomUUID();
+
+        String fileName = uuid+"_"+file.getOriginalFilename();
+
+        File saveFile = new File(projectPath,fileName);
+
+        file.transferTo(saveFile);
+
+        esAsiaBoard.setFilename(fileName);
+        esAsiaBoard.setFilepath("/files/"+fileName);
+
         mainBoardRepository.esAsiaInsert(esAsiaBoard);
         return esAsiaBoard.getEsasiaId();
     }
