@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -50,12 +51,14 @@ public class ESAsiaController {
         return "ESAsia/esAsiaBoard";
     }
 
+    @Secured("ROLE_ADMIN")
     @GetMapping("/esAsiaBoard/Insert")
     public String esAsiaBoardForm(Model model){
         model.addAttribute("localDate", LocalDate.now());
         return "ESAsia/esAsiaBoardForm";
     }
 
+    @Secured("ROLE_ADMIN")
     @PostMapping("/esAsiaBoard/Insert")
     public String esAsiaBoardInsert(BoardForm form){
         ESAsiaBoard esAsiaBoard = new ESAsiaBoard();
@@ -76,6 +79,7 @@ public class ESAsiaController {
         return "ESAsia/esAsiaBoardDetail";
     }
 
+    @Secured("ROLE_ADMIN")
     @GetMapping("/esAsiaBoard/Update{no}")
     public String esAsiaBoardUpdate(@PathVariable int no, Model model){
         ESAsiaBoard boardOne = mainBoardService.findEsAsiaOne(no).get();
@@ -84,6 +88,7 @@ public class ESAsiaController {
         return "ESAsia/esAsiaBoardUpdateForm";
     }
 
+    @Secured("ROLE_ADMIN")
     @PostMapping("/esAsiaBoard/Update")
     public String esAsiaBoardUpdates(BoardForm form){
         ESAsiaBoard boardOne = mainBoardService.findEsAsiaOne(form.getId()).get();
@@ -94,6 +99,7 @@ public class ESAsiaController {
         return "redirect:/esAsiaGallery";
     }
 
+    @Secured("ROLE_ADMIN")
     @GetMapping("/esAsiaBoard/Delete{no}")
     public String esAsiaBoardDelete(@PathVariable int no){
         ESAsiaBoard boardOne = mainBoardService.findEsAsiaOne(no).get();

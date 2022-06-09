@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -49,13 +50,14 @@ public class SAmericaController {
         model.addAttribute("country",country);
         return "SAmerica/sAmericaBoard";
     }
-
+    @Secured("ROLE_ADMIN")
     @GetMapping("/sAmericaBoard/Insert")
     public String sAmericaBoardForm(Model model){
         model.addAttribute("localDate", LocalDate.now());
         return "SAmerica/sAmericaBoardForm";
     }
 
+    @Secured("ROLE_ADMIN")
     @PostMapping("/sAmericaBoard/Insert")
     public String sAmericaBoardInsert(BoardForm form){
         SAmericaBoard sAmericaBoard = new SAmericaBoard();
@@ -76,6 +78,7 @@ public class SAmericaController {
         return "SAmerica/sAmericaBoardDetail";
     }
 
+    @Secured("ROLE_ADMIN")
     @GetMapping("/sAmericaBoard/Update{no}")
     public String sAmericaBoardUpdate(@PathVariable int no, Model model){
         SAmericaBoard boardOne = mainBoardService.findSAmericaOne(no).get();
@@ -84,6 +87,7 @@ public class SAmericaController {
         return "SAmerica/sAmericaBoardUpdateForm";
     }
 
+    @Secured("ROLE_ADMIN")
     @PostMapping("/sAmericaBoard/Update")
     public String sAmericaBoardUpdates(BoardForm form){
         SAmericaBoard boardOne = mainBoardService.findSAmericaOne(form.getId()).get();
@@ -94,6 +98,7 @@ public class SAmericaController {
         return "redirect:/sAmericaGallery";
     }
 
+    @Secured("ROLE_ADMIN")
     @GetMapping("/sAmericaBoard/Delete{no}")
     public String sAmericaBoardDelete(@PathVariable int no){
         SAmericaBoard boardOne = mainBoardService.findSAmericaOne(no).get();

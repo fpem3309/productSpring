@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="http://www.w3.org/1999/xhtml">
 <th:block th:replace="fragments/header:: headerFragment"></th:block>
 <head>
 
     <meta charset="UTF-8">
     <title>Title</title>
-
+    <script>
+        function del(id){
+            location.href ="/sAmericaBoard/Delete"+id;
+            alert("삭제되었습니다.");
+        }
+    </script>
     <style>
         * {
             box-sizing: border-box;
@@ -90,8 +95,8 @@
         </div>
     </div>
 </div>
-<button type="button" th:onclick="|location.href='@{/sAmericaBoard/Update}${boardOne.samericaId}'|">수정</button>
+<button type="button" sec:authorize="hasRole('ROLE_ADMIN')" th:onclick="|location.href='@{/sAmericaBoard/Update}${boardOne.samericaId}'|">수정</button>
 <button type="button" th:onclick="|location.href='javascript:history.back();'|">목록으로</button>
-<button type="button" th:onclick="|location.href='@{/sAmericaBoard/Delete}${boardOne.samericaId}'|">삭제하기</button>
+<button type="button" sec:authorize="hasRole('ROLE_ADMIN')" th:onclick="|javascript:del(${boardOne.samericaId})|">삭제하기</button>
 </body>
 </html>

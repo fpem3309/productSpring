@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="http://www.w3.org/1999/xhtml">
 <th:block th:replace="fragments/header:: headerFragment"></th:block>
 <head>
     <meta charset="UTF-8">
@@ -100,7 +100,7 @@
     });
 </script>
 
-<button type="button" th:onclick="|location.href='@{/meAsiaBoard/Insert}'|">글쓰기</button>
+<button type="button" sec:authorize="hasRole('ROLE_ADMIN')" th:onclick="|location.href='@{/meAsiaBoard/Insert}'|">글쓰기</button>
 
 </body>
 </html>

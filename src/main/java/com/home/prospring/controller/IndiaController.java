@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -57,6 +58,7 @@ public class IndiaController {
         return "India/indiaBoardDetail";
     }
 
+    @Secured("ROLE_ADMIN")
     @GetMapping("/indiaBoard/Update{no}")
     public String indiaBoardUpdate(@PathVariable int no, Model model){
         IndiaBoard boardOne = mainBoardService.findIndiaOne(no).get();
@@ -65,6 +67,7 @@ public class IndiaController {
         return "India/indiaBoardUpdateForm";
     }
 
+    @Secured("ROLE_ADMIN")
     @PostMapping("/indiaBoard/Update")
     public String indiaBoardUpdates(BoardForm form){
         IndiaBoard boardOne = mainBoardService.findIndiaOne(form.getId()).get();
@@ -75,6 +78,7 @@ public class IndiaController {
         return "redirect:/indiaBoard?country=india";
     }
 
+    @Secured("ROLE_ADMIN")
     @GetMapping("/indiaBoard/Delete{no}")
     public String indiaBoardDelete(@PathVariable int no){
         IndiaBoard boardOne = mainBoardService.findIndiaOne(no).get();

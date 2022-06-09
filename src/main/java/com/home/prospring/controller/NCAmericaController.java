@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -50,12 +51,14 @@ public class NCAmericaController {
         return "NcAmerica/ncAmericaBoard";
     }
 
+    @Secured("ROLE_ADMIN")
     @GetMapping("/ncAmericaBoard/Insert")
     public String ncAmericaBoardForm(Model model){
         model.addAttribute("localDate", LocalDate.now());
         return "NcAmerica/ncAmericaBoardForm";
     }
 
+    @Secured("ROLE_ADMIN")
     @PostMapping("/ncAmericaBoard/Insert")
     public String ncAmericaBoardInsert(BoardForm form){
         NCAmericaBoard ncAmericaBoard = new NCAmericaBoard();
@@ -76,6 +79,7 @@ public class NCAmericaController {
         return "NcAmerica/ncAmericaBoardDetail";
     }
 
+    @Secured("ROLE_ADMIN")
     @GetMapping("/ncAmericaBoard/Update{no}")
     public String ncAmericaBoardUpdate(@PathVariable int no, Model model){
         NCAmericaBoard boardOne = mainBoardService.findNcAmericaOne(no).get();
@@ -84,6 +88,7 @@ public class NCAmericaController {
         return "NcAmerica/ncAmericaBoardUpdateForm";
     }
 
+    @Secured("ROLE_ADMIN")
     @PostMapping("/ncAmericaBoard/Update")
     public String ncAmericaBoardUpdates(BoardForm form){
         NCAmericaBoard boardOne = mainBoardService.findNcAmericaOne(form.getId()).get();
@@ -94,6 +99,7 @@ public class NCAmericaController {
         return "redirect:/ncAmericaGallery";
     }
 
+    @Secured("ROLE_ADMIN")
     @GetMapping("/ncAmericaBoard/Delete{no}")
     public String ncAmericaBoardDelete(@PathVariable int no){
         NCAmericaBoard boardOne = mainBoardService.findNcAmericaOne(no).get();

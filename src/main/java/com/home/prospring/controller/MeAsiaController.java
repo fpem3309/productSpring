@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -50,12 +51,14 @@ public class MeAsiaController {
         return "MeAsia/meAsiaBoard";
     }
 
+    @Secured("ROLE_ADMIN")
     @GetMapping("/meAsiaBoard/Insert")
     public String MeAsiaBoardForm(Model model){
         model.addAttribute("localDate", LocalDate.now());
         return "MeAsia/meAsiaBoardForm";
     }
 
+    @Secured("ROLE_ADMIN")
     @PostMapping("/meAsiaBoard/Insert")
     public String MeAsiaBoardInsert(BoardForm form){
         MEAsiaBoard MeAsiaBoard = new MEAsiaBoard();
@@ -76,6 +79,7 @@ public class MeAsiaController {
         return "MeAsia/meAsiaBoardDetail";
     }
 
+    @Secured("ROLE_ADMIN")
     @GetMapping("/meAsiaBoard/Update{no}")
     public String MeAsiaBoardUpdate(@PathVariable int no, Model model){
         MEAsiaBoard boardOne = mainBoardService.findMeAsiaOne(no).get();
@@ -84,6 +88,7 @@ public class MeAsiaController {
         return "MeAsia/meAsiaBoardUpdateForm";
     }
 
+    @Secured("ROLE_ADMIN")
     @PostMapping("/meAsiaBoard/Update")
     public String MeAsiaBoardUpdates(BoardForm form){
         MEAsiaBoard boardOne = mainBoardService.findMeAsiaOne(form.getId()).get();
@@ -94,6 +99,7 @@ public class MeAsiaController {
         return "redirect:/meAsiaGallery";
     }
 
+    @Secured("ROLE_ADMIN")
     @GetMapping("/meAsiaBoard/Delete{no}")
     public String MeAsiaBoardDelete(@PathVariable int no){
         MEAsiaBoard boardOne = mainBoardService.findMeAsiaOne(no).get();

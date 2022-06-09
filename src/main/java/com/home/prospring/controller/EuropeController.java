@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -50,12 +51,14 @@ public class EuropeController {
         return "Europe/europeBoard";
     }
 
+    @Secured("ROLE_ADMIN")
     @GetMapping("/europeBoard/Insert")
     public String europeBoardForm(Model model){
         model.addAttribute("localDate", LocalDate.now());
         return "Europe/europeBoardForm";
     }
 
+    @Secured("ROLE_ADMIN")
     @PostMapping("/europeBoard/Insert")
     public String europeBoardInsert(BoardForm form){
         EuropeBoard europeBoard = new EuropeBoard();
@@ -76,6 +79,7 @@ public class EuropeController {
         return "Europe/europeBoardDetail";
     }
 
+    @Secured("ROLE_ADMIN")
     @GetMapping("/europeBoard/Update{no}")
     public String europeBoardUpdate(@PathVariable int no, Model model){
         EuropeBoard boardOne = mainBoardService.findEuropeOne(no).get();
@@ -84,6 +88,7 @@ public class EuropeController {
         return "Europe/europeBoardUpdateForm";
     }
 
+    @Secured("ROLE_ADMIN")
     @PostMapping("/europeBoard/Update")
     public String europeBoardUpdates(BoardForm form){
         EuropeBoard boardOne = mainBoardService.findEuropeOne(form.getId()).get();
@@ -94,6 +99,7 @@ public class EuropeController {
         return "redirect:/europeGallery";
     }
 
+    @Secured("ROLE_ADMIN")
     @GetMapping("/europeBoard/Delete{no}")
     public String europeBoardDelete(@PathVariable int no){
         EuropeBoard boardOne = mainBoardService.findEuropeOne(no).get();

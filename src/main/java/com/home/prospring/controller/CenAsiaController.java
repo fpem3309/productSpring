@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -51,12 +52,14 @@ public class CenAsiaController {
         return "CenAsia/cenAsiaBoard";
     }
 
+    @Secured("ROLE_ADMIN")
     @GetMapping("/cenAsiaBoard/Insert")
     public String cenAsiaBoardForm(Model model){
         model.addAttribute("localDate", LocalDate.now());
         return "CenAsia/cenAsiaBoardForm";
     }
 
+    @Secured("ROLE_ADMIN")
     @PostMapping("/cenAsiaBoard/Insert")
     public String cenAsiaBoardInsert(BoardForm form){
         CenAsiaBoard cenAsiaBoard = new CenAsiaBoard();
@@ -69,6 +72,7 @@ public class CenAsiaController {
         return "redirect:/cenAsiaGallery";
     }
 
+
     @GetMapping("/cenAsiaBoard/Detail{no}")
     public String cenAsiaBoardDetail(@PathVariable int no, Model model){
         CenAsiaBoard boardOne = mainBoardService.findCenAsiaOne(no).get();
@@ -77,6 +81,7 @@ public class CenAsiaController {
         return "CenAsia/cenAsiaBoardDetail";
     }
 
+    @Secured("ROLE_ADMIN")
     @GetMapping("/cenAsiaBoard/Update{no}")
     public String cenAsiaBoardUpdate(@PathVariable int no, Model model){
         CenAsiaBoard boardOne = mainBoardService.findCenAsiaOne(no).get();
@@ -85,6 +90,7 @@ public class CenAsiaController {
         return "CenAsia/cenAsiaBoardUpdateForm";
     }
 
+    @Secured("ROLE_ADMIN")
     @PostMapping("/cenAsiaBoard/Update")
     public String cenAsiaBoardUpdates(BoardForm form){
         CenAsiaBoard boardOne = mainBoardService.findCenAsiaOne(form.getId()).get();
@@ -95,6 +101,7 @@ public class CenAsiaController {
         return "redirect:/cenAsiaGallery";
     }
 
+    @Secured("ROLE_ADMIN")
     @GetMapping("/cenAsiaBoard/Delete{no}")
     public String cenAsiaBoardDelete(@PathVariable int no){
         CenAsiaBoard boardOne = mainBoardService.findCenAsiaOne(no).get();
