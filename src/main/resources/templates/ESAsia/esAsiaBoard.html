@@ -27,7 +27,7 @@
     <tbody>
     <tr th:each="esAsiaboards: ${esAsiaList}" th:onclick="|javascript:Detail(${esAsiaboards.esasiaId})|">
         <td th:if="${esAsiaboards.filepath !=''}"><img  th:src="${esAsiaboards.filepath}"></td>
-        <td th:unless="${esAsiaboards.filepath !=''}"><img src="/images/buger.png"></td>
+        <td th:if="${esAsiaboards.filepath == ''}"><img src="/images/buger.png"></td>
         <td th:text="'['+${esAsiaboards.esasiaCategory}+'] '+${esAsiaboards.esasiaTitle}"></td>
         <td id="content">
             <span class="content" th:text="${esAsiaboards.esasiaContent}"></span>
