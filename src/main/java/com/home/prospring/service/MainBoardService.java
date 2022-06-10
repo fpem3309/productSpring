@@ -62,15 +62,15 @@ public class MainBoardService {
 
         UUID uuid = UUID.randomUUID();
 
-        String fileName = uuid+"_"+file.getOriginalFilename();
+        String fileName = uuid + "_" + file.getOriginalFilename();
+        if(!fileName.endsWith("_")) {
+            File saveFile = new File(projectPath, fileName);
 
-        File saveFile = new File(projectPath,fileName);
+            file.transferTo(saveFile);
 
-        file.transferTo(saveFile);
-
-        esAsiaBoard.setFilename(fileName);
-        esAsiaBoard.setFilepath("/files/"+fileName);
-
+            esAsiaBoard.setFilename(fileName);
+            esAsiaBoard.setFilepath("/files/" + fileName);
+        }
         mainBoardRepository.esAsiaInsert(esAsiaBoard);
         return esAsiaBoard.getEsasiaId();
     }

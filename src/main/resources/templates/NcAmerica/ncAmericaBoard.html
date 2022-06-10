@@ -26,7 +26,7 @@
 <table>
     <tbody>
     <tr th:each="ncAmericaboards: ${ncAmericaList}" th:onclick="|javascript:Detail(${ncAmericaboards.ncamericaId})|">
-        <td><img src="/images/buger.png"></td>
+        <td><img th:src="${ncAmericaboards.filepath}"></td>
         <td th:text="'['+${ncAmericaboards.ncamericaCategory}+'] '+${ncAmericaboards.ncamericaTitle}"></td>
         <td id="content">
             <span class="content" th:text="${ncAmericaboards.ncamericaContent}"></span>

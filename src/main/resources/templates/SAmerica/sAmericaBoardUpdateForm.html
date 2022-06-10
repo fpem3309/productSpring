@@ -74,7 +74,7 @@
 <body>
 
 <div class="container">
-    <form th:action="@{/sAmericaBoard/Update}" method="post">
+    <form th:action="@{/sAmericaBoard/Update}" method="post" enctype="multipart/form-data">
 
         <input type="hidden" id="id" name="id" th:value="${boardOne.samericaId}" placeholder="제목을 입력하세요">
 
@@ -113,6 +113,8 @@
         <input type="hidden" id="date" name="date" th:value="${#temporals.format(localDate,'yyyy-MM-dd')}">
 
         <br>
+        <input type="file" name="file"/>
+
         <div class="row">
             <input type="submit" value="등록">
         </div>
