@@ -74,7 +74,7 @@
 <body>
 
 <div class="container">
-    <form th:action="@{/europeBoard/Insert}" method="post">
+    <form th:action="@{/europeBoard/Insert}" method="post" enctype="multipart/form-data">
 
         <div class="row">
             <div class="col-25">
@@ -118,6 +118,8 @@
         <input type="hidden" id="date" name="date" th:value="${#temporals.format(localDate,'yyyy-MM-dd')}">
 
         <br>
+        <input type="file" name="file"/>
+
         <div class="row">
             <input type="submit" value="등록">
         </div>

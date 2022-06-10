@@ -42,12 +42,6 @@ public class MainBoardService {
         return springDataJpaMemberRepository.updateCount(id);
     }
 
-    /**
-     * 파일 경로, 이름
-     */
-    String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";
-    UUID uuid = UUID.randomUUID();
-
 
     /**
      * 게시글 등록
@@ -63,6 +57,10 @@ public class MainBoardService {
      * @param esAsiaBoard
      */
     public int esAsiaInsert(ESAsiaBoard esAsiaBoard, MultipartFile file) throws Exception {
+
+        String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";
+
+        UUID uuid = UUID.randomUUID();
 
         String fileName = uuid+"_"+file.getOriginalFilename();
 
@@ -91,6 +89,9 @@ public class MainBoardService {
      * 인도
      */
     public int indiaInsert(IndiaBoard indiaBoard, MultipartFile file) throws Exception {
+        String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";
+
+        UUID uuid = UUID.randomUUID();
 
         String fileName = uuid+"_"+file.getOriginalFilename();
 
@@ -119,6 +120,9 @@ public class MainBoardService {
      * 중앙아시아
      */
     public int cenAsiaInsert(CenAsiaBoard cenAsiaBoard, MultipartFile file) throws Exception {
+        String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";
+
+        UUID uuid = UUID.randomUUID();
 
         String fileName = uuid+"_"+file.getOriginalFilename();
 
@@ -148,6 +152,9 @@ public class MainBoardService {
      * @param meAsiaBoard
      */
     public int meAsiaInsert(MEAsiaBoard meAsiaBoard, MultipartFile file) throws Exception {
+        String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";
+
+        UUID uuid = UUID.randomUUID();
 
         String fileName = uuid+"_"+file.getOriginalFilename();
 
@@ -177,6 +184,9 @@ public class MainBoardService {
      * @param europeBoard
      */
     public int europeInsert(EuropeBoard europeBoard, MultipartFile file) throws Exception {
+        String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";
+
+        UUID uuid = UUID.randomUUID();
 
         String fileName = uuid+"_"+file.getOriginalFilename();
 
@@ -206,6 +216,9 @@ public class MainBoardService {
      * @param ncAmericaBoard
      */
     public int ncAmericaInsert(NCAmericaBoard ncAmericaBoard, MultipartFile file) throws Exception {
+        String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";
+
+        UUID uuid = UUID.randomUUID();
 
         String fileName = uuid+"_"+file.getOriginalFilename();
 
@@ -236,6 +249,9 @@ public class MainBoardService {
      * @param sAmericaBoard
      */
     public int sAmericaInsert(SAmericaBoard sAmericaBoard, MultipartFile file) throws Exception {
+        String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";
+
+        UUID uuid = UUID.randomUUID();
 
         String fileName = uuid+"_"+file.getOriginalFilename();
 
