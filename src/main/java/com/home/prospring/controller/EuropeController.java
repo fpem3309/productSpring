@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
 
@@ -60,13 +61,13 @@ public class EuropeController {
 
     @Secured("ROLE_ADMIN")
     @PostMapping("/europeBoard/Insert")
-    public String europeBoardInsert(BoardForm form){
+    public String europeBoardInsert(BoardForm form, MultipartFile file) throws Exception {
         EuropeBoard europeBoard = new EuropeBoard();
         europeBoard.setEuropeTitle(form.getTitle());
         europeBoard.setEuropeContent(form.getContent());
         europeBoard.setEuropeDate(form.getDate());
         europeBoard.setEuropeCategory(form.getCategory());
-        mainBoardService.europeInsert(europeBoard);
+        mainBoardService.europeInsert(europeBoard, file);
 
         return "redirect:/europeGallery";
     }
@@ -90,12 +91,12 @@ public class EuropeController {
 
     @Secured("ROLE_ADMIN")
     @PostMapping("/europeBoard/Update")
-    public String europeBoardUpdates(BoardForm form){
+    public String europeBoardUpdates(BoardForm form, MultipartFile file) throws Exception {
         EuropeBoard boardOne = mainBoardService.findEuropeOne(form.getId()).get();
         boardOne.setEuropeTitle(form.getTitle());
         boardOne.setEuropeContent(form.getContent());
         boardOne.setEuropeCategory(form.getCategory());
-        mainBoardService.europeInsert(boardOne);
+        mainBoardService.europeInsert(boardOne, file);
         return "redirect:/europeGallery";
     }
 

@@ -21,6 +21,10 @@ public class IndiaBoard {
     private String indiaDate;
     @Column(name = "indiaCategory")
     private String indiaCategory;
+    @Column(name= "filename")
+    private String filename;
+    @Column(name= "filepath")
+    private String filepath;
 
     public int getIndiaId() {
         return indiaId;
@@ -68,5 +72,21 @@ public class IndiaBoard {
 
     public void setIndiaCategory(String indiaCategory) {
         this.indiaCategory = indiaCategory;
+    }
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
+
+    public String getFilepath() {
+        return filepath;
+    }
+
+    public void setFilepath(String filepath) {
+        this.filepath = filepath;
     }
 }

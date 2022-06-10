@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
 
@@ -61,13 +62,13 @@ public class CenAsiaController {
 
     @Secured("ROLE_ADMIN")
     @PostMapping("/cenAsiaBoard/Insert")
-    public String cenAsiaBoardInsert(BoardForm form){
+    public String cenAsiaBoardInsert(BoardForm form, MultipartFile file) throws Exception {
         CenAsiaBoard cenAsiaBoard = new CenAsiaBoard();
         cenAsiaBoard.setCenasiaTitle(form.getTitle());
         cenAsiaBoard.setCenasiaContent(form.getContent());
         cenAsiaBoard.setCenasiaDate(form.getDate());
         cenAsiaBoard.setCenasiaCategory(form.getCategory());
-        mainBoardService.cenAsiaInsert(cenAsiaBoard);
+        mainBoardService.cenAsiaInsert(cenAsiaBoard, file);
 
         return "redirect:/cenAsiaGallery";
     }
@@ -92,12 +93,12 @@ public class CenAsiaController {
 
     @Secured("ROLE_ADMIN")
     @PostMapping("/cenAsiaBoard/Update")
-    public String cenAsiaBoardUpdates(BoardForm form){
+    public String cenAsiaBoardUpdates(BoardForm form, MultipartFile file) throws Exception {
         CenAsiaBoard boardOne = mainBoardService.findCenAsiaOne(form.getId()).get();
         boardOne.setCenasiaTitle(form.getTitle());
         boardOne.setCenasiaContent(form.getContent());
         boardOne.setCenasiaCategory(form.getCategory());
-        mainBoardService.cenAsiaInsert(boardOne);
+        mainBoardService.cenAsiaInsert(boardOne, file);
         return "redirect:/cenAsiaGallery";
     }
 

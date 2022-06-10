@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
 
@@ -60,13 +61,13 @@ public class NCAmericaController {
 
     @Secured("ROLE_ADMIN")
     @PostMapping("/ncAmericaBoard/Insert")
-    public String ncAmericaBoardInsert(BoardForm form){
+    public String ncAmericaBoardInsert(BoardForm form, MultipartFile file) throws Exception {
         NCAmericaBoard ncAmericaBoard = new NCAmericaBoard();
         ncAmericaBoard.setNcamericaTitle(form.getTitle());
         ncAmericaBoard.setNcamericaContent(form.getContent());
         ncAmericaBoard.setNcamericaDate(form.getDate());
         ncAmericaBoard.setNcamericaCategory(form.getCategory());
-        mainBoardService.ncAmericaInsert(ncAmericaBoard);
+        mainBoardService.ncAmericaInsert(ncAmericaBoard, file);
 
         return "redirect:/ncAmericaGallery";
     }
@@ -90,12 +91,12 @@ public class NCAmericaController {
 
     @Secured("ROLE_ADMIN")
     @PostMapping("/ncAmericaBoard/Update")
-    public String ncAmericaBoardUpdates(BoardForm form){
+    public String ncAmericaBoardUpdates(BoardForm form, MultipartFile file) throws Exception {
         NCAmericaBoard boardOne = mainBoardService.findNcAmericaOne(form.getId()).get();
         boardOne.setNcamericaTitle(form.getTitle());
         boardOne.setNcamericaContent(form.getContent());
         boardOne.setNcamericaCategory(form.getCategory());
-        mainBoardService.ncAmericaInsert(boardOne);
+        mainBoardService.ncAmericaInsert(boardOne, file);
         return "redirect:/ncAmericaGallery";
     }
 

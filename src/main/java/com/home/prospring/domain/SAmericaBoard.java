@@ -21,6 +21,10 @@ public class SAmericaBoard {
     private String samericaDate;
     @Column(name = "samericaCategory")
     private String samericaCategory;
+    @Column(name= "filename")
+    private String filename;
+    @Column(name= "filepath")
+    private String filepath;
 
     public int getSamericaId() {
         return samericaId;
@@ -68,5 +72,21 @@ public class SAmericaBoard {
 
     public void setSamericaCategory(String samericaCategory) {
         this.samericaCategory = samericaCategory;
+    }
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
+
+    public String getFilepath() {
+        return filepath;
+    }
+
+    public void setFilepath(String filepath) {
+        this.filepath = filepath;
     }
 }

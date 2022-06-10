@@ -21,6 +21,10 @@ public class CenAsiaBoard {
     private String cenasiaDate;
     @Column(name = "cenasiaCategory")
     private String cenasiaCategory;
+    @Column(name= "filename")
+    private String filename;
+    @Column(name= "filepath")
+    private String filepath;
 
     public int getCenasiaId() {
         return cenasiaId;
@@ -68,5 +72,21 @@ public class CenAsiaBoard {
 
     public void setCenasiaCategory(String cenasiaCategory) {
         this.cenasiaCategory = cenasiaCategory;
+    }
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
+
+    public String getFilepath() {
+        return filepath;
+    }
+
+    public void setFilepath(String filepath) {
+        this.filepath = filepath;
     }
 }

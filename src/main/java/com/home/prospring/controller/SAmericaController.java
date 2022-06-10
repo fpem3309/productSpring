@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
 
@@ -59,13 +60,13 @@ public class SAmericaController {
 
     @Secured("ROLE_ADMIN")
     @PostMapping("/sAmericaBoard/Insert")
-    public String sAmericaBoardInsert(BoardForm form){
+    public String sAmericaBoardInsert(BoardForm form, MultipartFile file) throws Exception {
         SAmericaBoard sAmericaBoard = new SAmericaBoard();
         sAmericaBoard.setSamericaTitle(form.getTitle());
         sAmericaBoard.setSamericaContent(form.getContent());
         sAmericaBoard.setSamericaDate(form.getDate());
         sAmericaBoard.setSamericaCategory(form.getCategory());
-        mainBoardService.sAmericaInsert(sAmericaBoard);
+        mainBoardService.sAmericaInsert(sAmericaBoard, file);
 
         return "redirect:/sAmericaGallery";
     }
@@ -89,12 +90,12 @@ public class SAmericaController {
 
     @Secured("ROLE_ADMIN")
     @PostMapping("/sAmericaBoard/Update")
-    public String sAmericaBoardUpdates(BoardForm form){
+    public String sAmericaBoardUpdates(BoardForm form, MultipartFile file) throws Exception {
         SAmericaBoard boardOne = mainBoardService.findSAmericaOne(form.getId()).get();
         boardOne.setSamericaTitle(form.getTitle());
         boardOne.setSamericaContent(form.getContent());
         boardOne.setSamericaCategory(form.getCategory());
-        mainBoardService.sAmericaInsert(boardOne);
+        mainBoardService.sAmericaInsert(boardOne, file);
         return "redirect:/sAmericaGallery";
     }
 

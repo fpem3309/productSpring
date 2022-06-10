@@ -42,6 +42,12 @@ public class MainBoardService {
         return springDataJpaMemberRepository.updateCount(id);
     }
 
+    /**
+     * 파일 경로, 이름
+     */
+    String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";
+    UUID uuid = UUID.randomUUID();
+
 
     /**
      * 게시글 등록
@@ -57,10 +63,6 @@ public class MainBoardService {
      * @param esAsiaBoard
      */
     public int esAsiaInsert(ESAsiaBoard esAsiaBoard, MultipartFile file) throws Exception {
-
-        String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";
-
-        UUID uuid = UUID.randomUUID();
 
         String fileName = uuid+"_"+file.getOriginalFilename();
 
@@ -88,7 +90,17 @@ public class MainBoardService {
     /**
      * 인도
      */
-    public int indiaInsert(IndiaBoard indiaBoard){
+    public int indiaInsert(IndiaBoard indiaBoard, MultipartFile file) throws Exception {
+
+        String fileName = uuid+"_"+file.getOriginalFilename();
+
+        File saveFile = new File(projectPath,fileName);
+
+        file.transferTo(saveFile);
+
+        indiaBoard.setFilename(fileName);
+        indiaBoard.setFilepath("/files/"+fileName);
+
         mainBoardRepository.indiaInsert(indiaBoard);
         return indiaBoard.getIndiaId();
     }
@@ -106,7 +118,17 @@ public class MainBoardService {
     /**
      * 중앙아시아
      */
-    public int cenAsiaInsert(CenAsiaBoard cenAsiaBoard){
+    public int cenAsiaInsert(CenAsiaBoard cenAsiaBoard, MultipartFile file) throws Exception {
+
+        String fileName = uuid+"_"+file.getOriginalFilename();
+
+        File saveFile = new File(projectPath,fileName);
+
+        file.transferTo(saveFile);
+
+        cenAsiaBoard.setFilename(fileName);
+        cenAsiaBoard.setFilepath("/files/"+fileName);
+
         mainBoardRepository.cenAsiaInsert(cenAsiaBoard);
         return cenAsiaBoard.getCenasiaId();
     }
@@ -125,7 +147,17 @@ public class MainBoardService {
      * 중동아시아
      * @param meAsiaBoard
      */
-    public int meAsiaInsert(MEAsiaBoard meAsiaBoard){
+    public int meAsiaInsert(MEAsiaBoard meAsiaBoard, MultipartFile file) throws Exception {
+
+        String fileName = uuid+"_"+file.getOriginalFilename();
+
+        File saveFile = new File(projectPath,fileName);
+
+        file.transferTo(saveFile);
+
+        meAsiaBoard.setFilename(fileName);
+        meAsiaBoard.setFilepath("/files/"+fileName);
+
         mainBoardRepository.meAsiaInsert(meAsiaBoard);
         return meAsiaBoard.getMeasiaId();
     }
@@ -144,7 +176,17 @@ public class MainBoardService {
      * 유럽
      * @param europeBoard
      */
-    public int europeInsert(EuropeBoard europeBoard){
+    public int europeInsert(EuropeBoard europeBoard, MultipartFile file) throws Exception {
+
+        String fileName = uuid+"_"+file.getOriginalFilename();
+
+        File saveFile = new File(projectPath,fileName);
+
+        file.transferTo(saveFile);
+
+        europeBoard.setFilename(fileName);
+        europeBoard.setFilepath("/files/"+fileName);
+
         mainBoardRepository.europeInsert(europeBoard);
         return europeBoard.getEuropeId();
     }
@@ -163,7 +205,17 @@ public class MainBoardService {
      * 북중미
      * @param ncAmericaBoard
      */
-    public int ncAmericaInsert(NCAmericaBoard ncAmericaBoard){
+    public int ncAmericaInsert(NCAmericaBoard ncAmericaBoard, MultipartFile file) throws Exception {
+
+        String fileName = uuid+"_"+file.getOriginalFilename();
+
+        File saveFile = new File(projectPath,fileName);
+
+        file.transferTo(saveFile);
+
+        ncAmericaBoard.setFilename(fileName);
+        ncAmericaBoard.setFilepath("/files/"+fileName);
+
         mainBoardRepository.ncAmericaInsert(ncAmericaBoard);
         return ncAmericaBoard.getNcamericaId();
     }
@@ -183,7 +235,17 @@ public class MainBoardService {
      * 남미
      * @param sAmericaBoard
      */
-    public int sAmericaInsert(SAmericaBoard sAmericaBoard){
+    public int sAmericaInsert(SAmericaBoard sAmericaBoard, MultipartFile file) throws Exception {
+
+        String fileName = uuid+"_"+file.getOriginalFilename();
+
+        File saveFile = new File(projectPath,fileName);
+
+        file.transferTo(saveFile);
+
+        sAmericaBoard.setFilename(fileName);
+        sAmericaBoard.setFilepath("/files/"+fileName);
+
         mainBoardRepository.sAmericaInsert(sAmericaBoard);
         return sAmericaBoard.getSamericaId();
     }

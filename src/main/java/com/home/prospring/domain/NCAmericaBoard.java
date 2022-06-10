@@ -21,6 +21,10 @@ public class NCAmericaBoard {
     private String ncamericaDate;
     @Column(name = "ncamericaCategory")
     private String ncamericaCategory;
+    @Column(name= "filename")
+    private String filename;
+    @Column(name= "filepath")
+    private String filepath;
 
     public int getNcamericaId() {
         return ncamericaId;
@@ -68,5 +72,21 @@ public class NCAmericaBoard {
 
     public void setNcamericaCategory(String ncamericaCategory) {
         this.ncamericaCategory = ncamericaCategory;
+    }
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
+
+    public String getFilepath() {
+        return filepath;
+    }
+
+    public void setFilepath(String filepath) {
+        this.filepath = filepath;
     }
 }

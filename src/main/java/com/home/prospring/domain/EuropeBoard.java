@@ -21,6 +21,10 @@ public class EuropeBoard {
     private String europeDate;
     @Column(name = "europeCategory")
     private String europeCategory;
+    @Column(name= "filename")
+    private String filename;
+    @Column(name= "filepath")
+    private String filepath;
 
     public int getEuropeId() {
         return europeId;
@@ -68,5 +72,21 @@ public class EuropeBoard {
 
     public void setEuropeCategory(String europeCategory) {
         this.europeCategory = europeCategory;
+    }
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
+
+    public String getFilepath() {
+        return filepath;
+    }
+
+    public void setFilepath(String filepath) {
+        this.filepath = filepath;
     }
 }

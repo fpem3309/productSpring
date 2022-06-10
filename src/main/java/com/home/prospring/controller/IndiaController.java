@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
 
@@ -69,12 +70,12 @@ public class IndiaController {
 
     @Secured("ROLE_ADMIN")
     @PostMapping("/indiaBoard/Update")
-    public String indiaBoardUpdates(BoardForm form){
+    public String indiaBoardUpdates(BoardForm form, MultipartFile file) throws Exception {
         IndiaBoard boardOne = mainBoardService.findIndiaOne(form.getId()).get();
         boardOne.setIndiaTitle(form.getTitle());
         boardOne.setIndiaContent(form.getContent());
         boardOne.setIndiaCategory(form.getCategory());
-        mainBoardService.indiaInsert(boardOne);
+        mainBoardService.indiaInsert(boardOne, file);
         return "redirect:/indiaBoard?country=india";
     }
 

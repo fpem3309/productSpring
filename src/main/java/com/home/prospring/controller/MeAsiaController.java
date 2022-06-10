@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
 
@@ -60,13 +61,13 @@ public class MeAsiaController {
 
     @Secured("ROLE_ADMIN")
     @PostMapping("/meAsiaBoard/Insert")
-    public String MeAsiaBoardInsert(BoardForm form){
+    public String MeAsiaBoardInsert(BoardForm form, MultipartFile file) throws Exception {
         MEAsiaBoard MeAsiaBoard = new MEAsiaBoard();
         MeAsiaBoard.setMeasiaTitle(form.getTitle());
         MeAsiaBoard.setMeasiaContent(form.getContent());
         MeAsiaBoard.setMeasiaDate(form.getDate());
         MeAsiaBoard.setMeasiaCategory(form.getCategory());
-        mainBoardService.meAsiaInsert(MeAsiaBoard);
+        mainBoardService.meAsiaInsert(MeAsiaBoard, file);
 
         return "redirect:/meAsiaGallery";
     }
@@ -90,12 +91,12 @@ public class MeAsiaController {
 
     @Secured("ROLE_ADMIN")
     @PostMapping("/meAsiaBoard/Update")
-    public String MeAsiaBoardUpdates(BoardForm form){
+    public String MeAsiaBoardUpdates(BoardForm form, MultipartFile file) throws Exception {
         MEAsiaBoard boardOne = mainBoardService.findMeAsiaOne(form.getId()).get();
         boardOne.setMeasiaTitle(form.getTitle());
         boardOne.setMeasiaContent(form.getContent());
         boardOne.setMeasiaCategory(form.getCategory());
-        mainBoardService.meAsiaInsert(boardOne);
+        mainBoardService.meAsiaInsert(boardOne, file);
         return "redirect:/meAsiaGallery";
     }
 

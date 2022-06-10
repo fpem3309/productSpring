@@ -21,6 +21,10 @@ public class MEAsiaBoard {
     private String measiaDate;
     @Column(name = "measiaCategory")
     private String measiaCategory;
+    @Column(name= "filename")
+    private String filename;
+    @Column(name= "filepath")
+    private String filepath;
 
     public int getMeasiaId() {
         return measiaId;
@@ -68,5 +72,21 @@ public class MEAsiaBoard {
 
     public void setMeasiaCategory(String measiaCategory) {
         this.measiaCategory = measiaCategory;
+    }
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
+
+    public String getFilepath() {
+        return filepath;
+    }
+
+    public void setFilepath(String filepath) {
+        this.filepath = filepath;
     }
 }
