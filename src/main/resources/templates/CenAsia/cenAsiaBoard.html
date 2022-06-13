@@ -26,7 +26,8 @@
 <table>
     <tbody>
     <tr th:each="cenAsiaboards: ${cenAsiaList}" th:onclick="|javascript:Detail(${cenAsiaboards.cenasiaId})|">
-        <td><img th:src="${cenAsiaboards.filepath}"></td>
+        <td th:if="${cenAsiaboards.filepath !=null}"><img  th:src="${cenAsiaboards.filepath}"></td>
+        <td th:unless="${cenAsiaboards.filepath!=null}"><img src="/images/buger.png"></td>
         <td th:text="'['+${cenAsiaboards.cenasiaCategory}+'] '+${cenAsiaboards.cenasiaTitle}"></td>
         <td id="content">
             <span class="content" th:text="${cenAsiaboards.cenasiaContent}"></span>

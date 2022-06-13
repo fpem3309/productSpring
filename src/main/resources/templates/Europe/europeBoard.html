@@ -26,7 +26,8 @@
 <table>
     <tbody>
     <tr th:each="europeboards: ${europeList}" th:onclick="|javascript:Detail(${europeboards.europeId})|">
-        <td><img th:src="${europeboards.filepath}"></td>
+        <td th:if="${europeboards.filepath !=null}"><img  th:src="${europeboards.filepath}"></td>
+        <td th:unless="${europeboards.filepath!=null}"><img src="/images/buger.png"></td>
         <td th:text="'['+${europeboards.europeCategory}+'] '+${europeboards.europeTitle}"></td>
         <td id="content">
             <span class="content" th:text="${europeboards.europeContent}"></span>
