@@ -20,6 +20,9 @@
                     }
                 });
             });
+            function close(){
+                document.getElementById("sidebar").style.left = "-314px";
+            }
         </script>
         <style>
             .header_ul {
@@ -61,8 +64,6 @@
 
             .sidebar {
                 border: solid #9CE3B3FF 3px;
-                margin-top: 70px;
-                margin-left: 8px;
                 width: 300px;
                 height: 100%;
                 background: #2BAE66;
@@ -115,7 +116,8 @@
                 <nav>
                     <input type="checkbox" id="icon">
                     <label for="icon"><img src="/images/buger.png" alt="메뉴" style="width: 50px;"></label>
-                    <div class="sidebar">
+                    <div id="sidebar" class="sidebar">
+                        <button onclick="close()" >Close &times;</button>
                         <h3 class="menu"><a class="sideMenu" th:href="@{/}">메인</a></h3>
                         <h3 class="menu"><a class="sideMenu" th:href="@{/mainProductBoard}">전체 글</a></h3>
 
