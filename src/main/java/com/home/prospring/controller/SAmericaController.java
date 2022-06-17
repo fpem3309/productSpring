@@ -66,6 +66,7 @@ public class SAmericaController {
         sAmericaBoard.setSamericaContent(form.getContent());
         sAmericaBoard.setSamericaDate(form.getDate());
         sAmericaBoard.setSamericaCategory(form.getCategory());
+        sAmericaBoard.setTubelink(form.getTubelink());
         mainBoardService.sAmericaInsert(sAmericaBoard, file);
 
         return "redirect:/sAmericaGallery";
@@ -95,6 +96,7 @@ public class SAmericaController {
         boardOne.setSamericaTitle(form.getTitle());
         boardOne.setSamericaContent(form.getContent());
         boardOne.setSamericaCategory(form.getCategory());
+        boardOne.setTubelink(form.getTubelink());
         mainBoardService.sAmericaInsert(boardOne, file);
         return "redirect:/sAmericaGallery";
     }

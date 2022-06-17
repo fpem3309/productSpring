@@ -67,6 +67,7 @@ public class MeAsiaController {
         MeAsiaBoard.setMeasiaContent(form.getContent());
         MeAsiaBoard.setMeasiaDate(form.getDate());
         MeAsiaBoard.setMeasiaCategory(form.getCategory());
+        MeAsiaBoard.setTubelink(form.getTubelink());
         mainBoardService.meAsiaInsert(MeAsiaBoard, file);
 
         return "redirect:/meAsiaGallery";
@@ -96,6 +97,7 @@ public class MeAsiaController {
         boardOne.setMeasiaTitle(form.getTitle());
         boardOne.setMeasiaContent(form.getContent());
         boardOne.setMeasiaCategory(form.getCategory());
+        boardOne.setTubelink(form.getTubelink());
         mainBoardService.meAsiaInsert(boardOne, file);
         return "redirect:/meAsiaGallery";
     }

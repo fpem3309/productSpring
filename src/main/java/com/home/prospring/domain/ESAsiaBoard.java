@@ -4,12 +4,12 @@ package com.home.prospring.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name="esasiaboard")
+@Table(name = "esasiaboard")
 public class ESAsiaBoard {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // PK
-    @Column(name="esasiaId")
+    @Column(name = "esasiaId")
     private int esasiaId;
     @Column(name = "esasiaTitle")
     private String esasiaTitle;
@@ -21,11 +21,11 @@ public class ESAsiaBoard {
     private String esasiaDate;
     @Column(name = "esasiaCategory")
     private String esasiaCategory;
-    @Column(name= "filename")
+    @Column(name = "filename")
     private String filename;
-    @Column(name= "filepath")
+    @Column(name = "filepath")
     private String filepath;
-    @Column(name="tubelink")
+    @Column(name = "tubelink")
     private String tubelink;
 
     public int getEsasiaId() {

@@ -25,6 +25,8 @@ public class SAmericaBoard {
     private String filename;
     @Column(name= "filepath")
     private String filepath;
+    @Column(name="tubelink")
+    private String tubelink;
 
     public int getSamericaId() {
         return samericaId;
@@ -88,5 +90,13 @@ public class SAmericaBoard {
 
     public void setFilepath(String filepath) {
         this.filepath = filepath;
+    }
+
+    public String getTubelink() {
+        return tubelink;
+    }
+
+    public void setTubelink(String tubelink) {
+        this.tubelink = tubelink;
     }
 }

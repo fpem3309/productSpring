@@ -67,6 +67,7 @@ public class EuropeController {
         europeBoard.setEuropeContent(form.getContent());
         europeBoard.setEuropeDate(form.getDate());
         europeBoard.setEuropeCategory(form.getCategory());
+        europeBoard.setTubelink(form.getTubelink());
         mainBoardService.europeInsert(europeBoard, file);
 
         return "redirect:/europeGallery";
@@ -96,6 +97,7 @@ public class EuropeController {
         boardOne.setEuropeTitle(form.getTitle());
         boardOne.setEuropeContent(form.getContent());
         boardOne.setEuropeCategory(form.getCategory());
+        boardOne.setTubelink(form.getTubelink());
         mainBoardService.europeInsert(boardOne, file);
         return "redirect:/europeGallery";
     }

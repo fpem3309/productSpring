@@ -67,6 +67,7 @@ public class NCAmericaController {
         ncAmericaBoard.setNcamericaContent(form.getContent());
         ncAmericaBoard.setNcamericaDate(form.getDate());
         ncAmericaBoard.setNcamericaCategory(form.getCategory());
+        ncAmericaBoard.setTubelink(form.getTubelink());
         mainBoardService.ncAmericaInsert(ncAmericaBoard, file);
 
         return "redirect:/ncAmericaGallery";
@@ -96,6 +97,7 @@ public class NCAmericaController {
         boardOne.setNcamericaTitle(form.getTitle());
         boardOne.setNcamericaContent(form.getContent());
         boardOne.setNcamericaCategory(form.getCategory());
+        boardOne.setTubelink(form.getTubelink());
         mainBoardService.ncAmericaInsert(boardOne, file);
         return "redirect:/ncAmericaGallery";
     }

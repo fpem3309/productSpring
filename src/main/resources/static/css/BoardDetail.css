@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+}
+
+pre {
+    width: 100%;
+    padding: 12px;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+button {
+    background-color: #04AA6D;
+    color: white;
+    margin: 12px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+button {
+    background-color: #45a049;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.video_container{
+    text-align: center;
+}
+
+.col-75 {
+    float: right;
+    width: 75%;
+    margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .col-75 {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+.inner{
+    color: white;
+    background-color: #9CE3B3FF;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    padding-left: 100px;
+}
+#tube{
+    margin: 30px;
+}

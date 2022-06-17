@@ -75,6 +75,7 @@ public class IndiaController {
         boardOne.setIndiaTitle(form.getTitle());
         boardOne.setIndiaContent(form.getContent());
         boardOne.setIndiaCategory(form.getCategory());
+        boardOne.setTubelink(form.getTubelink());
         mainBoardService.indiaInsert(boardOne, file);
         return "redirect:/indiaBoard?country=india";
     }

@@ -68,6 +68,7 @@ public class CenAsiaController {
         cenAsiaBoard.setCenasiaContent(form.getContent());
         cenAsiaBoard.setCenasiaDate(form.getDate());
         cenAsiaBoard.setCenasiaCategory(form.getCategory());
+        cenAsiaBoard.setTubelink(form.getTubelink());
         mainBoardService.cenAsiaInsert(cenAsiaBoard, file);
 
         return "redirect:/cenAsiaGallery";
@@ -98,6 +99,7 @@ public class CenAsiaController {
         boardOne.setCenasiaTitle(form.getTitle());
         boardOne.setCenasiaContent(form.getContent());
         boardOne.setCenasiaCategory(form.getCategory());
+        boardOne.setTubelink(form.getTubelink());
         mainBoardService.cenAsiaInsert(boardOne, file);
         return "redirect:/cenAsiaGallery";
     }
