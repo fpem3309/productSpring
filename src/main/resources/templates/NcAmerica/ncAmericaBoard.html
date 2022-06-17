@@ -26,7 +26,9 @@
 <table>
     <tbody>
     <tr th:each="ncAmericaboards: ${ncAmericaList}" th:onclick="|javascript:Detail(${ncAmericaboards.ncamericaId})|">
-        <td th:if="${ncAmericaboards.filepath !=null}"><img  th:src="${ncAmericaboards.filepath}"></td>
+        <td th:if="${ncAmericaboards.filepath !=null}">
+            <img  th:src="${ncAmericaboards.filepath}">
+        </td>
         <td th:unless="${ncAmericaboards.filepath!=null}"><img src="/images/buger.png"></td>
         <td th:text="'['+${ncAmericaboards.ncamericaCategory}+'] '+${ncAmericaboards.ncamericaTitle}"></td>
         <td id="content">
@@ -35,6 +37,8 @@
             <span th:text="${ncAmericaboards.ncamericaHit}"></span>
             <span th:text="${ncAmericaboards.ncamericaDate}"></span>
         </td>
+<!--        <td><input th:text="${#strings.equals(${#strings.substring(${ncAmericaboards.filepath},-1)},'g')}"></td>-->
+
     </tr>
     </tbody>
 </table>
