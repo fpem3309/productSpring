@@ -1,13 +1,13 @@
 package com.home.prospring.controller;
 
-import java.util.Date;
-
 public class BoardForm {
     private int id;
     private String category;
     private String title;
     private String content;
     private String date;
+    private String tubelink;
+
 
     public int getId() {
         return id;
@@ -48,4 +48,13 @@ public class BoardForm {
     public void setDate(String date) {
         this.date = date;
     }
+
+    public String getTubelink() {
+        return tubelink;
+    }
+
+    public void setTubelink(String tubelink) {
+        this.tubelink = tubelink;
+    }
+
 }

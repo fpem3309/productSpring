@@ -45,6 +45,10 @@
             padding: 20px;
         }
 
+        .video_container{
+            text-align: center;
+        }
+
         .col-75 {
             float: right;
             width: 75%;
@@ -72,6 +76,9 @@
             padding-top: 50px;
             padding-left: 100px;
         }
+        #tube{
+            margin: 30px;
+        }
     </style>
 </head>
 <body>
@@ -86,18 +93,25 @@
     </span>
 </div>
 
+
+
 <div class="container">
     <input type="hidden" id="no" name="no" th:value="${boardOne.esasiaId}">
 
+    <div class="video_container" th:if="${boardOne.tubelink !=null}">
+        <iframe id="tube" width="800" height="500" th:src="${boardOne.tubelink}" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="video_container" th:unless="${boardOne.tubelink !=null}">
+    </div>
+
     <div class="row">
         <div class="col-75">
-            <pre type="text" id="content" name="content" th:text="${boardOne.esasiaContent}"></pre>
-            <video>
-                <source th:src="|https://www.youtube.com/watch?v=qeB2GzrSFAc|" type=video/mp4>
-            </video>
+            <pre id="content" name="content" th:text="${boardOne.esasiaContent}"></pre>
         </div>
     </div>
+
 </div>
+
 <button type="button" sec:authorize="hasRole('ROLE_ADMIN')" th:onclick="|location.href='@{/esAsiaBoard/Update}${boardOne.esasiaId}'|">수정</button>
 <button type="button" th:onclick="|location.href='javascript:history.back();'|">목록으로</button>
 <button type="button" sec:authorize="hasRole('ROLE_ADMIN')" th:onclick="|javascript:del(${boardOne.esasiaId})|">삭제하기</button>

@@ -64,6 +64,7 @@ public class ESAsiaController {
         esAsiaBoard.setEsasiaContent(form.getContent());
         esAsiaBoard.setEsasiaDate(form.getDate());
         esAsiaBoard.setEsasiaCategory(form.getCategory());
+        esAsiaBoard.setTubelink(form.getTubelink());
         mainBoardService.esAsiaInsert(esAsiaBoard, file);
 
         return "redirect:/esAsiaGallery";
@@ -91,6 +92,7 @@ public class ESAsiaController {
         boardOne.setEsasiaTitle(form.getTitle());
         boardOne.setEsasiaContent(form.getContent());
         boardOne.setEsasiaCategory(form.getCategory());
+        boardOne.setTubelink(form.getTubelink());
         mainBoardService.esAsiaInsert(boardOne, file);
         return "redirect:/esAsiaGallery";
     }

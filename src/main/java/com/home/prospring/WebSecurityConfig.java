@@ -30,7 +30,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/","/account/register","/css/**","/images/**",
                         "/cenAsiaGallery","/esAsiaGallery","/europeGallery","/indiaGallery",
-                        "/meAsiaGallery","/ncAmericaGallery","/sAmericaGallery").permitAll()
+                        "/meAsiaGallery","/ncAmericaGallery","/sAmericaGallery",
+                        "/esAsiaBoard").permitAll()
                 .anyRequest().authenticated()   // 전체 접근 허용
                 .and()
                 .formLogin()

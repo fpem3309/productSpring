@@ -84,6 +84,7 @@
             </div>
             <div class="col-75">
                 <select id="category" name="category">
+                    <option th:value="${boardOne.esasiaCategory}" th:text="${boardOne.esasiaCategory}"></option>
                     <option value="Bangkok">방콕</option>
                     <option value="Cambodia">캄보디아</option>
                     <option value="Vietnam">베트남</option>
@@ -100,6 +101,15 @@
             </div>
             <div class="col-75">
                 <input type="text" id="title" name="title" th:value="${boardOne.esasiaTitle}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label class="title_label" for="tubelink">유튜브 주소 ID</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="tubelink" name="tubelink" th:value="${boardOne.tubelink}" placeholder="유튜브 주소 ID를 입력하세요">
             </div>
         </div>
 
