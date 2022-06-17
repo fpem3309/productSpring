@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<th:block th:replace="fragments/header:: headerFragment"></th:block>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/BoardForm.css}">
+</head>
+<body>
+
+<div class="container">
+    <form th:action="@{/indiaBoard/Insert}" method="post" enctype="multipart/form-data">
+
+        <div class="row">
+            <div class="col-25">
+                <label class="title_label" for="category">카테고리</label>
+            </div>
+            <div class="col-75">
+                <select id="category" name="category">
+                    <option value="India">인도</option>
+                    <option value="Napal">네팔</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label class="title_label" for="title">제목</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="title" name="title" placeholder="제목을 입력하세요">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label class="title_label" for="tubelink">유튜브 주소 ID</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="tubelink" name="tubelink" placeholder="유튜브 주소 ID를 입력하세요">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+                <label class="title_label" for="content">내용</label>
+            </div>
+            <div class="col-75">
+                <textarea id="content" name="content" placeholder="내용을 입력하세요" style="height:200px"></textarea>
+            </div>
+        </div>
+
+        <input type="hidden" id="date" name="date" th:value="${#temporals.format(localDate,'yyyy-MM-dd')}">
+
+        <br>
+        <input type="file" name="file"/>
+
+        <div class="row">
+            <input type="submit" value="등록">
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,5 +1,6 @@
 package com.home.prospring.controller;
 
+import com.home.prospring.domain.ESAsiaBoard;
 import com.home.prospring.domain.IndiaBoard;
 import com.home.prospring.repostory.IndiaDJRepository;
 import com.home.prospring.service.MainBoardService;
@@ -49,6 +50,25 @@ public class IndiaController {
         model.addAttribute("indiaList",indiaList);
         model.addAttribute("country",country);
         return "India/indiaBoard";
+    }
+
+    @GetMapping("/indiaBoard/Insert")
+    public String esAsiaBoardForm(Model model){
+        model.addAttribute("localDate", LocalDate.now());
+        return "India/indiaBoardForm";
+    }
+
+    @PostMapping("/indiaBoard/Insert")
+    public String esAsiaBoardInsert(BoardForm form, MultipartFile file) throws Exception {
+        IndiaBoard indiaBoard = new IndiaBoard();
+        indiaBoard.setIndiaTitle(form.getTitle());
+        indiaBoard.setIndiaContent(form.getContent());
+        indiaBoard.setIndiaDate(form.getDate());
+        indiaBoard.setIndiaCategory(form.getCategory());
+        indiaBoard.setTubelink(form.getTubelink());
+        mainBoardService.indiaInsert(indiaBoard, file);
+
+        return "redirect:/indiaGallery";
     }
 
     @GetMapping("/indiaBoard/Detail{no}")
