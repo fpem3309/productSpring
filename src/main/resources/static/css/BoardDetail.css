@@ -9,7 +9,7 @@ pre {
     resize: vertical;
 }
 
-button {
+button:not(#logout):not(#closeBtn) {
     background-color: #04AA6D;
     color: white;
     margin: 12px;
@@ -30,7 +30,7 @@ button {
     padding: 20px;
 }
 
-.video_container{
+.video_container {
     text-align: center;
 }
 
@@ -54,13 +54,15 @@ button {
         margin-top: 0;
     }
 }
-.inner{
+
+.inner {
     color: white;
     background-color: #9CE3B3FF;
     padding-bottom: 50px;
     padding-top: 50px;
     padding-left: 100px;
 }
-#tube{
+
+#tube {
     margin: 30px;
 }

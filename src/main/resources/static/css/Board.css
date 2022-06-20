@@ -1,16 +1,19 @@
-#banner{
+#banner {
     height: 300px;
 }
-#ch_write{
+
+#ch_write {
     font-weight: bold;
     padding-left: 30px;
 }
-ul{
+
+ul {
     margin-top: 20px;
     list-style-type: none;
     padding: 0;
     overflow: hidden;
 }
+
 table {
     border-collapse: collapse;
     width: 70%;
