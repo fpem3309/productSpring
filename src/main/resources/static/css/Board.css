@@ -1,7 +1,3 @@
-#banner {
-    height: 300px;
-}
-
 button:not(#logout):not(#closeBtn) {
     background-color: #04AA6D;
     color: white;
@@ -14,6 +10,7 @@ button:not(#logout):not(#closeBtn) {
 }
 
 #ch_write {
+    margin-top: 100px;
     font-weight: bold;
     padding-left: 30px;
 }

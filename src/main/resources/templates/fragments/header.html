@@ -125,6 +125,20 @@
             }
             #logout{
                 background-color: #9CE3B3FF;
+                display: block;
+                color: white;
+                float: right;
+                height: 50px;
+                width: 100px;
+                border: none;
+            }
+            #logout:hover{
+                color: #777777;
+            }
+            .auth{
+                color: white;
+                display: inline-block;
+                margin-top: 14px;
             }
         </style>
 
@@ -242,9 +256,11 @@
 
             <li class="header_li" style="float:right"><a th:href="@{/account/register}" sec:authorize="!isAuthenticated()">회원가입</a></li>
 
-            <form style="float:right" th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()">
-                <span style="background: #9CE3B3FF;" sec:authentication="name">사용자</span>
-                <span sec:authentication="principal.authorities">권한</span>
+
+            <form style="float:right;" th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()">
+                <span class="auth" sec:authentication="name">사용자</span>
+                <span class="auth" style="margin-right: 10px">님 환영합니다</span>
+<!--                <span sec:authentication="principal.authorities">권한</span>-->
                 <button id="logout" type="submit">Log out</button>
             </form>
 

@@ -4,7 +4,7 @@
 <th:block th:replace="fragments/header:: headerFragment"></th:block>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:each="title: ${europeList}" th:text="${title.europeCategory}">Title</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/Board.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,6 @@
     </style>
 </head>
 <body>
-<div id="banner"><img src="/images/buger.png"></div>
 <div id="ch_write"> 전체 글  <span style="color: aqua" th:text="${europeList.totalElements}"></span></div>
 
 <table>
