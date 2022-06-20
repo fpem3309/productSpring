@@ -1,3 +1,9 @@
+form{
+    width: 500px;
+    text-align: -webkit-center;
+    margin: 200px auto auto;
+}
+
 .bd-placeholder-img {
     font-size: 1.125rem;
     text-anchor: middle;
@@ -47,4 +53,7 @@
     text-align: center;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
+}
+button{
+    margin-top:20px;
 }

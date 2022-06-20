@@ -27,6 +27,7 @@
 
         </script>
         <style>
+            *{font-family: 'Stylish', sans-serif;}
             .header_ul {
                 height: 50px;
                 margin: 20px;
@@ -114,7 +115,7 @@
             #closeBtn{
                 position: absolute;
                 margin-left: 302px;
-                margin-top: 60px;
+                margin-top: 25%;
                 font-size: 200%;
                 padding-left: 10px;
                 padding-right: 10px;
@@ -242,7 +243,7 @@
             <li class="header_li" style="float:right"><a th:href="@{/account/register}" sec:authorize="!isAuthenticated()">회원가입</a></li>
 
             <form style="float:right" th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()">
-                <span sec:authentication="name">사용자</span>
+                <span style="background: #9CE3B3FF;" sec:authentication="name">사용자</span>
                 <span sec:authentication="principal.authorities">권한</span>
                 <button id="logout" type="submit">Log out</button>
             </form>

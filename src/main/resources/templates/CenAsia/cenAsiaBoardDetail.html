@@ -42,7 +42,7 @@
     </div>
 </div>
 <button type="button" sec:authorize="hasRole('ROLE_ADMIN')" th:onclick="|location.href='@{/cenAsiaBoard/Update}${boardOne.cenasiaId}'|">수정</button>
-<button type="button" th:onclick="|location.href='javascript:history.back();'|">목록으로</button>
+<button type="button" th:onclick="|location.href='@{/cenAsiaBoard(country=${boardOne.cenasiaCategory})}'|">목록으로</button>
 <button type="button" sec:authorize="hasRole('ROLE_ADMIN')" th:onclick="|javascript:del(${boardOne.cenasiaId})|">삭제하기</button>
 
 
