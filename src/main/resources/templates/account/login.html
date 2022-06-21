@@ -7,11 +7,17 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" th:href="@{/css/signin.css}">
     <title>Login</title>
+    <style>
+        img{
+            width: 300px;
+            height: 200px;
+        }
+    </style>
 </head>
 <body>
 
 <form class="form-signin" th:action="@{/account/login}" method="post">
-    <img class="mb-4" src="https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72"
+    <img class="mb-4" src="/images/earth.jpg" alt="" width="72"
          height="57">
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
