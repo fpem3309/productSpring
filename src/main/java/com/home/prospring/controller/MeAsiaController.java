@@ -1,5 +1,6 @@
 package com.home.prospring.controller;
 
+import com.home.prospring.domain.BoardForm;
 import com.home.prospring.domain.MEAsiaBoard;
 import com.home.prospring.repostory.MEAsiaDJRepository;
 import com.home.prospring.service.MainBoardService;

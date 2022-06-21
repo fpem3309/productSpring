@@ -23,12 +23,14 @@
 <body>
 
 <div id="ch_write"> 전체 글  <span style="color: aqua" th:text="${esAsiaList.totalElements}"></span></div>
-
+<div id="zero" th:if="${esAsiaList.totalElements < 1}">
+    <p>작성된 글이 없습니다.</p>
+</div>
 <table>
     <tbody>
     <tr th:each="esAsiaboards: ${esAsiaList}" th:onclick="|javascript:Detail(${esAsiaboards.esasiaId})|">
         <td th:if="${esAsiaboards.filepath !=null}"><img  th:src="${esAsiaboards.filepath}"></td>
-        <td th:unless="${esAsiaboards.filepath!=null}"><img src="/images/buger.png"></td>
+        <td th:unless="${esAsiaboards.filepath!=null}"><img src="/images/camera.png"></td>
         <td th:text="'['+${esAsiaboards.esasiaCategory}+'] '+${esAsiaboards.esasiaTitle}"></td>
         <td id="content">
             <span class="content" th:text="${esAsiaboards.esasiaContent}"></span>

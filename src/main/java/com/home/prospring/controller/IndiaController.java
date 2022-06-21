@@ -1,6 +1,6 @@
 package com.home.prospring.controller;
 
-import com.home.prospring.domain.ESAsiaBoard;
+import com.home.prospring.domain.BoardForm;
 import com.home.prospring.domain.IndiaBoard;
 import com.home.prospring.repostory.IndiaDJRepository;
 import com.home.prospring.service.MainBoardService;

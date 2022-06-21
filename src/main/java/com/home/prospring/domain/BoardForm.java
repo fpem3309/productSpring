@@ -1,4 +1,4 @@
-package com.home.prospring.controller;
+package com.home.prospring.domain;
 
 public class BoardForm {
     private int id;

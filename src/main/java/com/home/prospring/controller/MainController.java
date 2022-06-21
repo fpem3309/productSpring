@@ -22,21 +22,6 @@ public class MainController {
 
     @GetMapping("/")
     public String list(Model model){
-//        List<MainBoard> javaBoardList = mainBoardService.javaBoard();
-//        List<MainBoard> springBoardList = mainBoardService.springBoard();
-//        List<MainBoard> androidBoardList = mainBoardService.androidBoard();
-//        List<MainBoard> jsBoardList = mainBoardService.jsBoard();
-//        List<MainBoard> jpaBoardList = mainBoardService.jpaBoard();
-//
-//        model.addAttribute("javaBoards",javaBoardList);
-//        model.addAttribute("springBoards",springBoardList);
-//        model.addAttribute("androidBoards",androidBoardList);
-//        model.addAttribute("jsBoards",jsBoardList);
-//        model.addAttribute("jpaBoards",jpaBoardList);
-//
-//
-//        List<MainBoard> asiaBoardList = mainBoardService.asiaBoard();
-//        model.addAttribute("asia",asiaBoardList);
 
         List<ESAsiaBoard> esAsiaBoardList = mainBoardService.esAsiaBoard();
         List<IndiaBoard> indiaBoardList = mainBoardService.indiaBoard();

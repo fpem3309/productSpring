@@ -21,7 +21,9 @@
 </head>
 <body>
 <div id="ch_write"> 전체 글  <span style="color: aqua" th:text="${sAmericaList.totalElements}"></span></div>
-
+<div id="zero" th:if="${sAmericaList.totalElements < 1}">
+    <p>작성된 글이 없습니다.</p>
+</div>
 <table>
     <tbody>
     <tr th:each="sAmericaboards: ${sAmericaList}" th:onclick="|javascript:Detail(${sAmericaboards.samericaId})|">
