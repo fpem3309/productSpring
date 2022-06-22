@@ -30,7 +30,7 @@
         <td th:if="${ncAmericaboards.filepath !=null}">
             <img  th:src="${ncAmericaboards.filepath}">
         </td>
-        <td th:unless="${ncAmericaboards.filepath!=null}"><img src="/images/buger.png"></td>
+        <td th:unless="${ncAmericaboards.filepath!=null}"><img src="/images/camera.png"></td>
         <td th:text="'['+${ncAmericaboards.ncamericaCategory}+'] '+${ncAmericaboards.ncamericaTitle}"></td>
         <td id="content">
             <span class="content" th:text="${ncAmericaboards.ncamericaContent}"></span>

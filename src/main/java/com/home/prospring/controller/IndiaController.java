@@ -97,7 +97,7 @@ public class IndiaController {
         boardOne.setIndiaCategory(form.getCategory());
         boardOne.setTubelink(form.getTubelink());
         mainBoardService.indiaInsert(boardOne, file);
-        return "redirect:/indiaBoard?country=india";
+        return "redirect:/indiaGallery";
     }
 
     @Secured("ROLE_ADMIN")

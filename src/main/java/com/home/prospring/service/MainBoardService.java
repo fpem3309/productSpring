@@ -93,15 +93,15 @@ public class MainBoardService {
 
         UUID uuid = UUID.randomUUID();
 
-        String fileName = uuid+"_"+file.getOriginalFilename();
+        String fileName = uuid + "_" + file.getOriginalFilename();
+        if(!fileName.endsWith("_")) {
+            File saveFile = new File(projectPath, fileName);
 
-        File saveFile = new File(projectPath,fileName);
+            file.transferTo(saveFile);
 
-        file.transferTo(saveFile);
-
-        indiaBoard.setFilename(fileName);
-        indiaBoard.setFilepath("/files/"+fileName);
-
+            indiaBoard.setFilename(fileName);
+            indiaBoard.setFilepath("/files/" + fileName);
+        }
         mainBoardRepository.indiaInsert(indiaBoard);
         return indiaBoard.getIndiaId();
     }
@@ -124,15 +124,15 @@ public class MainBoardService {
 
         UUID uuid = UUID.randomUUID();
 
-        String fileName = uuid+"_"+file.getOriginalFilename();
+        String fileName = uuid + "_" + file.getOriginalFilename();
+        if(!fileName.endsWith("_")) {
+            File saveFile = new File(projectPath, fileName);
 
-        File saveFile = new File(projectPath,fileName);
+            file.transferTo(saveFile);
 
-        file.transferTo(saveFile);
-
-        cenAsiaBoard.setFilename(fileName);
-        cenAsiaBoard.setFilepath("/files/"+fileName);
-
+            cenAsiaBoard.setFilename(fileName);
+            cenAsiaBoard.setFilepath("/files/" + fileName);
+        }
         mainBoardRepository.cenAsiaInsert(cenAsiaBoard);
         return cenAsiaBoard.getCenasiaId();
     }
@@ -156,15 +156,15 @@ public class MainBoardService {
 
         UUID uuid = UUID.randomUUID();
 
-        String fileName = uuid+"_"+file.getOriginalFilename();
+        String fileName = uuid + "_" + file.getOriginalFilename();
+        if(!fileName.endsWith("_")) {
+            File saveFile = new File(projectPath, fileName);
 
-        File saveFile = new File(projectPath,fileName);
+            file.transferTo(saveFile);
 
-        file.transferTo(saveFile);
-
-        meAsiaBoard.setFilename(fileName);
-        meAsiaBoard.setFilepath("/files/"+fileName);
-
+            meAsiaBoard.setFilename(fileName);
+            meAsiaBoard.setFilepath("/files/" + fileName);
+        }
         mainBoardRepository.meAsiaInsert(meAsiaBoard);
         return meAsiaBoard.getMeasiaId();
     }
@@ -188,15 +188,15 @@ public class MainBoardService {
 
         UUID uuid = UUID.randomUUID();
 
-        String fileName = uuid+"_"+file.getOriginalFilename();
+        String fileName = uuid + "_" + file.getOriginalFilename();
+        if(!fileName.endsWith("_")) {
+            File saveFile = new File(projectPath, fileName);
 
-        File saveFile = new File(projectPath,fileName);
+            file.transferTo(saveFile);
 
-        file.transferTo(saveFile);
-
-        europeBoard.setFilename(fileName);
-        europeBoard.setFilepath("/files/"+fileName);
-
+            europeBoard.setFilename(fileName);
+            europeBoard.setFilepath("/files/" + fileName);
+        }
         mainBoardRepository.europeInsert(europeBoard);
         return europeBoard.getEuropeId();
     }
@@ -220,14 +220,15 @@ public class MainBoardService {
 
         UUID uuid = UUID.randomUUID();
 
-        String fileName = uuid+"_"+file.getOriginalFilename();
+        String fileName = uuid + "_" + file.getOriginalFilename();
+        if(!fileName.endsWith("_")) {
+            File saveFile = new File(projectPath, fileName);
 
-        File saveFile = new File(projectPath,fileName);
+            file.transferTo(saveFile);
 
-        file.transferTo(saveFile);
-
-        ncAmericaBoard.setFilename(fileName);
-        ncAmericaBoard.setFilepath("/files/"+fileName);
+            ncAmericaBoard.setFilename(fileName);
+            ncAmericaBoard.setFilepath("/files/" + fileName);
+        }
 
         mainBoardRepository.ncAmericaInsert(ncAmericaBoard);
         return ncAmericaBoard.getNcamericaId();
@@ -253,15 +254,15 @@ public class MainBoardService {
 
         UUID uuid = UUID.randomUUID();
 
-        String fileName = uuid+"_"+file.getOriginalFilename();
+        String fileName = uuid + "_" + file.getOriginalFilename();
+        if(!fileName.endsWith("_")) {
+            File saveFile = new File(projectPath, fileName);
 
-        File saveFile = new File(projectPath,fileName);
+            file.transferTo(saveFile);
 
-        file.transferTo(saveFile);
-
-        sAmericaBoard.setFilename(fileName);
-        sAmericaBoard.setFilepath("/files/"+fileName);
-
+            sAmericaBoard.setFilename(fileName);
+            sAmericaBoard.setFilepath("/files/" + fileName);
+        }
         mainBoardRepository.sAmericaInsert(sAmericaBoard);
         return sAmericaBoard.getSamericaId();
     }
@@ -308,9 +309,6 @@ public class MainBoardService {
     /**
      * 메인 카테고리별
      */
-
-
-    public List<MainBoard> asiaBoard(){return mainBoardRepository.findAsia();}
 
     public List<IndiaBoard> indiaBoard(){return mainBoardRepository.findIndia();}
     public List<CenAsiaBoard> cenAsiaBoard(){return mainBoardRepository.findCenAsia();}

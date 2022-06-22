@@ -20,17 +20,19 @@
         }
 
         .cate_board {
-            margin: 15px;
+            margin: 80px 15px 15px;
             border: 1px solid #ccc;
             float: left;
             width: 350px;
             height: 270px;
         }
+        table{
+            width: 100%;
+        }
 
-        th, td {
+        td {
             padding: 8px;
             text-align: left;
-            border-bottom: 1px solid #ddd;
         }
 
         tbody > tr:hover {
@@ -43,6 +45,13 @@
             color: white;
             width: auto;
         }
+        span{
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            height: 26px;
+        }
 
     </style>
 
@@ -54,16 +63,16 @@
     <div class="cate_board" data-rellax-speed="8">
         <p th:text="동남아시아"></p>
         <table>
-            <thead>
             <colgroup>
-                <col width="70%">
-                <col width="30%">
+                <col style="width:70%">
+                <col style="width:30%">
             </colgroup>
-            </thead>
 
             <tbody>
             <tr th:each="esAsiaBoard: ${esAsia}" th:onclick="|location.href='/esAsiaBoard/Detail${esAsiaBoard.esasiaId}'|">
-                <td th:text="${esAsiaBoard.esasiaTitle}"></td>
+                <td>
+                    <span th:text="${esAsiaBoard.esasiaTitle}"></span>
+                </td>
                 <td th:text="${esAsiaBoard.esasiaDate}"></td>
             </tr>
             </tbody>
@@ -74,12 +83,10 @@
     <div class="cate_board" data-rellax-speed="4">
         <p th:text="|인도|"></p>
         <table>
-            <thead>
             <colgroup>
-                <col width="70%">
-                <col width="30%">
+                <col style="width:70%">
+                <col style=" width:30%">
             </colgroup>
-            </thead>
 
             <tbody>
             <tr th:each="indiaBoard: ${india}" th:onclick="|location.href='/indiaBoard/Detail${indiaBoard.indiaId}'|">
@@ -96,16 +103,16 @@
     <div class="cate_board" data-rellax-speed="1">
         <p th:text="|중앙 아시아|"></p>
         <table>
-            <thead>
             <colgroup>
-                <col width="70%">
-                <col width="30%">
+                <col style="width:70%">
+                <col style="width:30%">
             </colgroup>
-            </thead>
 
             <tbody>
             <tr th:each="cenAsiaBoard: ${cenasia}" th:onclick="|location.href='/cenAsiaBoard/Detail${cenAsiaBoard.cenasiaId}'|">
-                <td th:text="${cenAsiaBoard.cenasiaTitle}"></td>
+                <td>
+                    <span th:text="${cenAsiaBoard.cenasiaTitle}"></span>
+                </td>
                 <td th:text="${cenAsiaBoard.cenasiaDate}"></td>
 
             </tr>
@@ -116,12 +123,10 @@
     <div class="cate_board" data-rellax-speed="5">
         <p th:text="|중동 아시아|"></p>
         <table>
-            <thead>
             <colgroup>
-                <col width="70%">
-                <col width="30%">
+                <col style="width:70%">
+                <col style="width:30%">
             </colgroup>
-            </thead>
 
             <tbody>
             <tr th:each="measiaBoard: ${measia}"
@@ -139,12 +144,10 @@
     <div class="cate_board" data-rellax-speed="1">
         <p th:text="|유럽|"></p>
         <table>
-            <thead>
             <colgroup>
-                <col width="70%">
-                <col width="30%">
+                <col style="width:70%">
+                <col style="width:30%">
             </colgroup>
-            </thead>
 
             <tbody>
             <tr th:each="europeBoard: ${europe}" th:onclick="|location.href='/europeBoard/Detail${europeBoard.europeId}'|">
@@ -161,11 +164,10 @@
     <div class="cate_board" data-rellax-speed="-2">
         <p th:text="|북중미|"></p>
         <table>
-            <thead>
             <colgroup>
-                <col width="70%">
-                <col width="30%">
-            </thead>
+                <col style="width:70%">
+                <col style="width:30%">
+            </colgroup>
 
             <tbody>
             <tr th:each="ncAmericaBoard: ${ncAmerica}" th:onclick="|location.href='/ncAmericaBoard/Detail${ncAmericaBoard.ncamericaId}'|">
@@ -182,12 +184,10 @@
     <div class="cate_board" data-rellax-speed="-4">
         <p th:text="|남미|"></p>
         <table>
-            <thead>
             <colgroup>
-                <col width="70%">
-                <col width="30%">
-            </thead>
-
+                <col style="width:70%">
+                <col style="width:30%">
+            </colgroup>
             <tbody>
             <tr th:each="sAmericaBoard: ${sAmerica}" th:onclick="|location.href='/sAmericaBoard/Detail${sAmericaBoard.samericaId}'|">
                 <td>

@@ -28,7 +28,7 @@
     <tbody>
     <tr th:each="indiaboards: ${indiaList}" th:onclick="|javascript:Detail(${indiaboards.indiaId})|">
         <td th:if="${indiaboards.filepath !=null}"><img  th:src="${indiaboards.filepath}"></td>
-        <td th:unless="${indiaboards.filepath!=null}"><img src="/images/buger.png"></td>
+        <td th:unless="${indiaboards.filepath!=null}"><img src="/images/camera.png"></td>
         <td th:text="'['+${indiaboards.indiaCategory}+'] '+${indiaboards.indiaTitle}"></td>
         <td id="content">
             <span class="content" th:text="${indiaboards.indiaContent}"></span>
