@@ -1,3 +1,13 @@
+button:not(#logout):not(#closeBtn) {
+    background-color: #04AA6D;
+    color: white;
+    margin: 12px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
 .gallery {
     margin: 50px;
     border: 1px solid #ccc;
