@@ -58,7 +58,7 @@ public class MainBoardService {
      */
     public int esAsiaInsert(ESAsiaBoard esAsiaBoard, MultipartFile file) throws Exception {
 
-        String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";
+        String projectPath = "C:\\Users\\SMART\\Desktop\\spring_img";
 
         UUID uuid = UUID.randomUUID();
 
