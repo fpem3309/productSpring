@@ -7,7 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -15,6 +14,9 @@ import java.util.UUID;
 @Service
 @Transactional
 public class MainBoardService {
+
+    String projectPath = "C:\\Users\\SMART\\Desktop\\spring_img";
+    UUID uuid = UUID.randomUUID();
 
     private final MainBoardRepository mainBoardRepository;
     private final SpringDataJpaRepository springDataJpaMemberRepository;
@@ -38,29 +40,12 @@ public class MainBoardService {
         this.esAsiaDJRepository = esAsiaDJRepository;
     }
 
-    public int updateHit(int id){
-        return springDataJpaMemberRepository.updateCount(id);
-    }
-
-
-    /**
-     * 게시글 등록
-     */
-    public int Insert(MainBoard mainBoard){
-        mainBoardRepository.Insert(mainBoard);
-        return mainBoard.getMainProductId();
-    }
-
 
     /**
      * 동남아시아
      * @param esAsiaBoard
      */
     public int esAsiaInsert(ESAsiaBoard esAsiaBoard, MultipartFile file) throws Exception {
-
-        String projectPath = "C:\\Users\\SMART\\Desktop\\spring_img";
-
-        UUID uuid = UUID.randomUUID();
 
         String fileName = uuid + "_" + file.getOriginalFilename();
         if(!fileName.endsWith("_")) {
@@ -89,9 +74,6 @@ public class MainBoardService {
      * 인도
      */
     public int indiaInsert(IndiaBoard indiaBoard, MultipartFile file) throws Exception {
-        String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";
-
-        UUID uuid = UUID.randomUUID();
 
         String fileName = uuid + "_" + file.getOriginalFilename();
         if(!fileName.endsWith("_")) {
@@ -120,9 +102,6 @@ public class MainBoardService {
      * 중앙아시아
      */
     public int cenAsiaInsert(CenAsiaBoard cenAsiaBoard, MultipartFile file) throws Exception {
-        String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";
-
-        UUID uuid = UUID.randomUUID();
 
         String fileName = uuid + "_" + file.getOriginalFilename();
         if(!fileName.endsWith("_")) {
@@ -152,9 +131,6 @@ public class MainBoardService {
      * @param meAsiaBoard
      */
     public int meAsiaInsert(MEAsiaBoard meAsiaBoard, MultipartFile file) throws Exception {
-        String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";
-
-        UUID uuid = UUID.randomUUID();
 
         String fileName = uuid + "_" + file.getOriginalFilename();
         if(!fileName.endsWith("_")) {
@@ -184,9 +160,6 @@ public class MainBoardService {
      * @param europeBoard
      */
     public int europeInsert(EuropeBoard europeBoard, MultipartFile file) throws Exception {
-        String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";
-
-        UUID uuid = UUID.randomUUID();
 
         String fileName = uuid + "_" + file.getOriginalFilename();
         if(!fileName.endsWith("_")) {
@@ -216,9 +189,6 @@ public class MainBoardService {
      * @param ncAmericaBoard
      */
     public int ncAmericaInsert(NCAmericaBoard ncAmericaBoard, MultipartFile file) throws Exception {
-        String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";
-
-        UUID uuid = UUID.randomUUID();
 
         String fileName = uuid + "_" + file.getOriginalFilename();
         if(!fileName.endsWith("_")) {
@@ -250,9 +220,6 @@ public class MainBoardService {
      * @param sAmericaBoard
      */
     public int sAmericaInsert(SAmericaBoard sAmericaBoard, MultipartFile file) throws Exception {
-        String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\files";
-
-        UUID uuid = UUID.randomUUID();
 
         String fileName = uuid + "_" + file.getOriginalFilename();
         if(!fileName.endsWith("_")) {
@@ -276,33 +243,6 @@ public class MainBoardService {
     public int updateSAmericaHit(int id){
         return sAmericaDJRepository.updateCount(id);
     }
-
-
-    /**
-     *
-     * @return
-     */
-
-    //전체 글
-    public List<MainBoard> mainBoard(){
-        return mainBoardRepository.findAll();
-    }
-
-    //메인화면 글
-    public Optional<MainBoard> findOne(int mainProductId){
-        return mainBoardRepository.findBoard(mainProductId);
-    }
-
-    public int removeOne(MainBoard mainBoard){
-        mainBoardRepository.delBoard(mainBoard);
-        return mainBoard.getMainProductId();
-    }
-
-
-    public List<MainBoard> findCategory(String mainProductCategory){
-        return mainBoardRepository.findCategory(mainProductCategory);
-    }
-
 
 
 

@@ -26,10 +26,10 @@ public class ReactContoller {
         return Arrays.asList("안녕하세요", "Hello");
     }
 
-    @GetMapping("/mainBoard")
-    public List<MainBoard> listReact(){
-        return mainBoardService.mainBoard();
-    }
+//    @GetMapping("/mainBoard")
+//    public List<MainBoard> listReact(){
+//        return mainBoardService.mainBoard();
+//    }
 
 
 }
