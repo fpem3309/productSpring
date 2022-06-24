@@ -4,13 +4,17 @@ import com.home.prospring.repostory.*;
 import com.home.prospring.service.MainBoardService;
 import com.home.prospring.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.reactive.error.DefaultErrorAttributes;
+import org.springframework.boot.web.servlet.error.ErrorAttributes;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.persistence.EntityManager;
 import javax.sql.DataSource;
+import java.util.Map;
 
 @Configuration
 public class SpringConfig implements WebMvcConfigurer {
@@ -51,3 +55,4 @@ public class SpringConfig implements WebMvcConfigurer {
         return new JpaMainBoardRepository(em);
     }
 }
+
