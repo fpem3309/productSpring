@@ -57,9 +57,4 @@ public class UserService {
             throw new IllegalStateException("이미 존재하는 아이디입니다.");
         }
     }
-
-    public Long findCheck(String name){
-        return memberRepository.check(name);
-    }
-
 }

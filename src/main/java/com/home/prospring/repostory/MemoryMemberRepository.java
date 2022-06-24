@@ -1,7 +1,6 @@
 package com.home.prospring.repostory;
 
 import com.home.prospring.domain.Member;
-import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
@@ -33,11 +32,6 @@ public class MemoryMemberRepository implements MemberRepository{
     @Override
     public List<Member> findAll() {
         return new ArrayList<>(store.values());
-    }
-
-    @Override
-    public Long check(String name) {
-        return null;
     }
 
     public void clearStore(){

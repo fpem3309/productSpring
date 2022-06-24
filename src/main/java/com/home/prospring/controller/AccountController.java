@@ -5,9 +5,6 @@ import com.home.prospring.domain.Member;
 import com.home.prospring.repostory.MemberRepository;
 import com.home.prospring.service.MemberService;
 import com.home.prospring.service.UserService;
-import lombok.extern.java.Log;
-import lombok.extern.log4j.Log4j2;
-import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.Map;
 
-@Log4j2
+
 @Controller
 @RequestMapping("/account")
 public class AccountController {
@@ -67,15 +64,9 @@ public class AccountController {
             return "account/register";
         }
         /** 중복 검사  */
-        //userService.checkNameDuplication(member);
-        //userService.findCheck(member);
+        userService.checkNameDuplication(member);
 
-        log.fatal("FATAL");
-        log.error("ERROR");
-        log.warn("WARN");
-        log.info("INFO");
-        log.debug("DEBUG");
-        log.trace("TRACE");
+        System.out.println(member);
 
         userService.save(member);
         return "redirect:/";
