@@ -7,7 +7,11 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" th:href="@{/css/account.css}">
     <title>Sign Up</title>
-
+    <script>
+        function Check(name) {
+            location.href = "http://localhost:8082/account/exists" + name;
+        }
+    </script>
 </head>
 <body>
 
@@ -28,8 +32,6 @@
         <label for="username">Username</label>
         <span th:text="${valid_name}"></span>
     </div>
-
-    <button th:onclick="|location.href='@{/register/${valid_name}/exosts}'|"> 중복 확인 </button>
 
     <div class="form-floating">
         <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">

@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Optional;
 
-public class JpaMemberRepository implements MemberRepository{
+public class JpaMemberRepository implements MemberRepository {
 
     private final EntityManager em;
 
@@ -30,6 +30,7 @@ public class JpaMemberRepository implements MemberRepository{
     public Optional<Member> findByName(String name) {
         List<Member> result = em.createQuery("select m from Member m where m.name = :name", Member.class)
                 .setParameter("name", name)
+                .setMaxResults(1)
                 .getResultList();
 
         return result.stream().findAny();
@@ -40,4 +41,12 @@ public class JpaMemberRepository implements MemberRepository{
         return em.createQuery("select m from Member m", Member.class)   //Member Entity에 query 하는것, m = as m
                 .getResultList();
     }
+
+    @Override
+    public Long check(String name) {
+        Long cnt = (Long)em.createNativeQuery("select count(m) from Member m where m.name = :name ", Member.class).getSingleResult();
+        return cnt;
+    }
+
+
 }

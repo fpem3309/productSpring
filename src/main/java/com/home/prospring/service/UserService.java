@@ -2,6 +2,7 @@ package com.home.prospring.service;
 
 import com.home.prospring.domain.Member;
 import com.home.prospring.domain.Role;
+import com.home.prospring.repostory.MemberRepository;
 import com.home.prospring.repostory.UserDJRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -14,12 +15,18 @@ import java.util.Map;
 
 @Service    //비즈니스 로직 작성, 테스트
 public class UserService {
+    private final MemberRepository memberRepository;
 
     @Autowired
     private UserDJRepository userDJRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    public UserService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
+
 
     public Member save(Member member){
         String encodedPassword = passwordEncoder.encode(member.getPassword());
@@ -48,9 +55,11 @@ public class UserService {
         boolean nameDuplicate = userDJRepository.existsByName(member.getName());
         if (nameDuplicate) {
             throw new IllegalStateException("이미 존재하는 아이디입니다.");
-
         }
     }
 
+    public Long findCheck(String name){
+        return memberRepository.check(name);
+    }
 
 }

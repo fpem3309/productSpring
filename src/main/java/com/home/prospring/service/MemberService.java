@@ -2,9 +2,7 @@ package com.home.prospring.service;
 
 import com.home.prospring.domain.Member;
 import com.home.prospring.repostory.MemberRepository;
-import com.home.prospring.repostory.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;

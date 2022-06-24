@@ -19,4 +19,5 @@ public class CheckUsernameValidator extends AbstractValidator<Member> {
         if (userDJRepository.existsByName(member.getName())) {
             errors.rejectValue("name", "아이디 중복 오류", "이미 사용중인 아이디 입니다.");
         }
-    }}
+    }
+}

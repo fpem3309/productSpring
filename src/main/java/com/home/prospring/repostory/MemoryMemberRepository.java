@@ -35,6 +35,11 @@ public class MemoryMemberRepository implements MemberRepository{
         return new ArrayList<>(store.values());
     }
 
+    @Override
+    public Long check(String name) {
+        return null;
+    }
+
     public void clearStore(){
         store.clear();
     }
