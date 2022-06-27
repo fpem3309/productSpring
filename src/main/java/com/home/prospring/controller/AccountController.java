@@ -43,27 +43,14 @@ public class AccountController {
     }
 
     @ResponseBody
-    @GetMapping("/nameCheck")
-    public int nameCheck(@RequestParam String name){
-        int cnt = userService.idCheck(name);
-        System.out.println(cnt);
-        return cnt;
-    }
+    @GetMapping("/check")
+    public String nameCheck(@RequestParam String name, @RequestParam String email, @RequestParam String nickname){
+        int nameCnt = userService.idCheck(name);
+        int emailCnt = userService.emailCheck(email);
+        int nickCnt = userService.nickCheck(nickname);
+        String result = nameCnt+"|"+emailCnt+"|"+nickCnt;
 
-    @ResponseBody
-    @GetMapping("/emailCheck")
-    public int emailCheck(@RequestParam String email){
-        int cnt = userService.emailCheck(email);
-        System.out.println(cnt);
-        return cnt;
-    }
-
-    @ResponseBody
-    @GetMapping("/nickCheck")
-    public int nickCheck(@RequestParam String nickname){
-        int cnt = userService.nickCheck(nickname);
-        System.out.println(cnt);
-        return cnt;
+        return result;
     }
 
     @PostMapping("/register")
