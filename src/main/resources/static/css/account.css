@@ -4,6 +4,7 @@ form{
     margin: 200px auto auto;
 }
 
+
 .bd-placeholder-img {
     font-size: 1.125rem;
     text-anchor: middle;
@@ -55,7 +56,7 @@ form{
     -webkit-overflow-scrolling: touch;
 }
 button{
-    margin-top:20px;
+    margin-bottom: 10px;
 }
 img{
     width: 300px;
@@ -66,7 +67,7 @@ img{
     margin-top: 20px;
     margin-bottom: 20px;
 }
-.form-floating > span{
+.check{
     color: red;
     font-size: 50%;
 }

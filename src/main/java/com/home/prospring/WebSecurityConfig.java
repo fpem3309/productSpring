@@ -28,7 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/","/account/register","/css/**","/images/**",
+                .antMatchers("/","/account/**","/css/**","/images/**",
                         "/cenAsiaGallery","/esAsiaGallery","/europeGallery","/indiaGallery",
                         "/meAsiaGallery","/ncAmericaGallery","/sAmericaGallery").permitAll()
                 .anyRequest().authenticated()   // 전체 접근 허용

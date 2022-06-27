@@ -5,6 +5,7 @@ import com.home.prospring.domain.Member;
 import com.home.prospring.repostory.MemberRepository;
 import com.home.prospring.service.MemberService;
 import com.home.prospring.service.UserService;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,12 +42,13 @@ public class AccountController {
         return "account/register";
     }
 
-//    @GetMapping("/exists{name}")
-//    public String exist(@PathVariable String name, Model model){
-//        Member member = userService.findOne(name).get();
-//
-//        return "redirect:/";
-//    }
+    @ResponseBody
+    @GetMapping("/check")
+    public int idCheck(@RequestParam String name){
+        int cnt = userService.idCheck(name);
+        System.out.println(cnt);
+        return cnt;
+    }
 
     @PostMapping("/register")
     public String register(@Valid Member member, Errors errors, Model model){

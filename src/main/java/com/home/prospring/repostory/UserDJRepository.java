@@ -7,4 +7,5 @@ import org.springframework.data.repository.query.Param;
 
 public interface UserDJRepository extends JpaRepository<Member, Long> {
     boolean existsByName(String name);
+    long countByName(String name);
 }
