@@ -63,4 +63,14 @@ public class UserService {
         return cnt;
     }
 
+    public int emailCheck(String name){
+        int cnt = (int)userDJRepository.countByEmail(name);
+        return cnt;
+    }
+
+    public int nickCheck(String name){
+        int cnt = (int)userDJRepository.countByNickname(name);
+        return cnt;
+    }
+
 }

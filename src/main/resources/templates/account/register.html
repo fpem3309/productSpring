@@ -9,23 +9,73 @@
     <title>Sign Up</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>
-        function Check() {
-            let name = $('#name').val();
+        $("#btn_sub").attr("disabled",true);
 
+        function nameCheck() {
+            let name = $('#name').val();
             $.ajax({
                 type: 'GET',
-                url: "/account/check", //Controller 주소
+                url: "/account/nameCheck", //Controller 주소
                 data: {name:name},
                 success: function (data) {
                     console.log(data);
                     if(data>0){
                         $("#checkId").text('이미 사용중인 이름입니다');
                         document.getElementById("checkId").style.color = '#ff0000';
+                        $("#btn_sub").attr("disabled",true);
                     }else{
                         document.getElementById("checkId").style.color = '#00d0ff';
                         $("#checkId").text('사용 가능한 이름입니다');
+                        $("#btn_sub").attr("disabled",false);
                     }
+                },
+                error: function () {
+                    alert("에러입니다");
+                }
+            });
+        }
 
+        function emailCheck() {
+            let email = $('#email').val();
+            $.ajax({
+                type: 'GET',
+                url: "/account/emailCheck", //Controller 주소
+                data: {email:email},
+                success: function (data) {
+                    console.log(data);
+                    if(data>0){
+                        $("#checkEmail").text('이미 사용중인 이메일 입니다.');
+                        document.getElementById("checkEmail").style.color = '#ff0000';
+                        $("#btn_sub").attr("disabled",true);
+                    }else{
+                        $("#checkEmail").text('사용 가능한 이메일 입니다.');
+                        document.getElementById("checkEmail").style.color = '#00d0ff';
+                        $("#btn_sub").attr("disabled",false);
+                    }
+                },
+                error: function () {
+                    alert("에러입니다");
+                }
+            });
+        }
+
+        function nickCheck() {
+            let nickname = $('#nickname').val();
+            $.ajax({
+                type: 'GET',
+                url: "/account/nickCheck", //Controller 주소
+                data: {nickname:nickname},
+                success: function (data) {
+                    console.log(data);
+                    if(data>0){
+                        $("#nickname").text('이미 사용중인 닉네임 입니다.');
+                        document.getElementById("nickname").style.color = '#ff0000';
+                        $("#btn_sub").attr("disabled",true);
+                    }else{
+                        $("#nickname").text('사용 가능한 닉네임 입니다');
+                        document.getElementById("nickname").style.color = '#00d0ff';
+                        $("#btn_sub").attr("disabled",false);
+                    }
                 },
                 error: function () {
                     alert("에러입니다");
@@ -49,10 +99,9 @@
     </div>
 
     <div class="form-floating">
-        <input type="text" class="form-control" id="name" name="name" th:value="${wrote?.name}" placeholder="Username" oninput = "Check()">
+        <input type="text" class="form-control" id="name" name="name" th:value="${wrote?.name}" placeholder="Username" oninput = "nameCheck()">
         <label for="name">Username</label>
-        <span class="check" th:text="${valid_name}"></span>
-        <span id="checkId"></span>
+        <span id="checkId" class="check" th:text="${valid_name}"></span>
     </div>
 
 
@@ -62,7 +111,19 @@
         <span class="check" th:text="${valid_password}"></span>
     </div>
 
-    <button class="w-100 btn btn-lg btn-primary" type="submit">회원가입</button>
+    <div class="form-floating">
+        <input type="text" class="form-control" id="email" name="email" th:value="${wrote?.name}" placeholder="Email" oninput = "emailCheck()">
+        <label for="email">Email</label>
+        <span id="checkEmail" class="check" th:text="${valid_email}"></span>
+    </div>
+
+    <div class="form-floating">
+        <input type="text" class="form-control" id="nickname" name="nickname" th:value="${wrote?.name}" placeholder="Nickname" oninput = "nickCheck()">
+        <label for="nickname">Nickname</label>
+        <span id="checkNick" class="check" th:text="${valid_nickname}"></span>
+    </div>
+
+    <button id="btn_sub" class="w-100 btn btn-lg btn-primary" type="submit">회원가입</button>
 </form>
 </body>
 </html>

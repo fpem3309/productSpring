@@ -43,9 +43,25 @@ public class AccountController {
     }
 
     @ResponseBody
-    @GetMapping("/check")
-    public int idCheck(@RequestParam String name){
+    @GetMapping("/nameCheck")
+    public int nameCheck(@RequestParam String name){
         int cnt = userService.idCheck(name);
+        System.out.println(cnt);
+        return cnt;
+    }
+
+    @ResponseBody
+    @GetMapping("/emailCheck")
+    public int emailCheck(@RequestParam String email){
+        int cnt = userService.emailCheck(email);
+        System.out.println(cnt);
+        return cnt;
+    }
+
+    @ResponseBody
+    @GetMapping("/nickCheck")
+    public int nickCheck(@RequestParam String nickname){
+        int cnt = userService.nickCheck(nickname);
         System.out.println(cnt);
         return cnt;
     }
@@ -67,8 +83,6 @@ public class AccountController {
         }
         /** 중복 검사  */
         userService.checkNameDuplication(member);
-
-        System.out.println(member);
 
         userService.save(member);
         return "redirect:/";
