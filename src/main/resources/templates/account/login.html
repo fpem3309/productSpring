@@ -17,10 +17,10 @@
 
     <!-- 입력한 정보확인 -->
     <div th:if="${param.error}" class="alert alert-danger" role="alert">
-        Invalid username and password.
+        아이디 또는 비밀번호가 일치하지 않습니다.
     </div>
     <div th:if="${param.logout}" class="alert alert-primary" role="alert">
-        You have been logged out.
+        로그아웃 되었습니다.
     </div>
 
     <div class="form-floating">

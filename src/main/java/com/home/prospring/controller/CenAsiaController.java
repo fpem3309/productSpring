@@ -43,7 +43,7 @@ public class CenAsiaController {
 
     @GetMapping("/cenAsiaBoard")
     public String cenAsiaList(@RequestParam String country, Model model, @PageableDefault(size=5) Pageable pageable){
-        Page<CenAsiaBoard> cenAsiaList = cenAsiaDJRepository.findByCenasiaCategory(country, pageable);
+        Page<CenAsiaBoard> cenAsiaList = cenAsiaDJRepository.findByCenasiaCategoryOrderByCenasiaIdDesc(country, pageable);
         int startPage = Math.max(1,cenAsiaList.getPageable().getPageNumber() -4);   // getPageNumber() - 현재 페이지
         int endPage = Math.min(cenAsiaList.getTotalPages(), cenAsiaList.getPageable().getPageNumber() + 4);
         model.addAttribute("startPage",startPage);

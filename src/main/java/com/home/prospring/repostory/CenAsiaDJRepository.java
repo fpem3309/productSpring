@@ -16,5 +16,5 @@ public interface CenAsiaDJRepository extends JpaRepository<CenAsiaBoard, Long> {
     int updateCount(@Param("id") int id);
 
     //Page<MainBoard> findByTitleContainingOrContentContaining(String mainProductTitle, String mainProductContent, Pageable pageable);
-    Page<CenAsiaBoard> findByCenasiaCategory(String cenasiaCategory, Pageable pageable);
+    Page<CenAsiaBoard> findByCenasiaCategoryOrderByCenasiaIdDesc(String cenasiaCategory, Pageable pageable);
 }

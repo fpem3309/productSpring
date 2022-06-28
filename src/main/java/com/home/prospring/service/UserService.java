@@ -39,7 +39,7 @@ public class UserService {
         return userDJRepository.save(member);
     }
 
-    /* 회원가입 시, 유효성 체크 */
+    /** 회원가입 시, 유효성 체크 */
     public Map<String, String> validateHandling(Errors errors) {
         Map<String, String> validatorResult = new HashMap<>();
 
@@ -50,7 +50,7 @@ public class UserService {
         return validatorResult;
     }
 
-    /* 아이디, 닉네임, 이메일 중복 여부 확인 */
+    /** 아이디, 닉네임, 이메일 중복 여부 확인 */
     public void checkNameDuplication(Member member) {
         boolean nameDuplicate = userDJRepository.existsByName(member.getName());
         if (nameDuplicate) {
