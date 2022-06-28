@@ -16,6 +16,5 @@ public interface NCAmericaDJRepository extends JpaRepository<NCAmericaBoard, Lon
     @Query("update NCAmericaBoard m set m.ncamericaHit = m.ncamericaHit + 1 where m.ncamericaId = :id")
     int updateCount(@Param("id") int id);
 
-    //Page<MainBoard> findByTitleContainingOrContentContaining(String mainProductTitle, String mainProductContent, Pageable pageable);
-    Page<NCAmericaBoard> findByNcamericaCategory(String ncamericaCategory, Pageable pageable);
+    Page<NCAmericaBoard> findByNcamericaCategoryOrderByNcamericaIdDesc(String ncamericaCategory, Pageable pageable);
 }

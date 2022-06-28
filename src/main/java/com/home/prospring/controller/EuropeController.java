@@ -43,7 +43,7 @@ public class EuropeController {
 
     @GetMapping("/europeBoard")
     public String europeList(@RequestParam String country, Model model, @PageableDefault(size=5) Pageable pageable){
-        Page<EuropeBoard> europeList = europeDJRepository.findByEuropeCategory(country, pageable);
+        Page<EuropeBoard> europeList = europeDJRepository.findByEuropeCategoryOrderByEuropeIdDesc(country, pageable);
         int startPage = Math.max(1,europeList.getPageable().getPageNumber() -4);   // getPageNumber() - 현재 페이지
         int endPage = Math.min(europeList.getTotalPages(), europeList.getPageable().getPageNumber() + 4);
         model.addAttribute("startPage",startPage);

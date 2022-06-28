@@ -16,6 +16,5 @@ public interface SAmericaDJRepository extends JpaRepository<SAmericaBoard, Long>
     @Query("update SAmericaBoard m set m.samericaHit = m.samericaHit + 1 where m.samericaId = :id")
     int updateCount(@Param("id") int id);
 
-    //Page<MainBoard> findByTitleContainingOrContentContaining(String mainProductTitle, String mainProductContent, Pageable pageable);
-    Page<SAmericaBoard> findBySamericaCategory(String samericaCategory, Pageable pageable);
+    Page<SAmericaBoard> findBySamericaCategoryOrderBySamericaIdDesc(String samericaCategory, Pageable pageable);
 }

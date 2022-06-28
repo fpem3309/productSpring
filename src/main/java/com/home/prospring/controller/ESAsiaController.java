@@ -42,7 +42,7 @@ public class ESAsiaController {
 
     @GetMapping("/esAsiaBoard")
     public String esAsiaList(@RequestParam String country, Model model, @PageableDefault(size=5) Pageable pageable){
-        Page<ESAsiaBoard> esAsiaList = esAsiaDJRepository.findByEsasiaCategory(country, pageable);
+        Page<ESAsiaBoard> esAsiaList = esAsiaDJRepository.findByEsasiaCategoryOrderByEsasiaIdDesc(country, pageable);
         int startPage = Math.max(1,esAsiaList.getPageable().getPageNumber() -4);   // getPageNumber() - 현재 페이지
         int endPage = Math.min(esAsiaList.getTotalPages(), esAsiaList.getPageable().getPageNumber() + 4);
         model.addAttribute("startPage",startPage);

@@ -43,7 +43,7 @@ public class NCAmericaController {
 
     @GetMapping("/ncAmericaBoard")
     public String ncAmericaList(@RequestParam String country, Model model, @PageableDefault(size=5) Pageable pageable){
-        Page<NCAmericaBoard> ncAmericaList = ncAmericaDJRepository.findByNcamericaCategory(country, pageable);
+        Page<NCAmericaBoard> ncAmericaList = ncAmericaDJRepository.findByNcamericaCategoryOrderByNcamericaIdDesc(country, pageable);
         int startPage = Math.max(1,ncAmericaList.getPageable().getPageNumber() -4);   // getPageNumber() - 현재 페이지
         int endPage = Math.min(ncAmericaList.getTotalPages(), ncAmericaList.getPageable().getPageNumber() + 4);
         model.addAttribute("startPage",startPage);

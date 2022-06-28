@@ -43,7 +43,7 @@ public class MeAsiaController {
 
     @GetMapping("/meAsiaBoard")
     public String MeAsiaList(@RequestParam String country, Model model, @PageableDefault(size=5) Pageable pageable){
-        Page<MEAsiaBoard> MeAsiaList = meAsiaDJRepository.findByMeasiaCategory(country, pageable);
+        Page<MEAsiaBoard> MeAsiaList = meAsiaDJRepository.findByMeasiaCategoryOrderByMeasiaIdDesc(country, pageable);
         int startPage = Math.max(1,MeAsiaList.getPageable().getPageNumber() -4);   // getPageNumber() - 현재 페이지
         int endPage = Math.min(MeAsiaList.getTotalPages(), MeAsiaList.getPageable().getPageNumber() + 4);
         model.addAttribute("startPage",startPage);

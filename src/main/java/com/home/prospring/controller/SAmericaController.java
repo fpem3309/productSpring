@@ -43,7 +43,7 @@ public class SAmericaController {
 
     @GetMapping("/sAmericaBoard")
     public String sAmericaList(@RequestParam String country, Model model, @PageableDefault(size=5) Pageable pageable){
-        Page<SAmericaBoard> sAmericaList = sAmericaDJRepository.findBySamericaCategory(country, pageable);
+        Page<SAmericaBoard> sAmericaList = sAmericaDJRepository.findBySamericaCategoryOrderBySamericaIdDesc(country, pageable);
         int startPage = Math.max(1,sAmericaList.getPageable().getPageNumber() -4);   // getPageNumber() - 현재 페이지
         int endPage = Math.min(sAmericaList.getTotalPages(), sAmericaList.getPageable().getPageNumber() + 4);
         model.addAttribute("startPage",startPage);

@@ -17,5 +17,5 @@ public interface EuropeDJRepository extends JpaRepository<EuropeBoard, Long> {
     int updateCount(@Param("id") int id);
 
     //Page<MainBoard> findByTitleContainingOrContentContaining(String mainProductTitle, String mainProductContent, Pageable pageable);
-    Page<EuropeBoard> findByEuropeCategory(String europeCategory, Pageable pageable);
+    Page<EuropeBoard> findByEuropeCategoryOrderByEuropeIdDesc(String europeCategory, Pageable pageable);
 }

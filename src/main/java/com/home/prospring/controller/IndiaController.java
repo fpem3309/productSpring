@@ -42,7 +42,7 @@ public class IndiaController {
 
     @GetMapping("/indiaBoard")
     public String indiaList(@RequestParam String country, Model model, @PageableDefault(size=5) Pageable pageable){
-        Page<IndiaBoard> indiaList = indiaDJRepository.findByIndiaCategory(country, pageable);
+        Page<IndiaBoard> indiaList = indiaDJRepository.findByIndiaCategoryOrderByIndiaIdDesc(country, pageable);
         int startPage = Math.max(1,indiaList.getPageable().getPageNumber() -4);   // getPageNumber() - 현재 페이지
         int endPage = Math.min(indiaList.getTotalPages(), indiaList.getPageable().getPageNumber() + 4);
         model.addAttribute("startPage",startPage);

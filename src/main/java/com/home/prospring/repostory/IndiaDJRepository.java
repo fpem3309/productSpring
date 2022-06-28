@@ -18,6 +18,5 @@ public interface IndiaDJRepository extends JpaRepository<IndiaBoard, Long> {
     @Query("update IndiaBoard m set m.indiaHit = m.indiaHit + 1 where m.indiaId = :id")
     int updateCount(@Param("id") int id);
 
-    //Page<MainBoard> findByTitleContainingOrContentContaining(String mainProductTitle, String mainProductContent, Pageable pageable);
-    Page<IndiaBoard> findByIndiaCategory(String indiaCategory, Pageable pageable);
+    Page<IndiaBoard> findByIndiaCategoryOrderByIndiaIdDesc(String indiaCategory, Pageable pageable);
 }

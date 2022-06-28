@@ -16,6 +16,5 @@ public interface MEAsiaDJRepository extends JpaRepository<MEAsiaBoard, Long> {
     @Query("update MEAsiaBoard m set m.measiaHit = m.measiaHit + 1 where m.measiaId = :id")
     int updateCount(@Param("id") int id);
 
-    //Page<MainBoard> findByTitleContainingOrContentContaining(String mainProductTitle, String mainProductContent, Pageable pageable);
-    Page<MEAsiaBoard> findByMeasiaCategory(String measiaCategory, Pageable pageable);
+    Page<MEAsiaBoard> findByMeasiaCategoryOrderByMeasiaIdDesc(String measiaCategory, Pageable pageable);
 }

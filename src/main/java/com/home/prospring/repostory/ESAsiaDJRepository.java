@@ -16,6 +16,5 @@ public interface ESAsiaDJRepository extends JpaRepository<ESAsiaBoard, Long> {
     @Query("update ESAsiaBoard m set m.esasiaHit = m.esasiaHit + 1 where m.esasiaId = :id")
     int updateCount(@Param("id") int id);
 
-    //Page<MainBoard> findByTitleContainingOrContentContaining(String mainProductTitle, String mainProductContent, Pageable pageable);
-    Page<ESAsiaBoard> findByEsasiaCategory(String esasiaCategory, Pageable pageable);
+    Page<ESAsiaBoard> findByEsasiaCategoryOrderByEsasiaIdDesc(String esasiaCategory, Pageable pageable);
 }
