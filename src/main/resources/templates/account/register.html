@@ -40,26 +40,26 @@
                         }
                     }
 
-                    if(email){
-                    if (chkArr[1] > 0) {
-                        $("#checkEmail").text('이미 사용중인 이메일입니다');
-                        document.getElementById("checkEmail").style.color = '#ff0000';
-                    } else {
-                        $("#checkEmail").text('사용 가능한 이메일입니다');
-                        document.getElementById("checkEmail").style.color = '#00d0ff';
-                    }
+                    if (email) {
+                        if (chkArr[1] > 0) {
+                            $("#checkEmail").text('이미 사용중인 이메일입니다');
+                            document.getElementById("checkEmail").style.color = '#ff0000';
+                        } else {
+                            $("#checkEmail").text('사용 가능한 이메일입니다');
+                            document.getElementById("checkEmail").style.color = '#00d0ff';
+                        }
                     }
 
-                    if(nickname){
-                    if (chkArr[2] > 0) {
-                        $("#checkNick").text('이미 사용중인 닉네임입니다');
-                        document.getElementById("checkNick").style.color = '#ff0000';
-                    } else {
-                        $("#checkNick").text('사용 가능한 닉네임입니다');
-                        document.getElementById("checkNick").style.color = '#00d0ff';
+                    if (nickname) {
+                        if (chkArr[2] > 0) {
+                            $("#checkNick").text('이미 사용중인 닉네임입니다');
+                            document.getElementById("checkNick").style.color = '#ff0000';
+                        } else {
+                            $("#checkNick").text('사용 가능한 닉네임입니다');
+                            document.getElementById("checkNick").style.color = '#00d0ff';
+                        }
                     }
-                    }
-                    if ( chkArr[0] > 0 || chkArr[1] > 0 || chkArr[2] > 0 ) {
+                    if (chkArr[0] > 0 || chkArr[1] > 0 || chkArr[2] > 0) {
                         $("#btn_sub").attr("disabled", true);
                     } else {
                         $("#btn_sub").attr("disabled", false);
